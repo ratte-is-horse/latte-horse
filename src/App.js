@@ -10,7 +10,7 @@ import Signup from "./page/Signup";
 function App() {
   return (
     <>
-    <Headers/>
+    잘 돌아가니
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/post" element={<Post />} />

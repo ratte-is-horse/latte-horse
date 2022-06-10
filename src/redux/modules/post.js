@@ -12,19 +12,19 @@ const REMOVE_POST  = 'post_reducer/REMOVE';
 
 /* ----------------- 액션 생성 함수 ------------------ */
 export function loadPost() {
-  return { type: LOAD };
+  return { type: LOAD_POST };
 }
 
 export function createPost(post) {
-  return { type: CREATE, post };
+  return { type: CREATE_POST, post };
 }
 
 export function updatePost(post) {
-  return { type: UPDATE, post };
+  return { type: UPDATE_POST, post };
 }
 
 export function removePost(post) {
-  return { type: REMOVE, post };
+  return { type: REMOVE_POST, post };
 }
 
 /* ----------------- 미들웨어 ------------------ */
