@@ -1,6 +1,11 @@
-import axios from "axios"
+import axios from "axios";
 
-const api = axios.create({
-    baseURL: {},
-    Headers: {"Content-type":"application/json"}
-})
+export const getPosts = async () => {
+  const response = await axios.get("http://localhost:4000/posts");
+  return response.data;
+};
+
+export const getPostById = async (id) => {
+  const response = await axios.get(`http://localhost:4000/posts/${id}`);
+  return response.data;
+};
