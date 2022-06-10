@@ -4,13 +4,14 @@ import Post from "./page/Post";
 import Detail from "./page/Detail";
 import Login from "./page/Login";
 import Signup from "./page/Signup";
+import Header from "./component/header";
 
 
 
 function App() {
   return (
     <>
-    잘 돌아가니
+    <Header/>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/post" element={<Post />} />
