@@ -1,3 +1,5 @@
+import {getPosts, getPostById} from "../api";
+
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
   user_list: [],
@@ -28,7 +30,28 @@ export function removeUser(user) {
 }
 
 /* ----------------- 미들웨어 ------------------ */
+export const loadUserJson = () => {
+  return async function(dispatch){
 
+  }
+}
+export const createUserJson = () => {
+  return async function(dispatch){
+    
+  }
+}
+
+export const updateUserJson = () => {
+  return async function(dispatch){
+
+  }
+}
+
+export const deleteUserJson = () => {
+  return async function(dispatch){
+    
+  }
+}
 /* ----------------- 리듀서 ------------------ */
 
 export default function User_reducer(state = intialstate, action) {
