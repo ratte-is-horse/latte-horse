@@ -1,7 +1,11 @@
 import React from "react";
+import 'App.css'
 
 const Signup = () => {
-  return <div></div>;
+  return <div>
+
+    <button></button>
+  </div>;
 };
 
 export default Signup;
