@@ -1,19 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-import Signup from '../page/Signup';
+import '../App.css';
 
 const Header = () => {
   return (
+    <>
     <Head>   
       <Title>
-        <Link to="/" style={{textDecoration:"none", color:"black"}}>
-        라떼는 말이야...
-        </Link>
+        <Link to="/" className='link'> 라떼는 말이야... </Link>
       </Title>   
-      <Login>로그인</Login>
-      <Signin>회원가입</Signin>
+     <Link to="/login" className='link'> <Login>로그인</Login></Link>
+      <Link to = "/signup" className='link'><Signin>회원가입</Signin></Link>
+    {/* 로그인시에만 아래에 버튼 보이게 해야해 */}
+      {/*  <Link to="/" className='link'> <Logout>로그아웃</Logout> </Link>*/}
     </Head>
+    <Empty/>
+    </>
   )
 }
 
@@ -30,12 +33,20 @@ const Title = styled.h2`
 `
 const Login = styled.div`
 position: fixed;
-top: 0;
+top: 10px;
 right: 120px;
 `
 const Signin = styled.div`
 position: fixed;
-top: 0;
+top: 10px;
+right: 40px;
+`
+const Empty = styled.div`
+padding-top: 100px; padding-bottom: 10px;
+`
+const Logout = styled.div`
+position: fixed;
+top: 10px;
 right: 40px;
 `
 
