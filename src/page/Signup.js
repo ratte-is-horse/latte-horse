@@ -6,13 +6,15 @@ const Signup = () => {
   const id_ref = React.useRef(null);
   const name_ref = React.useRef(null);
   const pw_ref = React.useRef(null);
+  const pw2_ref = React.useRef(null);
   const nickname_ref = React.useRef(null);
 
   //미들웨어
   // const signupFB = async () => {
-  //   const __id = id_ref.current.value
-  //   const __name = name_ref.current.value
-  //   const __pw = pw_ref.current.value
+  //   const username = id_ref.current.value
+  //   const nickname= nickname_ref.current.value
+  //   const password = pw_ref.current.value
+  //    const password2 = pw2_ref.current.value
 
 
   //   const user = await createUserWithEmailAndPassword(
@@ -27,10 +29,9 @@ const Signup = () => {
 
   return <div>
       아이디(메일) : <input ref={id_ref} /> <br />
-      이름 : <input ref={name_ref} /> <br />
-      비밀번호 : <input ref={pw_ref} />
-      비밀번호 재확인 : <input></input>
-      닉네임 : <input></input>
+      비밀번호 : <input ref={pw_ref} /><br />
+      비밀번호 재확인 : <input ref={pw2_ref}></input><br />
+      닉네임 : <input ref={nickname_ref}/><br />
       <Link to="/"><button>회원가입</button></Link>
   
   </div>;

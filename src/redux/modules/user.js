@@ -6,8 +6,26 @@ let intialstate = {
 /* ----------------- 액션 타입 ------------------ */
 
 const LOAD_USER = "User_reducer/LOAD_USER";
+const CREATE_USER  = 'user_reducer/CREATE';
+const UPDATE_USER  = 'user_reducer/UPDATE';
+const REMOVE_USER  = 'user_reducer/REMOVE';
 
 /* ----------------- 액션 생성 함수 ------------------ */
+export function loadUser() {
+  return { type: LOAD_USER };
+}
+
+export function createUser(user) {
+  return { type: CREATE_USER, user };
+}
+
+export function updateUser(user) {
+  return { type: UPDATE_USER, user };
+}
+
+export function removeUser(user) {
+  return { type: REMOVE_USER, user };
+}
 
 /* ----------------- 미들웨어 ------------------ */
 
