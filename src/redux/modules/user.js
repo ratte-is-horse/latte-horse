@@ -65,10 +65,7 @@ export default function User_reducer(state = intialstate, action) {
       return { ...state, user_list: action.list };
 
     case CREATE_USER:
-      
       return { ...state, user_list: action.payload }
-      break;
-
 
     default:
       return state;
