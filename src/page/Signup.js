@@ -40,7 +40,7 @@ const Signup = (props) => {
     console.log(data)
 
     event.preventDefault();
-    try {
+  
       dispatch(createUserJson(
         {
           username: Username,
@@ -57,15 +57,15 @@ const Signup = (props) => {
         //     alert(res.data.err);
         //   }
         // })
-    } catch (error) {
-      alert("Error가 발생했습니다.");
-      setError(error);
-    }
+    // } catch (error) {
+    //   alert("Error가 발생했습니다.");
+    //   setError(error);
+    // }
 
-    //비밀번호와 비밀번호 확인 같을띠 회원가입 되게 함
-    if (Password !== Password2) {
-      return alert('비밀번호와 비밀번호 확인은 같아야 합니다.')
-    }   //여기서 걸리면 아래로 못감 
+    // //비밀번호와 비밀번호 확인 같을띠 회원가입 되게 함
+    // if (Password !== Password2) {
+    //   return alert('비밀번호와 비밀번호 확인은 같아야 합니다.')
+    // }   //여기서 걸리면 아래로 못감 
 
   }
 

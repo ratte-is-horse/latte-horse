@@ -67,7 +67,7 @@ export default function User_reducer(state = intialstate, action) {
     case CREATE_USER:
       
       return { ...state, user_list: action.payload }
-
+      break;
 
 
     default:
