@@ -1,4 +1,5 @@
-import {getPosts, getPostById} from "../api";
+import axios from "axios";
+import apis from "../../api/index";
 
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
@@ -7,7 +8,7 @@ let intialstate = {
 
 /* ----------------- 액션 타입 ------------------ */
 
-const LOAD_USER = "User_reducer/LOAD_USER";
+const LOAD_USER = "user_reducer/LOAD_USER";
 const CREATE_USER  = 'user_reducer/CREATE';
 const UPDATE_USER  = 'user_reducer/UPDATE';
 const REMOVE_USER  = 'user_reducer/REMOVE';
@@ -18,7 +19,9 @@ export function loadUser() {
 }
 
 export function createUser(user) {
-  return { type: CREATE_USER, user };
+  const req = apis.addUser(user)
+  .then(res=>res.user);
+  return { type: CREATE_USER, payload:req };
 }
 
 export function updateUser(user) {
@@ -35,11 +38,10 @@ export const loadUserJson = () => {
 
   }
 }
-export const createUserJson = () => {
-  return async function(dispatch){
-    
+export const createUserJson = (user) => {
+  return async function (dispatch){
   }
-}
+  }
 
 export const updateUserJson = () => {
   return async function(dispatch){
@@ -54,12 +56,17 @@ export const deleteUserJson = () => {
 }
 /* ----------------- 리듀서 ------------------ */
 
-export default function User_reducer(state = intialstate, action) {
+export default function User_reducer(state = {}, action) {
   // 새로운 액션 타입 추가시 case 추가한다.
 
   switch (action.type) {
     case LOAD_USER:
       return { ...state, user_list: action.list };
+
+      case CREATE_USER:
+        return { ...state, createUser: action.payload}
+        break;
+      
 
     default:
       return state;
