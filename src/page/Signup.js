@@ -7,7 +7,7 @@ import apis from "../api/index";
 
 const Signup = (props) => {
 
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const [Username, setUsername] = useState("")
   const [Password, setPassword] = useState("")
@@ -53,7 +53,7 @@ const Signup = (props) => {
     return regExp.test(id)
   }
   const nickCheck = (nick) => {
-    let regExp = /^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣!@#$%^&*]{8,20}$/;
+    let regExp = /^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣!@#$%^&*]/;
 
     return regExp.test(nick)
   }
@@ -84,14 +84,15 @@ const Signup = (props) => {
       return;
     }
 
-    dispatch(createUserJson(
+
+    await apis.addUser(
       {
         username: Username,
         password: Password,
         password2: Password2,
         nickname: Nickname
       }
-    ))
+    )
     navigate('/login')
   }
 
@@ -137,7 +138,7 @@ const Signup = (props) => {
           setNickname(event.target.value)
         }} />
       <br />
-     <button>{isLoading ? "가입 중... " : "가입하기"}</button>
+      <button>{isLoading ? "가입 중... " : "가입하기"}</button>
     </form>
   </div>;
 };
