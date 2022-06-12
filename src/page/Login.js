@@ -11,7 +11,7 @@ const Login = () => {
     event.preventDefault();
     // console.log(id_ref.current.value);
     const data = await apis.addPost({
-      name: id_ref.current.value,
+      username: id_ref.current.value,
       password: password_ref.current.value,
     });
     console.log(data);

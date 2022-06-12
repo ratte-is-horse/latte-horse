@@ -1,4 +1,5 @@
-import { getPosts, getPostById } from "../../api/index";
+import axios from "axios";
+import apis from "../../api/index";
 
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
@@ -7,7 +8,7 @@ let intialstate = {
 
 /* ----------------- 액션 타입 ------------------ */
 
-const LOAD_USER = "User_reducer/LOAD_USER";
+const LOAD_USER = "user_reducer/LOAD_USER";
 const CREATE_USER = "user_reducer/CREATE";
 const UPDATE_USER = "user_reducer/UPDATE";
 const REMOVE_USER = "user_reducer/REMOVE";
@@ -17,8 +18,9 @@ export function loadUser() {
   return { type: LOAD_USER };
 }
 
-export function createUser(user) {
-  return { type: CREATE_USER, user };
+export function createUser(payload) {
+  console.log("등록확인");
+  return { type: CREATE_USER, payload };
 }
 
 export function updateUser(user) {
@@ -33,8 +35,11 @@ export function removeUser(user) {
 export const loadUserJson = () => {
   return async function (dispatch) {};
 };
-export const createUserJson = () => {
-  return async function (dispatch) {};
+export const createUserJson = (user) => {
+  return async function (dispatch) {
+    const req = await apis.addUser(user);
+    dispatch(createUser(req));
+  };
 };
 
 export const updateUserJson = () => {
@@ -44,6 +49,7 @@ export const updateUserJson = () => {
 export const deleteUserJson = () => {
   return async function (dispatch) {};
 };
+
 /* ----------------- 리듀서 ------------------ */
 
 export default function User_reducer(state = intialstate, action) {
@@ -52,6 +58,9 @@ export default function User_reducer(state = intialstate, action) {
   switch (action.type) {
     case LOAD_USER:
       return { ...state, user_list: action.list };
+
+    case CREATE_USER:
+      return { ...state, user_list: action.payload };
 
     default:
       return state;
