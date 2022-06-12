@@ -1,4 +1,4 @@
-import {getPosts, getPostById} from "../api";
+import { getPosts, getPostById } from "../../api/index";
 
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
@@ -8,9 +8,9 @@ let intialstate = {
 /* ----------------- 액션 타입 ------------------ */
 
 const LOAD_USER = "User_reducer/LOAD_USER";
-const CREATE_USER  = 'user_reducer/CREATE';
-const UPDATE_USER  = 'user_reducer/UPDATE';
-const REMOVE_USER  = 'user_reducer/REMOVE';
+const CREATE_USER = "user_reducer/CREATE";
+const UPDATE_USER = "user_reducer/UPDATE";
+const REMOVE_USER = "user_reducer/REMOVE";
 
 /* ----------------- 액션 생성 함수 ------------------ */
 export function loadUser() {
@@ -31,27 +31,19 @@ export function removeUser(user) {
 
 /* ----------------- 미들웨어 ------------------ */
 export const loadUserJson = () => {
-  return async function(dispatch){
-
-  }
-}
+  return async function (dispatch) {};
+};
 export const createUserJson = () => {
-  return async function(dispatch){
-    
-  }
-}
+  return async function (dispatch) {};
+};
 
 export const updateUserJson = () => {
-  return async function(dispatch){
-
-  }
-}
+  return async function (dispatch) {};
+};
 
 export const deleteUserJson = () => {
-  return async function(dispatch){
-    
-  }
-}
+  return async function (dispatch) {};
+};
 /* ----------------- 리듀서 ------------------ */
 
 export default function User_reducer(state = intialstate, action) {
