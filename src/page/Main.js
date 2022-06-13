@@ -36,14 +36,8 @@ const Main = () => {
   };
 
   return (
-    <>
-    <form onSubmit={(e) => onSubmit(e)}>
-      <input type="file" name="profile_files" multiple="multiple" />
-
-      <button type="submit">제출</button>
-    </form>
-    <Link to = '/post'><Footer>글쓰기</Footer></Link>
-  </>
+   <>
+   </>
   );
 };
 export default Main;

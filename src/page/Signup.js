@@ -93,7 +93,7 @@ const Signup = (props) => {
         nickname: Nickname
       }
     )
-    navigate('/login')
+    // navigate('/login')
   }
 
   return <div>
