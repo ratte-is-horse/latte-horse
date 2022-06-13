@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Main from "./page/Main";
 import Post from "./page/Post";
 import Detail from "./page/Detail";
@@ -58,7 +58,7 @@ function App() {
           </div>
           <div className="wrapper__right">
             <div className="wrapper__right__header">
-              <div className="wrapper__right__title">사이좋은 사람들, 싸이월드</div>
+              <Link to ="/" style={{textDecoration:'none'}}><div className="wrapper__right__title">Latte is...Horse</div></Link>
               <div className="wrapper__right__setting">사생활보호설정<i className="fas fa-caret-right bbbb"></i></div>
             </div>
             <div className="wrapper__right__body">
