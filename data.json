@@ -27,6 +27,25 @@
       "password2": "qwerasdf",
       "nickname": "닉네임이야",
       "id": 21
+    },
+    {
+      "title": "asdasd",
+      "content": "asdasd",
+      "year": "",
+      "id": 22
+    },
+    {
+      "title": "asdasd",
+      "content": "asdasd",
+      "year": "",
+      "id": 23
+    },
+    {
+      "title": "asdad",
+      "content": "asdasd",
+      "url": "blob:http://localhost:3000/1b7030ea-beb6-4e47-a96c-f2227f2a8c1b",
+      "year": "",
+      "id": 24
     }
   ],
   "posts": [
@@ -34,7 +53,8 @@
       "title": "제목",
       "contents": "내용",
       "url": "https://item.kakaocdn.net/do/3727c16c143eb219d7b32939d988611300df9b2a481d32ec42ae698738782a76",
-      "year":""
+      "year": "T없@ㅣ맑은@r2",
+      "heart": 0
     }
   ]
 }

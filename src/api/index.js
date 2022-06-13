@@ -11,13 +11,13 @@ const apis = {
   //user
   login: () => api.get("/posts"),
   addUser: (newUser) => api.post("/users", newUser),
-  
+
   //post
-  addPost : (contents)=> api.post('/posts',contents),
-  editPost : (id,contents) => api.post(`posts/${id}`,contents),
-  delPost:  (id) => api.delete(`posts/${id}`),
-  getPosts: ()=> api.get('/posts'),
-  getPost: (id)=>api.get(`posts/${id}`),
+  addPost: (contents) => api.post("/users", contents),
+  editPost: (id, contents) => api.post(`posts/${id}`, contents),
+  delPost: (id) => api.delete(`posts/${id}`),
+  getPosts: () => api.get('/posts'),
+  getPost: (id) => api.get(`posts/${id}`),
 
 
 };

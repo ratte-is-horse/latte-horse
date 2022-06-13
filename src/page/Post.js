@@ -27,7 +27,7 @@ const Post = () => {
       {
         title: title,
         content: content,
-        // url: `blob:${URL.createObjectURL(e.target.files[0])}`,
+        url: fileImage,
         year: ''
       }
     )
