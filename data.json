@@ -1,112 +1,11 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "리리리리리리덕스 미들웨어를 배워봅시다",
-      "body": "리덕스 미들웨어를 직접 만들어보면 이해하기 쉽죠."
-    },
-    {
-      "id": 2,
-      "title": "redux-thunk를 사용해봅시다",
-      "body": "redux-thunk를 사용해서 비동기 작업을 처리해봅시다!"
-    },
-    {
-      "id": 3,
-      "title": "redux-saga도 사용해봅시다",
-      "body": "나중엔 redux-saga를 사용해서 비동기 작업을 처리하는 방법도 배워볼 거예요."
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "username": "dkdkdkdk",
-      "password": "123",
-      "password2": "123",
-      "nickname": "dsnalksd",
-      "id": 6
-    },
-    {
-      "username": "wnekdnk",
-      "password": "sdkansd",
-      "password2": "asdasd",
-      "nickname": "skdansd",
-      "id": 7
-    },
-    {
-      "username": "asdasd",
-      "password": "sdssda",
-      "password2": "asda",
-      "nickname": "asasd",
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "username": "ㅁㄴㅇㅁㄴㅇ",
-      "password": "weqweq",
-      "password2": "dsasdcaxc",
-      "nickname": "sdasd",
-      "id": 10
-    },
+  "users": [
     {
       "username": "abcdefg12",
       "password": "zzzzzzzz",
       "password2": "zzzzzzzz",
       "nickname": "T없@ㅣ맑은@r2",
       "id": 11
-    },
-    {
-      "username": "asasdasdds",
-      "password": "qweasdzxc",
-      "password2": "qweasdzxc",
-      "nickname": "asdasdasdad",
-      "id": 12
-    },
-    {
-      "username": "asasdasdds",
-      "password": "qweasdzxc",
-      "password2": "qweasdzxc",
-      "nickname": "asdasdasdad",
-      "id": 13
-    },
-    {
-      "username": "asasdasdds",
-      "password": "qweasdzxc",
-      "password2": "qweasdzxc",
-      "nickname": "asdasdasdad",
-      "id": 14
-    },
-    {
-      "username": "asdasdasd",
-      "password": "asdasdasd",
-      "password2": "asdasdasd",
-      "nickname": "asjkdnaskjnd",
-      "id": 15
-    },
-    {
-      "username": "idnew1234",
-      "password": "qwerasdf",
-      "password2": "qwerasdf",
-      "nickname": "Tl없@ㅣ맑은",
-      "id": 16
-    },
-    {
-      "username": "asdfxc222",
-      "password": "qwerasdf",
-      "password2": "qwerasdf",
-      "nickname": "dkfndkfn2eqwd",
-      "id": 17
-    },
-    {
-      "username": "rerererer123",
-      "password": "qwerasdf",
-      "password2": "qwerasdf",
-      "nickname": "askndalkndl12e",
-      "id": 18
     },
     {
       "username": "nabima12",
@@ -116,6 +15,7 @@
       "id": 19
     },
     {
+<<<<<<< HEAD
       "username": "asdasddd",
       "password": "12312312",
       "password2": "12312312",
@@ -142,6 +42,62 @@
       "password2": "12312312",
       "nickname": "방금3",
       "id": 23
+=======
+      "username": "ididididid123",
+      "password": "qwerasdf",
+      "password2": "qwerasdf",
+      "nickname": "nockonock",
+      "id": 20
+    },
+    {
+      "username": "snjanksjdkjnsj112",
+      "password": "qwerasdf",
+      "password2": "qwerasdf",
+      "nickname": "닉네임이야",
+      "id": 21
+    },
+    {
+      "title": "asdasd",
+      "content": "asdasd",
+      "year": "",
+      "id": 22
+    },
+    {
+      "title": "asdasd",
+      "content": "asdasd",
+      "year": "",
+      "id": 23
+    },
+    {
+      "title": "asdad",
+      "content": "asdasd",
+      "url": "blob:http://localhost:3000/1b7030ea-beb6-4e47-a96c-f2227f2a8c1b",
+      "year": "",
+      "id": 24
+    },
+    {
+      "title": "asdadxzczx",
+      "content": "asdadxcz",
+      "url": "blob:http://localhost:3000/3a14da00-a38f-49dd-b055-6a3399e98e63",
+      "year": "",
+      "id": 25
+    },
+    {
+      "title": "ㅁㄴㅇㄴㅁㅇ",
+      "content": "ㅁㅌㅎㅊㅍㅊㅌㅍ",
+      "url": "blob:http://localhost:3000/261d4dc5-4b93-4eef-b72a-e007aab47b61",
+      "year": "",
+      "id": 26
+    }
+  ],
+  "posts": [
+    {
+      "title": "제목",
+      "contents": "내용",
+      "url": "https://item.kakaocdn.net/do/3727c16c143eb219d7b32939d988611300df9b2a481d32ec42ae698738782a76",
+      "year": "T없@ㅣ맑은@r2",
+      "heart": 0
+>>>>>>> be1ff6bbcd21bc2e5604330ea68d70606401a52c
     }
   ]
 }

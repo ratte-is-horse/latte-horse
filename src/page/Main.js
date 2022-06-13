@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import styled from 'styled-components'
+import{ Link} from 'react-router-dom'
 
 const Main = () => {
   const onSubmit = async (e) => {
@@ -34,11 +36,17 @@ const Main = () => {
   };
 
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
-      <input type="file" name="profile_files" multiple="multiple" />
-
-      <button type="submit">제출</button>
-    </form>
+   <>
+   </>
   );
 };
 export default Main;
+
+const Footer= styled.div`
+  position: fixed; 
+  bottom: 0; left: 80%;
+  margin-bottom: 60px;
+  height: 90px;
+  width: 110px;
+  background-color: tomato;
+`

@@ -130,7 +130,7 @@ const Signup = (props) => {
           }}
         />
         <br />
-        <button> "가입하기"</button>
+        <button>{isLoading ? "가입 중... " : "가입하기"}</button>
       </form>
     </div>
   );
