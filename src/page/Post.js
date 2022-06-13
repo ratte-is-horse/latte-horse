@@ -15,7 +15,7 @@ const Post = () => {
   const [fileImage, setFileImage] = React.useState("");
 
   // 파일 저장
-    const saveFileImage = (e) => {
+  const saveFileImage = (e) => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
     console.log(URL.createObjectURL(e.target.files[0]))
     console.log(fileImage)
@@ -39,36 +39,36 @@ const Post = () => {
   return (
     <>
       <h3>게시글 작성</h3>
-        <input type="text" placeholder="글의 제목을 입력하세용" value={title}  onChange={(event) => {
-          setTitle(event.target.value)
-        }}/>
-        <input type="text" placeholder="내용을 입력하세용" value={content}  onChange={(event) => {
-          setContent(event.target.value)
-        }}/>
-        <div>
-          {fileImage && (
-            <img
-              alt="sample"
-              src={fileImage}
-              style={{ margin: "auto" }}
-            />
-          )}
-          <div
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <input
-              name="imgUpload"
-              type="file"
-              accept="image/*"
-              ref={fileInputRef}
-              onChange={saveFileImage}
-            />
-          </div>
+      <input type="text" placeholder="글의 제목을 입력하세용" value={title} onChange={(event) => {
+        setTitle(event.target.value)
+      }} />
+      <input type="text" placeholder="내용을 입력하세용" value={content} onChange={(event) => {
+        setContent(event.target.value)
+      }} />
+      <div>
+        {fileImage && (
+          <img
+            alt="sample"
+            src={fileImage}
+            style={{ margin: "auto" }}
+          />
+        )}
+        <div
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <input
+            name="imgUpload"
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={saveFileImage}
+          />
         </div>
-        <Button onClick={postNew}>등록하기</Button>
+      </div>
+      <Button onClick={postNew}>등록하기</Button>
     </>
   );
 }
