@@ -15,6 +15,34 @@
       "id": 19
     },
     {
+<<<<<<< HEAD
+      "username": "asdasddd",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금",
+      "id": 20
+    },
+    {
+      "username": "adddasd",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금2",
+      "id": 21
+    },
+    {
+      "username": "adddasd",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금2",
+      "id": 22
+    },
+    {
+      "username": "adddasda",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금3",
+      "id": 23
+=======
       "username": "ididididid123",
       "password": "qwerasdf",
       "password2": "qwerasdf",
@@ -69,6 +97,7 @@
       "url": "https://item.kakaocdn.net/do/3727c16c143eb219d7b32939d988611300df9b2a481d32ec42ae698738782a76",
       "year": "T없@ㅣ맑은@r2",
       "heart": 0
+>>>>>>> be1ff6bbcd21bc2e5604330ea68d70606401a52c
     }
   ]
 }
