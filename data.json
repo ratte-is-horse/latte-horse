@@ -114,6 +114,34 @@
       "password2": "qwerasdf",
       "nickname": "닉네임적는칸이긴해요",
       "id": 19
+    },
+    {
+      "username": "asdasddd",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금",
+      "id": 20
+    },
+    {
+      "username": "adddasd",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금2",
+      "id": 21
+    },
+    {
+      "username": "adddasd",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금2",
+      "id": 22
+    },
+    {
+      "username": "adddasda",
+      "password": "12312312",
+      "password2": "12312312",
+      "nickname": "방금3",
+      "id": 23
     }
   ]
 }
