@@ -6,7 +6,7 @@ import Login from "./page/Login";
 import Signup from "./page/Signup";
 import Header from "./component/header";
 
-
+//npx json-server ./data.json --port 4000
 
 function App() {
   return (
