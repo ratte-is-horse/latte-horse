@@ -6,6 +6,7 @@ import { getCookie } from "../shared/Cookie";
 import { deleteCookie } from "../shared/Cookie";
 
 const Main = () => {
+<<<<<<< HEAD
   const cookie = getCookie("token");
 
   const [is_cookie, setCookie] = useState(false);
@@ -73,6 +74,12 @@ const Main = () => {
       <Link to="/post">
         <p>글쓰러가기</p>
       </Link>
+=======
+
+  return (
+    <>
+      메인 페이지  
+>>>>>>> 14c99d5eb193308a38e16d28fe12dda880f5148f
     </>
   );
 };
