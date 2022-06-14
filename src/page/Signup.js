@@ -83,13 +83,15 @@ const Signup = (props) => {
       return;
     }
 
-    await apis.addUser({
+   const res = await apis.addUser({
       username: Username,
       password: Password,
       password2: Password2,
       nickname: Nickname,
       profileUrl: fileInputRef.current?.url
     });
+    console.log(res.data)
+    alert(res.data)
     navigate("/login");
   };
 
