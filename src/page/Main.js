@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import { getCookie } from "../shared/Cookie";
 import { deleteCookie } from "../shared/Cookie";
 
@@ -25,10 +24,6 @@ const Main = () => {
   //1. !! 아래
   console.log(cookie);
 
-=======
-
-const Main = () => {
->>>>>>> 3ca7f452a8294bf723b9c726fd46386d131a6c88
   const onSubmit = async (e) => {
     e.preventDefault();
     e.persist();
@@ -64,7 +59,6 @@ const Main = () => {
 
   return (
     <>
-<<<<<<< HEAD
       메인화면 이겠지요ㅕ
       {is_cookie ? (
         <button onClick={onLogout}>로그아웃</button>
@@ -79,25 +73,8 @@ const Main = () => {
       <Link to="/post">
         <Footer>글쓰러가기</Footer>
       </Link>
-=======
-      메인화면입니다.
->>>>>>> 3ca7f452a8294bf723b9c726fd46386d131a6c88
     </>
   );
 };
-<<<<<<< HEAD
 
 export default Main;
-
-const Footer = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 80%;
-  margin-bottom: 60px;
-  height: 90px;
-  width: 110px;
-  background-color: tomato;
-`;
-=======
-export default Main;
->>>>>>> 3ca7f452a8294bf723b9c726fd46386d131a6c88
