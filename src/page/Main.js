@@ -22,7 +22,7 @@ const Main = () => {
   };
 
   //1. !! 아래
-  console.log(cookie);
+  // console.log(cookie);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -55,11 +55,11 @@ const Main = () => {
     console.log(postSurvey);
   };
 
-  console.log(document.cookie);
+  // console.log(document.cookie);
 
   return (
     <>
-      메인화면 이겠지요ㅕ
+      메인화면 이겠지요
       {is_cookie ? (
         <button onClick={onLogout}>로그아웃</button>
       ) : (
@@ -71,7 +71,7 @@ const Main = () => {
         <button>회원가입</button>
       </Link>
       <Link to="/post">
-        <Footer>글쓰러가기</Footer>
+        <p>글쓰러가기</p>
       </Link>
     </>
   );

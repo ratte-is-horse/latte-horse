@@ -59,7 +59,7 @@ export default function Post_reducer(state = intialstate, action) {
 
   switch (action.type) {
     case LOAD_POST:
-      return { ...state, post_list: action.list };
+      return { ...state, list: action.post_list };
 
     default:
       return state;
