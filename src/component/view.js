@@ -1,8 +1,6 @@
 import React from 'react'
 import '../View.css'
 import styled from 'styled-components'
-import { getCookie } from "../shared/Cookie";
-import { deleteCookie } from "../shared/Cookie";
 import { Link } from 'react-router-dom';
 
 export const LeftWrap = () => {
@@ -66,20 +64,6 @@ export const RightBar = () => {
 }
 
 export const Upperbar = () => {
-  const cookie = getCookie("token");
-
-  const [is_cookie, setCookie] = React.useState(false);
-
-  React.useEffect(() => {
-    if (cookie !== undefined) {
-      return setCookie(true);
-    }
-  }, []);
-
-  const onLogout = (e) => {
-    deleteCookie("token");
-    setCookie(false);
-  };
   return (
     <div className="wrapper__right__header">
       <Link to="/" style={{ textDecoration: 'none' }}><div className="wrapper__right__title">☆ㄹr떼좋은 ㅅr람, ㄹr떼  월드☆</div></Link>
