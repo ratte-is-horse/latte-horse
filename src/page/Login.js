@@ -22,17 +22,17 @@ const Login = () => {
         password: password_ref.current.value,
       });
       console.log(response);
-      const AccessToken = response.headers.authorization.split()[0];
+      const AccessToken = response.headers.authorization.split(" ")[1];
       // 아래 setCookie를 통해 Cookie 안에 서버로부터 받은 토큰을 저장한다.
 
       console.log(AccessToken);
       setCookie("token", AccessToken);
       // 위의 setCookie("token", AccessToken) 안의 매겨변수는 "토큰 이름", 토큰값 이다.
-      console.log("postUserJson 로그인 성공");
+      alert("로그인 성공");
+      navigate("/");
     } catch (error) {
-      console.log("postUserJson Error 발생했습니다");
+      alert("로그인 다시시도");
     }
-    navigate("/");
   };
 
   return (
