@@ -5,7 +5,6 @@ import Post from "./page/Post";
 import Detail from "./page/Detail";
 import Login from "./page/Login";
 import Signup from "./page/Signup";
-
 import "./View.css";
 import { LeftWrap, RightBar, Upperbar } from "./component/view";
 
