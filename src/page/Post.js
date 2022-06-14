@@ -44,18 +44,21 @@ const Post = () => {
     e.preventDefault();
 
 
-    dispatch(createPostJson({
-      title: title,
-      content: content,
-      url: fileInputRef.current?.url,
-      year: age,
-    }))
-    // await apis.addPost({
+    // dispatch(createPostJson({
     //   title: title,
     //   content: content,
     //   url: fileInputRef.current?.url,
     //   year: age,
-    // });
+    // }))
+    const res = await apis.addPost({
+      title: title,
+      content: content,
+      url: fileInputRef.current?.url,
+      year: age,
+    });
+    window.alert('등록성공')
+    dispatch(createPostJson(res));
+    navigate('/');
   };
   //년도대 설정
   const [age, setAge] = useState();

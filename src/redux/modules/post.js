@@ -50,7 +50,16 @@ export const loadPostsJson = () => {
 };
 export const createPostJson = (post) => {
   return async function (dispatch) {
-    
+    apis
+          .addPost(post)
+          .then((res)=>{
+                    console.log(res)
+                    dispatch(createPost(res))
+                    window.alert('등록 성공!')
+          })
+          .catch((err)=>{
+                    window.alert('등록에 실패했습니다.')
+          })
   };
 };
 
@@ -67,9 +76,16 @@ export default function Post_reducer(state = intialstate, action) {
   // 새로운 액션 타입 추가시 case 추가한다.
 
   switch (action.type) {
-    case LOAD_POST:
-      return { ...state, post_list: action.list };
-
+    case "post_reducer/LOAD":
+      {
+        return { ...state, post_list: action.list };
+      }
+    case "post_reducer/CREATE": 
+    {
+      console.log('리듀서 돌리는중이야')
+      const new_post_list = [...state.list, action.post]
+    }
+    
     default:
       return state;
   }
