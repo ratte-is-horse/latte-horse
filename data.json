@@ -15,7 +15,6 @@
       "id": 19
     },
     {
-<<<<<<< HEAD
       "username": "asdasddd",
       "password": "12312312",
       "password2": "12312312",
@@ -42,62 +41,48 @@
       "password2": "12312312",
       "nickname": "방금3",
       "id": 23
-=======
-      "username": "ididididid123",
-      "password": "qwerasdf",
-      "password2": "qwerasdf",
-      "nickname": "nockonock",
-      "id": 20
     },
     {
-      "username": "snjanksjdkjnsj112",
-      "password": "qwerasdf",
-      "password2": "qwerasdf",
-      "nickname": "닉네임이야",
-      "id": 21
-    },
-    {
-      "title": "asdasd",
-      "content": "asdasd",
-      "year": "",
-      "id": 22
-    },
-    {
-      "title": "asdasd",
-      "content": "asdasd",
-      "year": "",
-      "id": 23
-    },
-    {
-      "title": "asdad",
-      "content": "asdasd",
-      "url": "blob:http://localhost:3000/1b7030ea-beb6-4e47-a96c-f2227f2a8c1b",
+      "title": "제목지게",
+      "content": "내용지이",
+      "url": "blob:http://localhost:3000/2cd53dd8-8261-44ac-88f0-01326517d8f7",
       "year": "",
       "id": 24
     },
     {
-      "title": "asdadxzczx",
-      "content": "asdadxcz",
-      "url": "blob:http://localhost:3000/3a14da00-a38f-49dd-b055-6a3399e98e63",
+      "title": "제목지게",
+      "content": "내용지이",
+      "url": "blob:http://localhost:3000/2cd53dd8-8261-44ac-88f0-01326517d8f7",
       "year": "",
       "id": 25
     },
     {
-      "title": "ㅁㄴㅇㄴㅁㅇ",
-      "content": "ㅁㅌㅎㅊㅍㅊㅌㅍ",
-      "url": "blob:http://localhost:3000/261d4dc5-4b93-4eef-b72a-e007aab47b61",
+      "title": "제목지게",
+      "content": "내용지이",
+      "url": "blob:http://localhost:3000/a0bd5ce8-4605-4ec0-b336-3cd12132532d",
       "year": "",
       "id": 26
-    }
-  ],
-  "posts": [
+    },
     {
-      "title": "제목",
-      "contents": "내용",
-      "url": "https://item.kakaocdn.net/do/3727c16c143eb219d7b32939d988611300df9b2a481d32ec42ae698738782a76",
-      "year": "T없@ㅣ맑은@r2",
-      "heart": 0
->>>>>>> be1ff6bbcd21bc2e5604330ea68d70606401a52c
+      "title": "그ㅡ르제모구",
+      "content": "그르내요ㅕㅛ유ㅜ",
+      "url": "blob:http://localhost:3000/1cd49c63-5990-4a03-a085-6264570b4cd4",
+      "year": "",
+      "id": 27
+    },
+    {
+      "title": "글의젭ㅁ고",
+      "content": "우러아니디",
+      "url": "blob:http://localhost:3000/2b408464-4383-4c43-8a58-299b2ac29dc2",
+      "year": "90's",
+      "id": 28
+    },
+    {
+      "title": "오리돌보리",
+      "content": "도리오비보리",
+      "url": "blob:http://localhost:3000/f1d56e40-a4db-40d0-8f0a-1bbbbf547979",
+      "year": "00's",
+      "id": 29
     }
   ]
 }

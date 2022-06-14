@@ -75,13 +75,13 @@ const Signup = (props) => {
       return;
     }
 
-    const response = await apis.addUser({
+    await apis.addUser({
       username: Username,
       password: Password,
       password2: Password2,
       nickname: Nickname,
     });
-    alert(response.data);
+
     // navigate("/login");
   };
 

@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { useDispatch } from "react-redux/es/exports";
-import { postUserJson } from "../redux/modules/user";
 import apis from "../api/index";
 import { setCookie } from "../shared/Cookie";
 import Cookies from "universal-cookie";
