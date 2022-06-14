@@ -1,6 +1,9 @@
 import React from 'react'
 import '../View.css'
 import styled from 'styled-components'
+import { getCookie } from "../shared/Cookie";
+import { deleteCookie } from "../shared/Cookie";
+import { Link } from 'react-router-dom';
 
 export const LeftWrap = () => {
   return (
@@ -17,13 +20,13 @@ export const LeftWrap = () => {
           <div className="line"></div>
           <div className="profileWrapper">
             <div className="profile">
-              <i className="fas fa-user"></i> ┌─────＊♡　
+              <i className="fas fa-user"></i> ┌─────＊♡
             </div>
             <div className="profile">
               <i className="fas fa-phone-alt"></i> │ 　ME·
             </div>
             <div className="profile">
-              <i className="fas fa-envelope"></i>│ 　LOVE·　
+              <i className="fas fa-envelope"></i>│ 　LOVE·
             </div>
             <div className="profile">
               <i className="fas fa-star"></i> │ 　FRIEND·
@@ -58,6 +61,36 @@ export const RightBar = () => {
       <Box>90's</Box>
       <Box>80's</Box>
       <Box>70's</Box>
+    </div>
+  )
+}
+
+export const Upperbar = () => {
+  const cookie = getCookie("token");
+
+  const [is_cookie, setCookie] = React.useState(false);
+
+  React.useEffect(() => {
+    if (cookie !== undefined) {
+      return setCookie(true);
+    }
+  }, []);
+
+  const onLogout = (e) => {
+    deleteCookie("token");
+    setCookie(false);
+  };
+  return (
+    <div className="wrapper__right__header">
+      <Link to="/" style={{ textDecoration: 'none' }}><div className="wrapper__right__title">☆ㄹr떼좋은 ㅅr람, ㄹr떼  월드☆</div></Link>
+      <div className="wrapper__right__setting">
+        {is_cookie ? (
+          <Link to="/" style={{ textDecoration: "none", marginRight: "18px", color: "black" }}><span onClick={onLogout}>로그아웃</span></Link>
+        ) : (<Link to="/login" style={{ textDecoration: "none", marginRight: "18px", color: "black" }}><span>로그인</span></Link>)
+        }
+        <Link to="/signup" style={{ textDecoration: "none", color: "black" }}><span>회원가입</span></Link>
+        <Link to="/post" style={{ textDecoration: "none", marginLeft: "18px", color: "black" }} ><span>글작성고고씽</span></Link>
+        <i className="fas fa-caret-right bbbb"></i></div>
     </div>
   )
 }

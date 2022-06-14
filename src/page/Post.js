@@ -20,9 +20,9 @@ const Post = () => {
   const saveFileImage = async (e) => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
 
-    console.log(URL.createObjectURL(e.target.files[0]))
-    // ref로도 확인해봅시다. :)
-    console.log(fileInputRef.current.files[0]);
+    // console.log(URL.createObjectURL(e.target.files[0]))
+    // // ref로도 확인해봅시다. :)
+    // console.log(fileInputRef.current.files[0]);
 
     const uploaded_file = await uploadBytes(
       ref(storage, `addimages/${e.target.files[0].name}`),
@@ -32,7 +32,7 @@ const Post = () => {
 
     const file_url = await getDownloadURL(uploaded_file.ref);
 
-    console.log(file_url);
+    // console.log(file_url);
     fileInputRef.current = { url: file_url };
   }
 
