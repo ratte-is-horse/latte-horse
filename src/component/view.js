@@ -12,21 +12,24 @@ export const LeftWrap = () => {
       </div>
       <div className="wrapper__left__body">
         <div className="header">
-          <div className='headerGrey'>
-          </div>
+          <img alt='img' src='images/profile.PNG' className='headerGrey'>
+          </img>
           <div className="line"></div>
           <div className="profileWrapper">
             <div className="profile">
-              <i className="fas fa-user"></i> 이름
+              <i className="fas fa-user"></i> ┌─────＊♡　
             </div>
             <div className="profile">
-              <i className="fas fa-phone-alt"></i> Phone
+              <i className="fas fa-phone-alt"></i> │ 　ME·
             </div>
             <div className="profile">
-              <i className="fas fa-envelope"></i> E-mail
+              <i className="fas fa-envelope"></i>│ 　LOVE·　
             </div>
             <div className="profile">
-              <i className="fas fa-star"></i> Instagram
+              <i className="fas fa-star"></i> │ 　FRIEND·
+            </div>
+            <div className="profile">
+              <i className="fas fa-star"></i> └─────＊♡
             </div>
           </div>
         </div>
@@ -50,7 +53,7 @@ export const LeftWrap = () => {
 export const RightBar = () => {
   return (
     <div className="wrapper_bar">
-      <Box>모두보기</Box>
+      <Box>ALL</Box>
       <Box>00's</Box>
       <Box>90's</Box>
       <Box>80's</Box>
@@ -60,13 +63,17 @@ export const RightBar = () => {
 }
 
 const Box = styled.div`
-  border: 1px solid tomato;
+  border: 1px solid #5098b3;
   width: 75px;
   height: 43px;
   margin-bottom:5px ;
+  padding-left: 18px;
+  display: flex;
   text-align: center;
-  
+  align-items: center;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: tomato;
+  background-color: #5098b3;
+  font-size: 19px ;
+  
 `
