@@ -9,12 +9,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAuZI1M8LBc6hYHUmphvlgQpSJjBwHiRPE",
-  authDomain: "latte-horse.firebaseapp.com",
-  projectId: "latte-horse",
-  storageBucket: "latte-horse.appspot.com",
-  messagingSenderId: "164412906865",
-  appId: "1:164412906865:web:45cb2fdba606e4e1126ad0"
+  apiKey: "AIzaSyAjBVdprGCVjQdAAKPoHPmtNvJg3WNmcfA",
+  authDomain: "latte-horse2.firebaseapp.com",
+  projectId: "latte-horse2",
+  storageBucket: "latte-horse2.appspot.com",
+  messagingSenderId: "869989306028",
+  appId: "1:869989306028:web:79097ccc939db46eaad909"
 };
 
 const app = initializeApp(firebaseConfig);

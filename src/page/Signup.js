@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
 import { storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 // import { createUserJson } from "../redux/modules/user";
@@ -88,7 +87,7 @@ const Signup = (props) => {
       password: Password,
       password2: Password2,
       nickname: Nickname,
-      profileurl: fileImage
+      profileUrl: fileInputRef.current?.url
     });
     navigate("/login");
   };
@@ -97,9 +96,9 @@ const Signup = (props) => {
   const saveFileImage = async (e) => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
 
-    console.log(URL.createObjectURL(e.target.files[0]))
-    // ref로도 확인해봅시다. :)
-    console.log(fileInputRef.current.files[0]);
+    // console.log(URL.createObjectURL(e.target.files[0]))
+    // // ref로도 확인해봅시다. :)
+    // console.log(fileInputRef.current.files[0]);
 
     const uploaded_file = await uploadBytes(
       ref(storage, `profileimages/${e.target.files[0].name}`),
@@ -109,7 +108,7 @@ const Signup = (props) => {
 
     const file_url = await getDownloadURL(uploaded_file.ref);
 
-    console.log(file_url);
+    // console.log(file_url);
     fileInputRef.current = { url: file_url };
   };
 
@@ -184,7 +183,7 @@ const Signup = (props) => {
 
 
 const Input = styled.input`
- display: ${(props) => props.file_url ? "none" : ""}; 
+ display: ${(props) => props.fileImage ? "none" : ""}; 
 `
 //1. ?? 위에 132번의 isLoading이 왜 필요한지, 그리고 위에 그걸 state로 만들어놨는데 그게 무슨 의미인지?
 // 만일 isLoading을 활용하려면 서버에서 id 중복에 대한 response를 받아와서 위의 isLoading의 스테이트 값으로 묶어놔야함
