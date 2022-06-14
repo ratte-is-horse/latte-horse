@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
 import { storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 // import { createUserJson } from "../redux/modules/user";
@@ -88,7 +87,7 @@ const Signup = (props) => {
       password: Password,
       password2: Password2,
       nickname: Nickname,
-      profileurl: fileImage
+      profileurl: fileInputRef.current?.url
     });
     navigate("/login");
   };
@@ -105,7 +104,7 @@ const Signup = (props) => {
       ref(storage, `profileimages/${e.target.files[0].name}`),
       e.target.files[0]
     );
-    // console.log(uploaded_file);
+    console.log(uploaded_file);
 
     const file_url = await getDownloadURL(uploaded_file.ref);
 
