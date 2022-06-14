@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { getCookie } from "../shared/Cookie";
+import { deleteCookie } from "../shared/Cookie";
 
 const Main = () => {
-  const onCookie = (event) => {
-    event.preventDefault();
-    getCookie("token");
+  const cookie = getCookie("token");
+
+  const [is_cookie, setCookie] = useState(false);
+
+  useEffect(() => {
+    if (cookie !== undefined) {
+      return setCookie(true);
+    }
+  }, []);
+
+  const onLogout = (e) => {
+    deleteCookie("token");
+    setCookie(false);
   };
+
+  //1. !! 아래
+  console.log(cookie);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -44,18 +58,25 @@ const Main = () => {
   console.log(document.cookie);
 
   return (
-
     <>
       메인화면 이겠지요ㅕ
-
-
-      <Link to="/login"><button>로그인</button></Link>
-      <Link to="/signup"><button>회원가입</button></Link>
-      <Link to="/post" ><Footer>글쓰러가기</Footer></Link>
+      {is_cookie ? (
+        <button onClick={onLogout}>로그아웃</button>
+      ) : (
+        <Link to="/login">
+          <button>로그인</button>
+        </Link>
+      )}
+      <Link to="/signup">
+        <button>회원가입</button>
+      </Link>
+      <Link to="/post">
+        <Footer>글쓰러가기</Footer>
+      </Link>
     </>
-
   );
 };
+
 export default Main;
 
 const Footer = styled.div`
