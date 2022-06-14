@@ -71,7 +71,6 @@ const Main = () => {
         <button>회원가입</button>
       </Link>
       <Link to="/post">
-        <Footer>글쓰러가기</Footer>
       </Link>
     </>
   );
