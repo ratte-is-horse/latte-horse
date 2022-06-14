@@ -83,6 +83,7 @@ export const Upperbar = () => {
   };
   return (
     <div className="wrapper__right__header">
+<<<<<<< HEAD
       <Link to="/" style={{ textDecoration: "none" }}>
         <div className="wrapper__right__title">
           ☆ㄹr떼좋은 ㅅr람, ㄹr떼 월드☆
@@ -123,6 +124,9 @@ export const Upperbar = () => {
         </Link>
         <i className="fas fa-caret-right bbbb"></i>
       </div>
+=======
+      <Link to="/" style={{ textDecoration: 'none' }}><div className="wrapper__right__title">☆ㄹr떼좋은 ㅅr람, ㄹr떼  월드☆</div></Link>
+>>>>>>> 84c49efb9b3e48d14c7bc9dde6a7728070e41d19
     </div>
   );
 };

@@ -2,6 +2,9 @@ import apis from "../../api/index";
 
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
+  list:[
+
+  ]
 };
 
 /* ----------------- 액션 타입 ------------------ */
@@ -13,8 +16,8 @@ const UPDATE_POST = "post_reducer/UPDATE";
 const REMOVE_POST = "post_reducer/REMOVE";
 
 /* ----------------- 액션 생성 함수 ------------------ */
-export function loadPost() {
-  return { type: LOAD_POST };
+export function loadPost(post_list) {
+  return { type: LOAD_POST ,post_list};
 }
 
 export function loadPosts() {
@@ -22,26 +25,33 @@ export function loadPosts() {
 }
 
 export function createPost(post) {
+  console.log("생성중입니다.")
   return { type: CREATE_POST, post };
 }
 
-export function updatePost(post) {
-  return { type: UPDATE_POST, post };
+export function updatePost(post_index) {
+  return { type: UPDATE_POST, post_index };
 }
 
-export function removePost(post) {
-  return { type: REMOVE_POST, post };
+export function removePost(post_index) {
+  return { type: REMOVE_POST, post_index };
 }
 
 /* ----------------- 미들웨어 ------------------ */
 export const loadPostJson = () => {
-  return async function (dispatch) {};
+  return async function (dispatch) {
+
+  };
 };
 export const loadPostsJson = () => {
-  return async function (dispatch) {};
+  return async function (dispatch) {
+
+  };
 };
-export const createPostJson = (user) => {
-  return async function (dispatch) {};
+export const createPostJson = (post) => {
+  return async function (dispatch) {
+    
+  };
 };
 
 export const updatePostJson = () => {
