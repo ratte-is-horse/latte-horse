@@ -50,19 +50,22 @@ const Post = () => {
     //   url: fileInputRef.current?.url,
     //   year: age,
     // }))
-    try{ const res = await apis.addPost({
-      title: title,
-      content: content,
-      url: fileInputRef.current?.url,
-      year: age,
-    });
-    window.alert('등록성공')
-    dispatch(createPostJson(res));
-    navigate('/');}
-     catch(err){
+    try {
+      const res = await apis.addPost({
+        title: title,
+        content: content,
+        url: fileInputRef.current?.url,
+        year: age,
+      });
+      dispatch(createPostJson(res));
+      window.alert('등록성공')
+        ;
+    }
+    catch (err) {
       alert('등록실패요')
     }
-   
+
+    navigate('/')
   };
   //년도대 설정
   const [age, setAge] = useState();
@@ -74,7 +77,7 @@ const Post = () => {
 
   return (
     <>
-    <Header/>
+      <Header />
       <h3>게시글 작성</h3>
 
       <input
