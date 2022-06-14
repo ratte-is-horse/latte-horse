@@ -7,6 +7,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 // 1. 위의 createUserJson 이건 user 리듀서의 미들웨어가 작동할 필요 없으므로 불필요.
 import apis from "../api/index";
 import styled from "styled-components";
+import Header from '../component/header';
 
 const Signup = (props) => {
   const navigate = useNavigate();
@@ -82,13 +83,15 @@ const Signup = (props) => {
       return;
     }
 
-    await apis.addUser({
+   const res = await apis.addUser({
       username: Username,
       password: Password,
       password2: Password2,
       nickname: Nickname,
       profileUrl: fileInputRef.current?.url
     });
+    console.log(res.data)
+    alert(res.data)
     navigate("/login");
   };
 
@@ -114,6 +117,7 @@ const Signup = (props) => {
 
   return (
     <div>
+      <Header/>
       <form onSubmit={onSubmitUserHandler}>
         아이디 :
         <input

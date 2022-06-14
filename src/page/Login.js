@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux/es/exports";
 import apis from "../api/index";
 import { setCookie } from "../shared/Cookie";
 import Cookies from "universal-cookie";
+import Header from '../component/header';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const Login = () => {
 
   return (
     <>
+    <Header/>
       <div>로그인페이지</div>
       <form>
         <input type="text" ref={id_ref}></input>
