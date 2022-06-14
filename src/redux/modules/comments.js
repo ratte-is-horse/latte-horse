@@ -1,6 +1,5 @@
 import apis from "../../api/index";
 
-
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
   comment_list: [],
@@ -8,10 +7,10 @@ let intialstate = {
 
 /* ----------------- 액션 타입 ------------------ */
 
-const LOAD_COMMENT = 'comment_reducer/LOAD';
-const CREATE_COMMENT = 'comment_reducer/CREATE';
-const UPDATE_COMMENT = 'comment_reducer/UPDATE';
-const REMOVE_COMMENT = 'comment_reducer/REMOVE';
+const LOAD_COMMENT = "comment_reducer/LOAD";
+const CREATE_COMMENT = "comment_reducer/CREATE";
+const UPDATE_COMMENT = "comment_reducer/UPDATE";
+const REMOVE_COMMENT = "comment_reducer/REMOVE";
 
 /* ----------------- 액션 생성 함수 ------------------ */
 export function loadComment() {
@@ -32,27 +31,19 @@ export function removeComment(comment) {
 
 /* ----------------- 미들웨어 ------------------ */
 export const loadCommentJson = () => {
-  return async function (dispatch) {
-
-  }
-}
+  return async function (dispatch) {};
+};
 export const createCommentJson = (user) => {
-  return async function (dispatch) {
-
-  }
-}
+  return async function (dispatch) {};
+};
 
 export const updateCommentJson = () => {
-  return async function (dispatch) {
-
-  }
-}
+  return async function (dispatch) {};
+};
 
 export const deleteCommentJson = () => {
-  return async function (dispatch) {
-
-  }
-}
+  return async function (dispatch) {};
+};
 
 /* ----------------- 리듀서 ------------------ */
 

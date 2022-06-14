@@ -75,7 +75,7 @@ const Signup = (props) => {
       return;
     }
 
-  await apis.addUser({
+    await apis.addUser({
       username: Username,
       password: Password,
       password2: Password2,

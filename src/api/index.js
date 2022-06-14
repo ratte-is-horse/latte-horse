@@ -32,4 +32,5 @@ const apis = {
   getPosts: () => api.get("/posts"),
   getPost: (id) => api.get(`posts/${id}`),
 };
+
 export default apis;

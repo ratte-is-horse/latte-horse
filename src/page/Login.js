@@ -2,7 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { useDispatch } from "react-redux/es/exports";
-import { postUserJson } from "../redux/modules/user";
+import apis from "../api/index";
+import { setCookie } from "../shared/Cookie";
+import Cookies from "universal-cookie";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -10,38 +12,53 @@ const Login = () => {
   const id_ref = useRef(null);
   const password_ref = useRef(null);
 
-  const onLogin = (event) => {
+  const onLoginClick = async (event) => {
     event.preventDefault(); //1. !!아마 왼쪽꺼 필요없는 걸로 암.
     console.log(id_ref.current.value);
-    dispatch(
-      postUserJson({
+    // console.log(userdata);
+    try {
+      const response = await apis.postLogin({
         username: id_ref.current.value,
         password: password_ref.current.value,
-      })
-    );
-    console.log(id_ref.current.value);
+      });
+      console.log(response);
+      const AccessToken = response.headers.authorization.split()[0];
+      // 아래 setCookie를 통해 Cookie 안에 서버로부터 받은 토큰을 저장한다.
+
+      console.log(AccessToken);
+      setCookie("token", AccessToken);
+      // 위의 setCookie("token", AccessToken) 안의 매겨변수는 "토큰 이름", 토큰값 이다.
+      console.log("postUserJson 로그인 성공");
+    } catch (error) {
+      console.log("postUserJson Error 발생했습니다");
+    }
+    navigate("/");
   };
 
   return (
     <>
       <div>로그인페이지</div>
-      <form onSubmit={onLogin}>
+      <form>
         <input type="text" ref={id_ref}></input>
         <input type="password" ref={password_ref}></input>
-        <button type="submit">로그인</button>
+        <button type="submit" onClick={onLoginClick}>
+          로그인
+        </button>
       </form>
     </>
   );
 };
 
 // const onLoginClick = async (event) => {
-//   event.preventDefault();
-//   // console.log(id_ref.current.value);
-//   const data = await apis.addPost({
-//     username: id_ref.current.value,
-//     password: password_ref.current.value,
-//   });
-//   console.log(data);
+//   event.preventDefault(); //1. !!아마 왼쪽꺼 필요없는 걸로 암.
+//   console.log(id_ref.current.value);
+//   dispatch(
+//     postUserJson({
+//       username: id_ref.current.value,
+//       password: password_ref.current.value,
+//     })
+//   );
+//   console.log(id_ref.current.value);
 // };
 
 export default Login;

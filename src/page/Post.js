@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from 'react-bootstrap';
+import { Button } from "react-bootstrap";
 import apis from "../api/index";
 import { storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 const Post = () => {
   const navigate = useNavigate()
   const fileInputRef = React.useRef();
-  const [title, setTitle] = React.useState("")
-  const [content, setContent] = React.useState("")
+
+  const [title, setTitle] = React.useState("");
+  const [content, setContent] = React.useState("");
 
   //파일 미리볼 url을 저장해줄 state
   const [fileImage, setFileImage] = React.useState("");
@@ -17,6 +18,7 @@ const Post = () => {
   // 파일 저장
   const saveFileImage = async (e) => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
+
     console.log(URL.createObjectURL(e.target.files[0]))
     // ref로도 확인해봅시다. :)
     console.log(fileInputRef.current.files[0]);
@@ -31,50 +33,48 @@ const Post = () => {
 
     console.log(file_url);
     fileInputRef.current = { url: file_url };
+
   };
 
   const postNew = async (e) => {
 
     e.preventDefault();
 
-    //firebase에 사진저장하기
-    // const uploded_file = await uploadBytes(
-    //   ref(storage, `addimages/${fileInputRef.current.files[0]?.name}`),
-    //   e.target.files[0]
-    // );
-    // const file_url = await getDownloadURL(uploded_file.ref);
-    // fileInputRef.current = { url: file_url };
 
-    //포스트업하기
-    await apis.addPost(
-      {
-        title: title,
-        content: content,
-        url: fileInputRef.current?.url,
-        year: age
-      }
-    )
-      navigate('/')
-  }
-  //라떼년대선택
-  const [age, setAge] = useState()
+    await apis.addPost({
+      title: title,
+      content: content,
+      url: fileImage,
+      year: age,
+    });
+  };
+  const [age, setAge] = useState();
   const handleChange = (event) => {
     setAge(event.target.value);
-  }
+  };
 
   // 파일 삭제
-
 
   return (
     <>
       <h3>게시글 작성</h3>
 
-      <input type="text" placeholder="글의 제목을 입력하세용" value={title} onChange={(event) => {
-        setTitle(event.target.value)
-      }} />
-      <input type="text" placeholder="내용을 입력하세용" value={content} onChange={(event) => {
-        setContent(event.target.value)
-      }} />
+      <input
+        type="text"
+        placeholder="글의 제목을 입력하세용"
+        value={title}
+        onChange={(event) => {
+          setTitle(event.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="내용을 입력하세용"
+        value={content}
+        onChange={(event) => {
+          setContent(event.target.value);
+        }}
+      />
       <div>
         {fileImage && (
           <img
@@ -107,8 +107,10 @@ const Post = () => {
           <div>{age}</div>
         </div>
       </div>
-      <Button onClick={postNew} type="submit">등록하기</Button>
+      <Button onClick={postNew} type="submit">
+        등록하기
+      </Button>
     </>
   );
-}
+};
 export default Post;

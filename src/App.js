@@ -7,6 +7,7 @@ import Signup from "./page/Signup";
 import './View.css'
 import { LeftWrap, RightBar } from "./component/view";
 
+
 //npx json-server ./data.json --port 4000
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <>
       <div className="background">
         <div className="outerbox">
+
           <div className='innerbox'>
             <div className="wrapper">
               <LeftWrap />
@@ -25,6 +27,7 @@ function App() {
                     <Link to="/signup"style={{textDecoration:"none",color:"black"}}><span>회원가입</span></Link>
                     <i className="fas fa-caret-right bbbb"></i></div>
                 </div>
+
                 <div className="wrapper__right__body">
                   <Routes>
                     <Route path="/" element={<Main />} />
