@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+
+import { storage } from "../firebase";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 // import { createUserJson } from "../redux/modules/user";
 // 1. 위의 createUserJson 이건 user 리듀서의 미들웨어가 작동할 필요 없으므로 불필요.
 import apis from "../api/index";
+import styled from "styled-components";
 
 const Signup = (props) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [Password2, setPassword2] = useState("");
@@ -16,6 +19,10 @@ const Signup = (props) => {
   const [pwcheck, setPwCheck] = React.useState("");
 
   const [isLoading, setIsLoading] = useState(false);
+
+
+  const [fileImage, setFileImage] = React.useState("");
+  const fileInputRef = React.useRef();
 
   const password = React.useRef();
   const password2 = React.useRef();
@@ -80,8 +87,29 @@ const Signup = (props) => {
       password: Password,
       password2: Password2,
       nickname: Nickname,
+      profileurl: fileImage
     });
     navigate("/login");
+  };
+
+  //사진 업로드
+  const saveFileImage = async (e) => {
+    setFileImage(URL.createObjectURL(e.target.files[0]));
+
+    console.log(URL.createObjectURL(e.target.files[0]))
+    // ref로도 확인해봅시다. :)
+    console.log(fileInputRef.current.files[0]);
+
+    const uploaded_file = await uploadBytes(
+      ref(storage, `profileimages/${e.target.files[0].name}`),
+      e.target.files[0]
+    );
+    // console.log(uploaded_file);
+
+    const file_url = await getDownloadURL(uploaded_file.ref);
+
+    console.log(file_url);
+    fileInputRef.current = { url: file_url };
   };
 
   return (
@@ -119,7 +147,7 @@ const Signup = (props) => {
           ref={password2}
         />
         <p ref={check} />
-        <br/>
+        <br />
         닉네임 :
         <input
           type="text"
@@ -130,12 +158,33 @@ const Signup = (props) => {
           }}
         />
         <br />
+        프로필 사진
+        {fileImage && (
+          <img
+            alt="sample"
+            src={fileImage}
+            style={{ margin: "auto", maxWidth: "300px", maxHeight: "250px" }}
+          />
+        )}
+        <Input
+          name="imgUpload"
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={saveFileImage}
+        />
+        <div style={{ fontSize: "10px", color: "tomato" }}>사진변경하지 말아주세요 오류생겨요...😭</div>
         <button>{isLoading ? "가입 중... " : "가입하기"}</button>
       </form>
     </div>
   );
 };
 
+
+
+const Input = styled.input`
+ display: ${(props) => props.file_url ? "none" : ""}; 
+`
 //1. ?? 위에 132번의 isLoading이 왜 필요한지, 그리고 위에 그걸 state로 만들어놨는데 그게 무슨 의미인지?
 // 만일 isLoading을 활용하려면 서버에서 id 중복에 대한 response를 받아와서 위의 isLoading의 스테이트 값으로 묶어놔야함
 // 받아서 거기에 값 묶어 놓을 방법 추가해야함.

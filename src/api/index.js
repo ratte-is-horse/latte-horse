@@ -8,7 +8,13 @@ const api = axios.create({
   // http://localhost:4000
   //http://52.79.226.242
   headers: {
+<<<<<<< HEAD
     authorization: `BEARER ${getCookie("token")}`,
+=======
+    'content-type': 'application/json;charset=UTF-8',
+    accept: 'application/json,',
+
+>>>>>>> 3ca7f452a8294bf723b9c726fd46386d131a6c88
   },
 });
 
