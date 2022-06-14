@@ -50,7 +50,7 @@ const Post = () => {
     //   url: fileInputRef.current?.url,
     //   year: age,
     // }))
-    const res = await apis.addPost({
+    try{ const res = await apis.addPost({
       title: title,
       content: content,
       url: fileInputRef.current?.url,
@@ -58,7 +58,11 @@ const Post = () => {
     });
     window.alert('등록성공')
     dispatch(createPostJson(res));
-    navigate('/');
+    navigate('/');}
+     catch(err){
+      alert('등록실패요')
+    }
+   
   };
   //년도대 설정
   const [age, setAge] = useState();

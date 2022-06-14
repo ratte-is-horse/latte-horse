@@ -50,16 +50,17 @@ export const loadPostsJson = () => {
 };
 export const createPostJson = (post) => {
   return async function (dispatch) {
-    apis
-          .addPost(post)
-          .then((res)=>{
-                    console.log(res)
-                    dispatch(createPost(res))
-                    window.alert('등록 성공!')
-          })
-          .catch((err)=>{
-                    window.alert('등록에 실패했습니다.')
-          })
+    // apis
+    //       .addPost(post)
+    //       .then((res)=>{
+    //                 console.log(res)
+    //                 dispatch(createPost(res))
+    //                 window.alert('등록 성공!')
+    //       })
+    //       .catch((err)=>{
+    //                 window.alert('등록에 실패했습니다.')
+    //       })
+    dispatch(createPost(post))
   };
 };
 

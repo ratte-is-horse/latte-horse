@@ -4,7 +4,8 @@ import Header from '../component/header';
 const Detail = () => {
   return <div>
     <Header/>
-    디테일 페이지겠지</div>;
+    
+    </div>;
 };
 
 export default Detail;

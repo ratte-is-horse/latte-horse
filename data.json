@@ -137,6 +137,132 @@
       "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2F201438959_1280.jpg?alt=media&token=b34ba426-f0b5-4443-8f92-2a8a7c1204d8",
       "year": "90's",
       "id": 20
+    },
+    {
+      "title": "두히하이",
+      "content": "우기라히",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2Fd2a5c7252c5ede8b60c91bc0655f08756542baa6d3f8c3681ef5139654075ee482e3f13d91d2c68c3d7a10b70af59cc9066fef074275e1a7757113c8d9fefb401f2a92d327c9bbadec1aec24e17f52b5.jpg?alt=media&token=14372d10-825b-4e45-ba71-e35c2e3744af",
+      "year": "90's",
+      "id": 21
+    },
+    {
+      "data": {
+        "title": "두히하이",
+        "content": "우기라히",
+        "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2Fd2a5c7252c5ede8b60c91bc0655f08756542baa6d3f8c3681ef5139654075ee482e3f13d91d2c68c3d7a10b70af59cc9066fef074275e1a7757113c8d9fefb401f2a92d327c9bbadec1aec24e17f52b5.jpg?alt=media&token=14372d10-825b-4e45-ba71-e35c2e3744af",
+        "year": "90's",
+        "id": 21
+      },
+      "status": 201,
+      "statusText": "Created",
+      "headers": {
+        "cache-control": "no-cache",
+        "content-length": "401",
+        "content-type": "application/json; charset=utf-8",
+        "expires": "-1",
+        "location": "http://localhost:4000/users/21",
+        "pragma": "no-cache"
+      },
+      "config": {
+        "transitional": {
+          "silentJSONParsing": true,
+          "forcedJSONParsing": true,
+          "clarifyTimeoutError": false
+        },
+        "transformRequest": [
+          null
+        ],
+        "transformResponse": [
+          null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "env": {
+          "FormData": null
+        },
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "authorization": "BEARER undefined"
+        },
+        "baseURL": "http://localhost:4000",
+        "method": "post",
+        "url": "/users",
+        "data": "{\"title\":\"두히하이\",\"content\":\"우기라히\",\"url\":\"https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2Fd2a5c7252c5ede8b60c91bc0655f08756542baa6d3f8c3681ef5139654075ee482e3f13d91d2c68c3d7a10b70af59cc9066fef074275e1a7757113c8d9fefb401f2a92d327c9bbadec1aec24e17f52b5.jpg?alt=media&token=14372d10-825b-4e45-ba71-e35c2e3744af\",\"year\":\"90's\"}"
+      },
+      "request": {},
+      "id": 22
+    },
+    {
+      "title": "",
+      "content": "",
+      "id": 23
+    },
+    {
+      "data": {
+        "title": "",
+        "content": "",
+        "id": 23
+      },
+      "status": 201,
+      "statusText": "Created",
+      "headers": {
+        "cache-control": "no-cache",
+        "content-length": "46",
+        "content-type": "application/json; charset=utf-8",
+        "expires": "-1",
+        "location": "http://localhost:4000/users/23",
+        "pragma": "no-cache"
+      },
+      "config": {
+        "transitional": {
+          "silentJSONParsing": true,
+          "forcedJSONParsing": true,
+          "clarifyTimeoutError": false
+        },
+        "transformRequest": [
+          null
+        ],
+        "transformResponse": [
+          null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "env": {
+          "FormData": null
+        },
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "authorization": "BEARER undefined"
+        },
+        "baseURL": "http://localhost:4000",
+        "method": "post",
+        "url": "/users",
+        "data": "{\"title\":\"\",\"content\":\"\"}"
+      },
+      "request": {},
+      "id": 24
+    },
+    {
+      "title": "1010101010",
+      "content": "0102300",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2Fwwww.PNG?alt=media&token=20e00696-44c4-45b2-9b67-edb114c2811c",
+      "year": "90's",
+      "id": 25
+    },
+    {
+      "title": "어ㅜ나아",
+      "content": "눙민우",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2F8a27ce5e7998ef30d7037dec568542ae6a91500154b57fb425bbdf77f84b7a6065583803c087f3f5f0ed2d42dc13923fa444ef6a5d60fa2a569e4ae5d7efd18b3b0c30c50239cb5842d54fbe110412c9cf9b7b62ac32ea50f0db534cffaf6032.jpg?alt=media&token=67c87d78-36ca-413b-ba06-2203302fe547",
+      "year": "90's",
+      "id": 26
     }
   ]
 }
