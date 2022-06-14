@@ -1,8 +1,13 @@
+
+@font-face {
+  font-family: 'retrosans';
+  src: url('../src/css/MaruBuri-Light.ttf') format('truetype');
+}
 *{
   margin: 0px;
   box-sizing: border-box;
+  font-family: 'retrosans';
 }
-
 .background{
   display: flex;
   margin: auto;
