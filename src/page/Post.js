@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import apis from "../api/index";
+import { storage } from "../firebase";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
 
 const Post = () => {
+  const navigate = useNavigate()
   const fileInputRef = React.useRef();
 
   const [title, setTitle] = React.useState("");
@@ -12,14 +16,30 @@ const Post = () => {
   const [fileImage, setFileImage] = React.useState("");
 
   // 파일 저장
-  const saveFileImage = (e) => {
+  const saveFileImage = async (e) => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
 
-    console.log(URL.createObjectURL(e.target.files[0]));
+    console.log(URL.createObjectURL(e.target.files[0]))
+    // ref로도 확인해봅시다. :)
+    console.log(fileInputRef.current.files[0]);
+
+    const uploaded_file = await uploadBytes(
+      ref(storage, `addimages/${e.target.files[0].name}`),
+      e.target.files[0]
+    );
+    // console.log(uploaded_file);
+
+    const file_url = await getDownloadURL(uploaded_file.ref);
+
+    console.log(file_url);
+    fileInputRef.current = { url: file_url };
+
   };
 
   const postNew = async (e) => {
+
     e.preventDefault();
+
 
     await apis.addPost({
       title: title,
@@ -29,7 +49,6 @@ const Post = () => {
     });
   };
   const [age, setAge] = useState();
-
   const handleChange = (event) => {
     setAge(event.target.value);
   };

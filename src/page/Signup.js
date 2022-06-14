@@ -81,8 +81,7 @@ const Signup = (props) => {
       password2: Password2,
       nickname: Nickname,
     });
-
-    // navigate("/login");
+    navigate("/login");
   };
 
   return (
@@ -120,7 +119,7 @@ const Signup = (props) => {
           ref={password2}
         />
         <p ref={check} />
-        <br />
+        <br/>
         닉네임 :
         <input
           type="text"

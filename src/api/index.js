@@ -6,6 +6,17 @@ const api = axios.create({
   baseURL: "http://localhost:4000",
   // http://localhost:4000
   //http://52.79.226.242
+  headers: {
+    'content-type': 'application/json;charset=UTF-8',
+    accept: 'application/json,',
+    
+  },
+});
+
+api.interceptors.request.use(function (config) {
+  const accessToken = document.cookie.split('=')[1];
+  config.headers.common['X-AUTH-TOKEN'] = `${accessToken}`;
+  return config;
 });
 
 // Instance를 생성하고, 여러개의 요청 함수들을 하나의 객체에 넣어서 관리하는 방법도 있습니다!

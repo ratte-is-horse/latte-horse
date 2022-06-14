@@ -44,15 +44,16 @@ const Main = () => {
   console.log(document.cookie);
 
   return (
+
     <>
       메인화면 이겠지요ㅕ
-      <Link to="/login">
-        <button>로그인</button>
-      </Link>
-      <Link to="/signup">
-        <button>회원가입</button>
-      </Link>
+
+
+      <Link to="/login"><button>로그인</button></Link>
+      <Link to="/signup"><button>회원가입</button></Link>
+      <Link to="/post" ><Footer>글쓰러가기</Footer></Link>
     </>
+
   );
 };
 export default Main;
