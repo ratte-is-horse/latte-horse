@@ -58,7 +58,8 @@ const Signup = (props) => {
       Username === "" ||
       Password === "" ||
       Password2 === "" ||
-      Nickname === ""
+      Nickname === "" ||
+      fileImage === ""
     ) {
       window.alert("아이디,비밀번호,닉네임을 모두 입력해주세요!");
       return;
