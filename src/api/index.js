@@ -23,4 +23,11 @@ const apis = {
 
 // addLogin: (UserData) => api.post("/posts", UserData)
 
+// const access_api = axios.create({
+//   baseURL: "http://52.79.226.242",
+//   headers: {
+//     Authorization: `Bearer ${}`
+//   }
+// })
+
 export default apis;
