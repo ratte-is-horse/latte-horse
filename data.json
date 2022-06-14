@@ -1,88 +1,38 @@
 {
   "users": [
     {
-      "username": "abcdefg12",
-      "password": "zzzzzzzz",
-      "password2": "zzzzzzzz",
-      "nickname": "T없@ㅣ맑은@r2",
-      "id": 11
+      "title": "죽게서요",
+      "content": "죽게서요",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F93709757_146852550184394_4529492490549460992_n.png?alt=media&token=d95214e8-2ccf-436a-a331-df5f501f23c8",
+      "year": "80's",
+      "id": 1
     },
     {
-      "username": "nabima12",
-      "password": "qwerasdf",
-      "password2": "qwerasdf",
-      "nickname": "닉네임적는칸이긴해요",
-      "id": 19
+      "title": "빙글빙글돌아가는",
+      "content": "멧돌",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%EB%A9%A7%EB%8F%8C.jpg?alt=media&token=d3e00825-d8f7-4ff0-aae5-2958b8c2d383",
+      "year": "70's",
+      "id": 2
     },
     {
-      "username": "asdasddd",
-      "password": "12312312",
-      "password2": "12312312",
-      "nickname": "방금",
-      "id": 20
+      "title": "",
+      "content": "",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%EB%A9%A7%EB%8F%8C.jpg?alt=media&token=d3e00825-d8f7-4ff0-aae5-2958b8c2d383",
+      "year": "70's",
+      "id": 3
     },
     {
-      "username": "adddasd",
-      "password": "12312312",
-      "password2": "12312312",
-      "nickname": "방금2",
-      "id": 21
+      "title": "제모기야야ㅑ",
+      "content": "우애애애애",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%ED%95%B4%EC%82%90%EB%A3%A8%EC%82%90.jpg?alt=media&token=881f5c06-9cf4-4a0c-a6e1-55045a3492dc",
+      "id": 4
     },
     {
-      "username": "adddasd",
-      "password": "12312312",
-      "password2": "12312312",
-      "nickname": "방금2",
-      "id": 22
-    },
-    {
-      "username": "adddasda",
-      "password": "12312312",
-      "password2": "12312312",
-      "nickname": "방금3",
-      "id": 23
-    },
-    {
-      "title": "제목지게",
-      "content": "내용지이",
-      "url": "blob:http://localhost:3000/2cd53dd8-8261-44ac-88f0-01326517d8f7",
-      "year": "",
-      "id": 24
-    },
-    {
-      "title": "제목지게",
-      "content": "내용지이",
-      "url": "blob:http://localhost:3000/2cd53dd8-8261-44ac-88f0-01326517d8f7",
-      "year": "",
-      "id": 25
-    },
-    {
-      "title": "제목지게",
-      "content": "내용지이",
-      "url": "blob:http://localhost:3000/a0bd5ce8-4605-4ec0-b336-3cd12132532d",
-      "year": "",
-      "id": 26
-    },
-    {
-      "title": "그ㅡ르제모구",
-      "content": "그르내요ㅕㅛ유ㅜ",
-      "url": "blob:http://localhost:3000/1cd49c63-5990-4a03-a085-6264570b4cd4",
-      "year": "",
-      "id": 27
-    },
-    {
-      "title": "글의젭ㅁ고",
-      "content": "우러아니디",
-      "url": "blob:http://localhost:3000/2b408464-4383-4c43-8a58-299b2ac29dc2",
+      "title": "글의제목",
+      "content": "내용내용",
+      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%EB%A9%A7%EB%8F%8C.jpg?alt=media&token=242866c0-2f47-40fa-a290-f66d1d6692a4",
       "year": "90's",
-      "id": 28
-    },
-    {
-      "title": "오리돌보리",
-      "content": "도리오비보리",
-      "url": "blob:http://localhost:3000/f1d56e40-a4db-40d0-8f0a-1bbbbf547979",
-      "year": "00's",
-      "id": 29
+      "id": 5
     }
   ]
 }
