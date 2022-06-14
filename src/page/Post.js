@@ -11,6 +11,7 @@ import Header from '../component/header';
 const Post = () => {
   const navigate = useNavigate()
   const fileInputRef = React.useRef();
+  const dispatch = useDispatch()
 
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
@@ -43,12 +44,18 @@ const Post = () => {
     e.preventDefault();
 
 
-    await apis.addPost({
+    dispatch(createPostJson({
       title: title,
       content: content,
       url: fileInputRef.current?.url,
       year: age,
-    });
+    }))
+    // await apis.addPost({
+    //   title: title,
+    //   content: content,
+    //   url: fileInputRef.current?.url,
+    //   year: age,
+    // });
   };
   //년도대 설정
   const [age, setAge] = useState();
