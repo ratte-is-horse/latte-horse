@@ -56,6 +56,7 @@
 .today {
 font-size: 12px;
 padding-bottom: 8px;
+
 }
 .zero {
 color: red;
@@ -143,16 +144,16 @@ display: flex;
   font-weight: 900;
   font-size: 20px;
 }
-
+/* header 바 */
 .wrapper__right__setting{
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
 }
 /* 메인메인 */
 .wrapper__right__body{
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 50px;
+  padding: 20px 50px 50px 50px;
   width: 1350px;
   height: 1100px;
   background-color: white;
