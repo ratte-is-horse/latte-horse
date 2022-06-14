@@ -4,6 +4,7 @@ import apis from "../api/index";
 import { storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
+import { async } from "@firebase/util";
 
 const Post = () => {
   const navigate = useNavigate()
@@ -23,17 +24,6 @@ const Post = () => {
     // ref로도 확인해봅시다. :)
     console.log(fileInputRef.current.files[0]);
 
-    const uploaded_file = await uploadBytes(
-      ref(storage, `addimages/${e.target.files[0].name}`),
-      e.target.files[0]
-    );
-    // console.log(uploaded_file);
-
-    const file_url = await getDownloadURL(uploaded_file.ref);
-
-    console.log(file_url);
-    fileInputRef.current = { url: file_url };
-
   };
 
   const postNew = async (e) => {
@@ -48,9 +38,24 @@ const Post = () => {
       year: age,
     });
   };
+
+  //년도대 설정
   const [age, setAge] = useState();
   const handleChange = (event) => {
     setAge(event.target.value);
+
+    
+    const uploaded_file =async (e)=> {await uploadBytes(
+      ref(storage, `addimages/${e.target.files[0].name}`),
+      e.target.files[0]
+    );
+    // console.log(uploaded_file);
+
+    const file_url = await getDownloadURL(uploaded_file.ref);
+
+    console.log(file_url);
+    fileInputRef.current = { url: file_url };}
+
   };
 
   // 파일 삭제
@@ -96,20 +101,23 @@ const Post = () => {
             ref={fileInputRef}
             onChange={saveFileImage}
           />
+          <div style={{fontSize:"10px", color:"tomato"}}>사진변경하지 말아주세요 오류생겨요...😭</div>
           <form>
             <select onChange={handleChange}>
+              <option value="70's">10's</option>
               <option value="00's">00's</option>
               <option value="90's">90's</option>
               <option value="80's">80's</option>
-              <option value="70's">70's</option>
             </select>
           </form>
           <div>{age}</div>
         </div>
       </div>
-      <Button onClick={postNew} type="submit">
+      <div>
+      <button onClick={postNew} type="submit">
         등록하기
-      </Button>
+      </button>
+      </div>
     </>
   );
 };

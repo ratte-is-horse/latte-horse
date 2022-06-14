@@ -2,14 +2,8 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { getCookie } from "../shared/Cookie";
 
 const Main = () => {
-  const onCookie = (event) => {
-    event.preventDefault();
-    getCookie("token");
-  };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     e.persist();
@@ -46,24 +40,9 @@ const Main = () => {
   return (
 
     <>
-      메인화면 이겠지요ㅕ
-
-
-      <Link to="/login"><button>로그인</button></Link>
-      <Link to="/signup"><button>회원가입</button></Link>
-      <Link to="/post" ><Footer>글쓰러가기</Footer></Link>
+      메인화면입니다.
     </>
 
   );
 };
 export default Main;
-
-const Footer = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 80%;
-  margin-bottom: 60px;
-  height: 90px;
-  width: 110px;
-  background-color: tomato;
-`;

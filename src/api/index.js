@@ -3,13 +3,13 @@ import axios from "axios";
 // Axios Instance를 생성:: 인스턴스를 이용하면 코드 중복을 최소화 할 수 있다.
 
 const api = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "http://52.79.226.242",
   // http://localhost:4000
   //http://52.79.226.242
   headers: {
     'content-type': 'application/json;charset=UTF-8',
     accept: 'application/json,',
-    
+
   },
 });
 
