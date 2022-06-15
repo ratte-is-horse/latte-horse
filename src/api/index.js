@@ -9,7 +9,7 @@ const api = axios.create({
   //http://52.79.226.242
   headers: {
     authorization: `${getCookie("token")}`,
-    
+
   },
 });
 
@@ -39,10 +39,10 @@ const apis = {
   getPosts: () => api.get("/api/boards"),
   getPost: (id) => api.get(`/users/${id}`),
 
-  //
+  //comment
   addComment: (boardId, comments) => api.post(`/api/board/${boardId}/comment/write`, comments),
-  editComment: (id, comments) => api.post(`/posts/${id}`, comments),
-  delComment: (id) => api.delete(`/users/${id}`),
+  editComment: (boardId, commentId, comments) => api.post(`/api/board/${boardId}/comment/${commentId}`, comments),
+  delComment: (boardId, commentId) => api.delete(`/api/board/${boardId}/comment/${commentId}`),
   getComments: (boardId) => api.get(`/api/board/${boardId}/comments`),
 }
 

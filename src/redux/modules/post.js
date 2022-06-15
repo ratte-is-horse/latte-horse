@@ -25,7 +25,8 @@ export function loadPosts(payload) {
 }
 
 export function loadId() {
-  return { type: LOAD_ID };}
+  return { type: LOAD_ID };
+}
 
 
 
@@ -59,17 +60,18 @@ export const loadPostJson = () => {
 
 export const loadIdJson = (id) => {
   return async function (dispatch) {
-    try{
-      const {data} = await apis.getPost(id)
+    try {
+      const { data } = await apis.getPost(id)
       dispatch(loadId(data))
-    }catch(e){
+    } catch (e) {
       console.log('오류')
     }
   };
 };
 
 export const loadPostsJson = () => {
-  return async function (dispatch) {}}
+  return async function (dispatch) { }
+}
 
 
 export const createPostJson = (post) => {
@@ -93,10 +95,10 @@ export const updatePostJson = () => {
 };
 
 export const deletePostJson = (id) => {
-  return async function (dispatch, getState) { 
-    try{
+  return async function (dispatch, getState) {
+    try {
       await apis.delPost(id)
-    }catch(e){
+    } catch (e) {
       alert('본인 글만 삭제 가능합니다.')
     }
   };
@@ -108,7 +110,7 @@ export default function Post_reducer(state = intialstate, action) {
 
   switch (action.type) {
     case LOAD_POSTS:
-   
+
       // return { ...state, list: action.payload };
       return { list: action.payload }
     // case "post_reducer/LOAD": {
@@ -116,7 +118,7 @@ export default function Post_reducer(state = intialstate, action) {
     // }
     case CREATE_POST: {
       console.log("리듀서 돌리는중이야");
-      return { list:  [...state.list, action.post] }
+      return { list: [action.post, ...state.list] }
     }
 
     default:

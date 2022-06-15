@@ -19,14 +19,13 @@ const Main = () => {
   return (
     <>
       <Header />
-      {PostReducer?.map((item,index) => {
+      {PostReducer?.map((item, index) => {
         return (
           <div key={index}>
-           <Card 
-           item={item} 
-           key={item.id}      
-          />
-
+            <Card
+              item={item}
+              key={item.id}
+            />
           </div>
         );
       })}
