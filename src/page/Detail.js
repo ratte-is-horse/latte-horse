@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Header from '../component/header';
 import styled from "styled-components";
 import Comments from './Comments'
+import apis from "../api/index";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCommentJson } from '../redux/modules/comments'
@@ -9,48 +10,56 @@ import { loadPostJson, loadIdJson } from '../redux/modules/post'
 
 const Detail = (props) => {
 
-  const [is_login, setIsLogin] = React.useState(false);
-  const [is_user, setIsUser] = React.useState(false);
-
-  const { id } = useParams()
+  const params = useParams();
   const dispatch = useDispatch()
   //post관련
   const posts = useSelector((store) => store.post.list)
-  const post = posts.filter((value) => value.id === id)
+  // const post = posts.filter((value) => value.id === id)
   //comment관련
   const comments = useSelector((store) => store.comment.comments);
   // const comment = comments.filter((value)=>value.post_id)===id
-  console.log(post)
+  console.log(posts)
+  const index = params.index -1
+useEffect(()=>{
+  dispatch(loadPostJson())
+},[dispatch])
 
-  console.log(id)
+  ///하트값 어떤식으로 받아오지?
 
-  useEffect(() => {
-    dispatch(loadPostJson());
-    dispatch(loadIdJson(id))
-    dispatch(loadCommentJson(id))
-  }, [id])
-
-
-
-
-
-
+  // if(heart){ 
+  //    return (
+  //   <div>
+  //     <Header />
+  //     <Wrap>
+  //       <TitleWrap>
+  //         <Title>title {posts[id].title}</Title>
+  //         <Nickname>nickname</Nickname>
+  //       </TitleWrap>
+  //       <Image src={posts[id].url}></Image>
+  //       <Content>{posts[id].content}</Content>
+  //           <div>❤️</div>
+  //     </Wrap>
+  //     <Comments />
+  //   </div>
+  // )
+  // }else{
   return (
     <div>
       <Header />
       <Wrap>
         <TitleWrap>
-          <Title>title ({post.title})</Title>
-          <Nickname>nickname({post.nickname})</Nickname>
+          <Title>title {posts[index].title}</Title>
+          <Nickname>nickname</Nickname>
         </TitleWrap>
-        <Image src="https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%EB%A9%A7%EB%8F%8C.jpg?alt=media&token=d3e00825-d8f7-4ff0-aae5-2958b8c2d383"></Image>
-        <Content>이자리는 내용이 들어갈 자리야</Content>
-        <div>🤍or❤️</div>
+        <Image src={posts[index].url}></Image>
+        <Content>{posts[index].content}</Content>
+        <div>🤍</div>
       </Wrap>
       <Comments />
-
     </div>
   )
+
+  // }
 
 };
 
@@ -84,5 +93,7 @@ const Content = styled.div`
 border: 1px solid grey;
 width: 40%;
 `
+const Heart = styled.div`
 
+`
 export default Detail;

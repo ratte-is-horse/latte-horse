@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loadPostJson } from "../redux/modules/post";
 import { useSelector } from "react-redux";
 
+
 const Main = () => {
   const dispatch = useDispatch();
 
@@ -18,11 +19,15 @@ const Main = () => {
   return (
     <>
       <Header />
-      {PostReducer?.map((item) => {
+      {PostReducer?.map((item,index) => {
         return (
-          <>
-            <Card item={item} key={item.id} />
-          </>
+          <div key={index}>
+           <Card 
+           item={item} 
+           key={item.id}      
+          />
+
+          </div>
         );
       })}
 
