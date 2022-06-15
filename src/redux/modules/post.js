@@ -92,8 +92,14 @@ export const updatePostJson = () => {
   return async function (dispatch) { };
 };
 
-export const deletePostJson = () => {
-  return async function (dispatch) { };
+export const deletePostJson = (id) => {
+  return async function (dispatch, getState) { 
+    try{
+      await apis.delPost(id)
+    }catch(e){
+
+    }
+  };
 };
 /* ----------------- 리듀서 ------------------ */
 
@@ -102,16 +108,15 @@ export default function Post_reducer(state = intialstate, action) {
 
   switch (action.type) {
     case LOAD_POSTS:
-      return { ...state, list: action.payload };
-
+   
+      // return { ...state, list: action.payload };
+      return { list: action.payload }
     // case "post_reducer/LOAD": {
     //   return { ...state, post_list: action.list };
     // }
     case CREATE_POST: {
       console.log("리듀서 돌리는중이야");
-      const new_post_list = [...state.list, action.post];
-      console.log(new_post_list)
-      return { list: new_post_list }
+      return { list:  [...state.list, action.post] }
     }
 
     default:

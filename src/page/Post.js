@@ -56,7 +56,7 @@ const Post = () => {
         url: fileInputRef.current?.url,
         year: age,
       })
-      .then((res) => {
+      .then((res) => { //res의 타이틀 이런식으로바꿔줘야함
         dispatch(createPostJson({
           title: title,
           content: content,
