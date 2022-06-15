@@ -24,7 +24,7 @@ const Main = () => {
           <div key={index}>
             <Card
               item={item}
-              key={item.id}
+              id={item.id}
             />
           </div>
         );

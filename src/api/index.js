@@ -8,17 +8,16 @@ const api = axios.create({
   // http://localhost:4000
   //http://52.79.226.242
   headers: {
-    authorization: `${getCookie("token")}`,
+    // authorization: `${getCookie("token")}`,
 
   },
 });
 
-// api.interceptors.request.use(
-//   function (config) {
-//     const accessToken = document.cookie.split("=")[1];
-//     config.headers.authorization[X-AUTH-TOKEN] = `BEARER ${accessToken}`;
-//     return config;
-//   }
+api.interceptors.request.use(
+  function (config) {
+    config.headers.common['authorization'] = `${getCookie("token")}`;
+    return config;
+  })
 // ,
 // function (error) {
 //     // 요청 에러 직전 호출됩니다.
@@ -40,10 +39,10 @@ const apis = {
   getPost: (id) => api.get(`/users/${id}`),
 
   //comment
-  addComment: (boardId, comments) => api.post(`/api/board/${boardId}/comment/write`, comments),
-  editComment: (boardId, commentId, comments) => api.post(`/api/board/${boardId}/comment/${commentId}`, comments),
-  delComment: (boardId, commentId) => api.delete(`/api/board/${boardId}/comment/${commentId}`),
-  getComments: (boardId) => api.get(`/api/board/${boardId}/comments`),
+  addComment: (id, comments) => api.post(`/api/board/${id}/comment/write`, comments),
+  editComment: (id, commentId, comments) => api.post(`/api/board/${id}/comment/${commentId}`, comments),
+  delComment: (id, commentId) => api.delete(`/api/board/${id}/comment/${commentId}`),
+  getComments: (id) => api.get(`/api/board/${id}/comments`),
 }
 
 export default apis;
