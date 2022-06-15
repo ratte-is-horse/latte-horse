@@ -75,8 +75,8 @@ export default function Post_reducer(state = intialstate, action) {
 
   switch (action.type) {
     case LOAD_POSTS:
-      return { ...state, list: action.payload };
-
+      return { list: action.payload };
+      console.log(state.list);
     case "post_reducer/LOAD": {
       return { ...state, post_list: action.list };
     }
