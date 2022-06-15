@@ -97,7 +97,7 @@ export const deletePostJson = (id) => {
     try{
       await apis.delPost(id)
     }catch(e){
-
+      alert('본인 글만 삭제 가능합니다.')
     }
   };
 };

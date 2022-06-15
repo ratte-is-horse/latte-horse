@@ -55,7 +55,7 @@ const Comments = () => {
           return (
             <div key={index}>
               <Comment>
-                {/* <Nickname >{item?.nickname}</Nickname> */}
+                <Nickname >{item?.years}</Nickname>
                 <Title>{item?.title}</Title>
               </Comment>
             </div>
