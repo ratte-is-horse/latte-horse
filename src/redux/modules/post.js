@@ -4,11 +4,11 @@ import apis from "../../api/index";
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
   list: [],
+  detail_list: [],
 };
-console.log(list);
 /* ----------------- 액션 타입 ------------------ */
 
-const LOAD_POST = "post_reducer/LOAD";
+const LOAD_DETAIL = "post_reducer/LOAD";
 const LOAD_ID = "post_reducer/LOAD_Id";
 const LOAD_POSTS = "post_reducer/LOAD";
 const CREATE_POST = "post_reducer/CREATE";
@@ -25,8 +25,8 @@ export function loadId() {
   return { type: LOAD_ID };
 }
 
-export function loadPost() {
-  return { type: LOAD_POST };
+export function loadDetail(loadDetailData) {
+  return { type: LOAD_DETAIL, loadDetailData };
 }
 
 export function createPost(post) {
@@ -52,19 +52,23 @@ export const loadPostJson = () => {
   };
 };
 
-export const loadIdJson = (id) => {
-  return async function (dispatch) {
-    try {
-      const { data } = await apis.getPost(id);
-      dispatch(loadId(data));
-    } catch (e) {
-      console.log("오류");
-    }
-  };
-};
+// export const loadIdJson = (id) => {
+//   return async function (dispatch) {
+//     try {
+//       const { data } = await apis.getPost(id);
+//       dispatch(loadId(data));
+//     } catch (e) {
+//       console.log("오류");
+//     }
+//   };
+// };
 
-export const loadPostsJson = () => {
-  return async function (dispatch) {};
+export const loadDetailJson = (id) => {
+  return async function (dispatch) {
+    const DetailData = await apis.getDetail(id);
+    console.log(DetailData.data);
+    // dispatch(loadDetail(loadDetailData));
+  };
 };
 
 export const createPostJson = (post) => {
@@ -90,8 +94,11 @@ export const updatePostJson = () => {
 export const deletePostJson = (params) => {
   return async function (dispatch) {
     try {
-      const delpost = await apis.delPost(Number(params.index));
-    } catch (e) {}
+      const deletePost = await apis.delPost(Number(params.index));
+      console.log(deletePost);
+    } catch (e) {
+      console.log("오류");
+    }
   };
 };
 /* ----------------- 리듀서 ------------------ */
@@ -109,7 +116,9 @@ export default function Post_reducer(state = intialstate, action) {
       console.log(new_post_list);
       return { list: new_post_list };
     }
-
+    // case LOAD_DETAIL: {
+    //   return { list: action.payload };
+    // }
     default:
       return state;
   }

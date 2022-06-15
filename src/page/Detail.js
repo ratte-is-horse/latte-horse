@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadCommentJson } from "../redux/modules/comments";
 import {
-  loadPostJson,
+  loadDetailJson,
   loadIdJson,
   deletePostJson,
   updatePostJson,
@@ -25,47 +25,19 @@ const Detail = () => {
   const navigate = useNavigate();
   //post관련
   const posts = useSelector((store) => store.post.list);
-  const number = useSelector((store) => store.post.list.id);
+  // const number = useSelector((store) => store.post.list.id);
   // const post = posts.filter((value) => value.id === id)
   //comment관련
   const comments = useSelector((store) => store.comment.comments);
   // const comment = comments.filter((value)=>value.post_id)===id
 
-  console.log(number);
-  const index = number.index - 1;
+  // console.log(number);
+  const index = id.index - 1;
   console.log(index);
   useEffect(() => {
-    dispatch(loadPostJson());
-  }, []);
+    dispatch(loadDetailJson(Number(id)));
+  }, [dispatch]);
 
-  // //로그인확인  (1. 불필요 예상)
-  //   const cookie = getCookie("token");
-  //   const [is_cookie, setCookie] = React.useState(false);
-  //   React.useEffect(() => {
-  //     if (cookie !== undefined) {
-  //       return setCookie(true);
-  //     }
-  //   }, []);
-
-  ///하트값 어떤식으로 받아오지?
-
-  // if(heart){
-  //    return (
-  //   <div>
-  //     <Header />
-  //     <Wrap>
-  //       <TitleWrap>
-  //         <Title>title {posts[id].title}</Title>
-  //         <Nickname>nickname</Nickname>
-  //       </TitleWrap>
-  //       <Image src={posts[id].url}></Image>
-  //       <Content>{posts[id].content}</Content>
-  //           <div>❤️</div>
-  //     </Wrap>
-  //     <Comments />
-  //   </div>
-  // )
-  // }else{
   return (
     <div>
       <Header />
@@ -78,8 +50,7 @@ const Detail = () => {
         <Content>{posts[index].content}</Content>
         <div>🤍</div>
       </Wrap>
-      {/* <Comments /> */}
-      {/* {is_cookie && posts[index].username==='쿠키속유저네임'?( */}
+
       <>
         <button
           onClick={() => {
@@ -96,20 +67,9 @@ const Detail = () => {
         </button>
         <button>수정하기</button>
       </>
-      {/* ):('')} */}
     </div>
   );
-
-  // }
 };
-
-// const result = window.confirm("정말 삭제할까요?");
-// if (result) {
-//   dispatch(deletePostJson(params));
-// }
-// console.log(params);
-// navigate("/");
-// }}
 
 const Wrap = styled.div`
   border: 1px solid grey;

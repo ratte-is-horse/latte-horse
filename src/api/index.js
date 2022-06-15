@@ -7,11 +7,24 @@ const api = axios.create({
   baseURL: "http://52.79.226.242",
   // http://localhost:4000
   //http://52.79.226.242
-  headers: {
-    authorization: `${getCookie("token")}`,
-  },
+
+  //1. ?? 아래 이것만 있을 때 왜 안 되는지 이유 찾아내기
+  // headers: {
+  //   authorization: `${getCookie("token")}`,
+  // },
+  //
 });
 
+api.interceptors.request.use(
+  (config) => {
+    const token = getCookie("token");
+    config.headers.Authorization = token;
+    return config;
+  },
+  (error) => {
+    console.log(error);
+  }
+);
 // api.interceptors.request.use(
 //   function (config) {
 //     const accessToken = document.cookie.split("=")[1];
@@ -36,7 +49,7 @@ const apis = {
   editPost: (id, contents) => api.post(`/posts/${id}`, contents),
   delPost: (id) => api.delete(`/api/board/${id}`),
   getPosts: () => api.get("/api/boards"),
-  getPost: (id) => api.get(`/users/${id}`),
+  getDetail: (id) => api.get(`/api/board/${id}`),
 
   //
   // addComment: (comments) =>
