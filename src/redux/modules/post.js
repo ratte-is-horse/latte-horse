@@ -87,8 +87,12 @@ export const updatePostJson = () => {
   return async function (dispatch) {};
 };
 
-export const deletePostJson = () => {
-  return async function (dispatch) {};
+export const deletePostJson = (params) => {
+  return async function (dispatch) {
+    try {
+      const delpost = await apis.delPost(Number(params.index));
+    } catch (e) {}
+  };
 };
 /* ----------------- 리듀서 ------------------ */
 

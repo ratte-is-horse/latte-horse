@@ -3,32 +3,49 @@ import Header from "../component/header";
 import styled from "styled-components";
 import Comments from "./Comments";
 import apis from "../api/index";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadCommentJson } from "../redux/modules/comments";
-import { loadPostJson, loadIdJson } from "../redux/modules/post";
+import {
+  loadPostJson,
+  loadIdJson,
+  deletePostJson,
+  updatePostJson,
+} from "../redux/modules/post";
+
+//로그인확인 (1.이 부분 헤더 때문에 필요없을 걸로 예상)
+// import { getCookie } from "../shared/Cookie";
+// import { deleteCookie } from "../shared/Cookie";
 
 const Detail = () => {
-  const params = useParams();
-  const index = params.index - 1;
+  const id = useParams();
+  console.log(id);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   //post관련
-
-  // 이건 랜더링 이후에만 작동하는 거니 서버연결해서 데이터만 가져올 상황 만들어놔야함.
-  useEffect(() => {
-    dispatch(loadPostJson());
-  }, [dispatch]);
-
-  useEffect(() => {}, []);
-
   const posts = useSelector((store) => store.post.list);
+  const number = useSelector((store) => store.post.list.id);
   // const post = posts.filter((value) => value.id === id)
   //comment관련
   const comments = useSelector((store) => store.comment.comments);
   // const comment = comments.filter((value)=>value.post_id)===id
-  console.log(posts);
 
-  // 이건 만약 새로고침 했을 때 가져올 데이터
+  console.log(number);
+  const index = number.index - 1;
+  console.log(index);
+  useEffect(() => {
+    dispatch(loadPostJson());
+  }, []);
+
+  // //로그인확인  (1. 불필요 예상)
+  //   const cookie = getCookie("token");
+  //   const [is_cookie, setCookie] = React.useState(false);
+  //   React.useEffect(() => {
+  //     if (cookie !== undefined) {
+  //       return setCookie(true);
+  //     }
+  //   }, []);
 
   ///하트값 어떤식으로 받아오지?
 
@@ -61,12 +78,38 @@ const Detail = () => {
         <Content>{posts[index].content}</Content>
         <div>🤍</div>
       </Wrap>
-      <Comments />
+      {/* <Comments /> */}
+      {/* {is_cookie && posts[index].username==='쿠키속유저네임'?( */}
+      <>
+        <button
+          onClick={() => {
+            const result = window.confirm("정말 삭제할까요?");
+            if (result) {
+              dispatch(deletePostJson(id));
+
+              console.log(id);
+              navigate("/");
+            }
+          }}
+        >
+          삭제하기
+        </button>
+        <button>수정하기</button>
+      </>
+      {/* ):('')} */}
     </div>
   );
 
   // }
 };
+
+// const result = window.confirm("정말 삭제할까요?");
+// if (result) {
+//   dispatch(deletePostJson(params));
+// }
+// console.log(params);
+// navigate("/");
+// }}
 
 const Wrap = styled.div`
   border: 1px solid grey;

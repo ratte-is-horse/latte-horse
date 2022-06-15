@@ -13,8 +13,8 @@ const UPDATE_COMMENT = "comment_reducer/UPDATE";
 const REMOVE_COMMENT = "comment_reducer/REMOVE";
 
 /* ----------------- 액션 생성 함수 ------------------ */
-export function loadComment() {
-  return { type: LOAD_COMMENT };
+export function loadComment(comment) {
+  return { type: LOAD_COMMENT, comment };
 }
 
 export function createComment(comment) {
@@ -31,18 +31,23 @@ export function removeComment(comment) {
 
 /* ----------------- 미들웨어 ------------------ */
 export const loadCommentJson = () => {
-  return async function (dispatch) { };
+  return async function (dispatch) {
+    const loadData = await apis.getComments();
+    dispatch(loadComment(loadData.data));
+  };
 };
-export const createCommentJson = (user) => {
-  return async function (dispatch) { };
+export const createCommentJson = (comment) => {
+  return async function (dispatch) {
+    dispatch(createComment(comment));
+  };
 };
 
-export const updateCommentJson = () => {
-  return async function (dispatch) { };
+export const updateCommentJson = (comment) => {
+  return async function (dispatch) {};
 };
 
 export const deleteCommentJson = () => {
-  return async function (dispatch) { };
+  return async function (dispatch) {};
 };
 
 /* ----------------- 리듀서 ------------------ */
@@ -52,8 +57,10 @@ export default function Comment_reducer(state = intialstate, action) {
 
   switch (action.type) {
     case LOAD_COMMENT:
-      return { ...state, comment_list: action.list };
+      return { comment_list: action.comment };
 
+    case CREATE_COMMENT:
+      return { ...state, comment_list: action.comment };
     default:
       return state;
   }

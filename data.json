@@ -1,40 +1,6 @@
 {
   "users": [
     {
-      "title": "죽게서요",
-      "content": "죽게서요",
-      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F93709757_146852550184394_4529492490549460992_n.png?alt=media&token=d95214e8-2ccf-436a-a331-df5f501f23c8",
-      "year": "80's",
-      "id": 1
-    },
-    {
-      "title": "빙글빙글돌아가는",
-      "content": "멧돌",
-      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%EB%A9%A7%EB%8F%8C.jpg?alt=media&token=d3e00825-d8f7-4ff0-aae5-2958b8c2d383",
-      "year": "70's",
-      "id": 2
-    },
-    {
-      "title": "",
-      "content": "",
-      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%EB%A9%A7%EB%8F%8C.jpg?alt=media&token=d3e00825-d8f7-4ff0-aae5-2958b8c2d383",
-      "year": "70's",
-      "id": 3
-    },
-    {
-      "title": "제모기야야ㅑ",
-      "content": "우애애애애",
-      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%ED%95%B4%EC%82%90%EB%A3%A8%EC%82%90.jpg?alt=media&token=881f5c06-9cf4-4a0c-a6e1-55045a3492dc",
-      "id": 4
-    },
-    {
-      "title": "글의제목",
-      "content": "내용내용",
-      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse.appspot.com/o/addimages%2F%EB%A9%A7%EB%8F%8C.jpg?alt=media&token=242866c0-2f47-40fa-a290-f66d1d6692a4",
-      "year": "90's",
-      "id": 5
-    },
-    {
       "title": "asada",
       "content": "qsdzxc",
       "year": "00's",
@@ -59,15 +25,6 @@
       "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2F%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.png?alt=media&token=98615faa-74f2-41d7-9edd-a4026c010a89",
       "year": "00's",
       "id": 9
-
-    },
-    {
-      "title": "asdnasd",
-      "content": "aslkndaksdj",
-      "url": "https://firebasestorage.googleapis.com/v0/b/latte-horse2.appspot.com/o/addimages%2F19e7c541d4f5ee5439c8ee2a810e5631.jpg?alt=media&token=85aff0a5-770b-42e0-9c84-f636d7a8355c",
-      "year": "80's",
-      "id": 10
     }
-  
   ]
 }

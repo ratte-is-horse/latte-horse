@@ -52,25 +52,28 @@ const Post = () => {
     const res = await apis
       .addPost({
         title: title,
-        content: content,
+        contents: content,
         url: fileInputRef.current?.url,
         year: age,
       })
       .then((res) => {
-        dispatch(createPostJson({
-          title: title,
-          content: content,
-          url: fileInputRef.current?.url,
-          year: age,
-        }))
+        //res의 타이틀 이런식으로바꿔줘야함
+        dispatch(
+          createPostJson({
+            title: title,
+            contents: content,
+            url: fileInputRef.current?.url,
+            year: age,
+          })
+        );
         // dispatch(createPostJson(res.data)); 서버오픈시 시도
-        window.alert('등록성공')
+        window.alert("등록성공");
       })
       .catch((err) => {
-        alert('등록실패요')
-      })
+        alert("등록실패요");
+      });
 
-    navigate('/')
+    navigate("/");
 
     //   });
     //   dispatch(createPostJson(res));

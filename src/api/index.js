@@ -4,11 +4,11 @@ import { getCookie } from "../shared/Cookie";
 // Axios Instance를 생성:: 인스턴스를 이용하면 코드 중복을 최소화 할 수 있다.
 
 const api = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "http://52.79.226.242",
   // http://localhost:4000
   //http://52.79.226.242
   headers: {
-    authorization: `BEARER ${getCookie("token")}`,
+    authorization: `${getCookie("token")}`,
   },
 });
 
@@ -32,11 +32,18 @@ const apis = {
   postLogin: (userdata) => api.post("/api/user/login", userdata),
 
   //post
-  addPost: (contents) => api.post("/users", contents),
+  addPost: (contents) => api.post("/api/board/write", contents),
   editPost: (id, contents) => api.post(`/posts/${id}`, contents),
-  delPost: (id) => api.delete(`/posts/${id}`),
-  getPosts: () => api.get("/users"),
+  delPost: (id) => api.delete(`/api/board/${id}`),
+  getPosts: () => api.get("/api/boards"),
   getPost: (id) => api.get(`/users/${id}`),
+
+  //
+  // addComment: (comments) =>
+  //   api.post(`"/api/board/${boardId}/comment/write"`, comments),
+  // editComment: (id, comments) => api.post(`/posts/${id}`, comments),
+  // delComment: (id) => api.delete(`/users/${id}`),
+  // getComments: () => api.get("/users"),
 };
 
 export default apis;
