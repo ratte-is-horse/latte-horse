@@ -33,10 +33,10 @@ const apis = {
 
   //post
   addPost: (contents) => api.post("/users", contents),
-  editPost: (id, contents) => api.post(`posts/${id}`, contents),
-  delPost: (id) => api.delete(`posts/${id}`),
+  editPost: (id, contents) => api.post(`/posts/${id}`, contents),
+  delPost: (id) => api.delete(`/posts/${id}`),
   getPosts: () => api.get("/users"),
-  getPost: (id) => api.get(`posts/${id}`),
+  getPost: (id) => api.get(`/users/${id}`),
 };
 
 export default apis;

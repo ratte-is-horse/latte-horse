@@ -18,7 +18,7 @@ const Main = () => {
   return (
     <>
       <Header />
-      {PostReducer?.map((item) => {
+      {PostReducer?.map((item, index) => {
         return (
           <>
             <Card item={item} key={item.index} />

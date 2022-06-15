@@ -31,23 +31,23 @@ export function removeComment(comment) {
 
 /* ----------------- 미들웨어 ------------------ */
 export const loadCommentJson = () => {
-  return async function (dispatch) {};
+  return async function (dispatch) { };
 };
 export const createCommentJson = (user) => {
-  return async function (dispatch) {};
+  return async function (dispatch) { };
 };
 
 export const updateCommentJson = () => {
-  return async function (dispatch) {};
+  return async function (dispatch) { };
 };
 
 export const deleteCommentJson = () => {
-  return async function (dispatch) {};
+  return async function (dispatch) { };
 };
 
 /* ----------------- 리듀서 ------------------ */
 
-export default function COMMENT_reducer(state = intialstate, action) {
+export default function Comment_reducer(state = intialstate, action) {
   // 새로운 액션 타입 추가시 case 추가한다.
 
   switch (action.type) {
