@@ -8,11 +8,11 @@ const Card = ({ item ,id }) => {
   return (
    
       <div>
-        <title>{item[id]?.title}</title>
-        <div>{item[id]?.contents}</div>
-        <div>{item[id]?.id}</div>
-        <div>{item[id]?.year}</div>
-        <Link to={`/detail/${id}`}> <img src={`${item[id]?.url}`} /></Link>
+        <title>{item?.title}</title>
+        <div>{item?.contents}</div>
+        <div>{item?.id}</div>
+        <div>{item?.year}</div>
+        <Link to={`/detail/${item.id}`}> <img src={`${item?.url}`} /></Link>
       </div>
 
   );

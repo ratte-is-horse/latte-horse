@@ -58,28 +58,20 @@ const Post = () => {
       })
       .then((res) => { //res의 타이틀 이런식으로바꿔줘야함
         dispatch(createPostJson({
-          title: title,
-          contents: content,
-          url: fileInputRef.current?.url,
-          year: age,
+          id: res.id,
+          title: res.title,
+          contents: res.content,
+          url: res.url,
+          year: res.age,
         }))
         // dispatch(createPostJson(res.data)); 서버오픈시 시도
         window.alert('등록성공')
+         navigate('/')
       })
       .catch((err) => {
-        alert('등록실패요')
+        alert('로그인 후 작성해주세요')
+        navigate("/login")
       })
-
-    navigate('/')
-
-    //   });
-    //   dispatch(createPostJson(res));
-    //   window.alert("등록성공");
-    // } catch (err) {
-    //   alert("등록실패요");
-    // }
-
-    // navigate("/");
   };
   //년도대 설정
   const [age, setAge] = useState();

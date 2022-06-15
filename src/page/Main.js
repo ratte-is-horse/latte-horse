@@ -10,7 +10,7 @@ const Main = () => {
   const dispatch = useDispatch();
 
   const PostReducer = useSelector((state) => state.post.list);
-  console.log(PostReducer);
+  console.log(PostReducer.id);
 
   useEffect(() => {
     dispatch(loadPostJson());
@@ -20,15 +20,19 @@ const Main = () => {
     <>
       <Header />
       {PostReducer?.map((item, index) => {
+        console.log(item.id)
         return (
           <div key={index}>
             <Card
               item={item}
-              id={item.id}
+
+              
             />
           </div>
         );
-      })}
+      }
+      )
+      }
 
     </>
   );
