@@ -21,8 +21,8 @@ export function createComment(comment) {
   return { type: CREATE_COMMENT, comment };
 }
 
-export function updateComment(comment) {
-  return { type: UPDATE_COMMENT, comment };
+export function updateComment(comment ,id) {
+  return { type: UPDATE_COMMENT, comment, id };
 }
 
 export function removeComment(comment) {
@@ -30,10 +30,13 @@ export function removeComment(comment) {
 }
 
 /* ----------------- 미들웨어 ------------------ */
-export const loadCommentJson = () => {
+export const loadCommentJson = (id) => {
   return async function (dispatch) {
-    const loadData = await apis.getComments();
-      dispatch(loadComment(loadData.data))
+    try{const loadData = await apis.getComments(id);
+      dispatch(loadComment(loadData.data))}
+      catch(e){
+        alert('댓글 어디갔어')
+      }
    };
 };
 export const createCommentJson = (comment) => {
@@ -58,8 +61,9 @@ export default function Comment_reducer(state = intialstate, action) {
   // 새로운 액션 타입 추가시 case 추가한다.
 
   switch (action.type) {
-    case LOAD_COMMENT:
-      return { comment_list: action.comment };
+    case "comment_reducer/LOAD":
+      return {...state,
+				comments: action.payload.comment, };
 
     case CREATE_COMMENT:
       return { ...state, comment_list: action.comment}

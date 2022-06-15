@@ -52,14 +52,14 @@ const Post = () => {
     const res = await apis
       .addPost({
         title: title,
-        content: content,
+        contents: content,
         url: fileInputRef.current?.url,
         year: age,
       })
       .then((res) => { //res의 타이틀 이런식으로바꿔줘야함
         dispatch(createPostJson({
           title: title,
-          content: content,
+          contents: content,
           url: fileInputRef.current?.url,
           year: age,
         }))
