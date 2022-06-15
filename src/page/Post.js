@@ -11,6 +11,7 @@ import Header from "../component/header";
 const Post = () => {
   const navigate = useNavigate();
   const fileInputRef = React.useRef();
+  const dispatch = useDispatch();
 
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
@@ -41,12 +42,26 @@ const Post = () => {
   const postNew = async (e) => {
     e.preventDefault();
 
-    await apis.addPost({
-      title: title,
-      content: content,
-      url: fileInputRef.current?.url,
-      year: age,
-    });
+    // dispatch(createPostJson({
+    //   title: title,
+    //   content: content,
+    //   url: fileInputRef.current?.url,
+    //   year: age,
+    // }))
+    try {
+      const res = await apis.addPost({
+        title: title,
+        content: content,
+        url: fileInputRef.current?.url,
+        year: age,
+      });
+      dispatch(createPostJson(res));
+      window.alert("등록성공");
+    } catch (err) {
+      alert("등록실패요");
+    }
+
+    navigate("/");
   };
   //년도대 설정
   const [age, setAge] = useState();

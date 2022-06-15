@@ -81,6 +81,7 @@ export const Upperbar = () => {
     setCookie(false);
     alert("로그아웃!");
   };
+
   return (
     <div className="wrapper__right__header">
       <Link to="/" style={{ textDecoration: "none" }}>
