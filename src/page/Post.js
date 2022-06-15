@@ -50,22 +50,30 @@ const Post = () => {
     //   url: fileInputRef.current?.url,
     //   year: age,
     // }))
-    try {
-      const res = await apis.addPost({
+
+    const res = await apis
+      .addPost({
         title: title,
         content: content,
         url: fileInputRef.current?.url,
         year: age,
-      });
-      dispatch(createPostJson(res));
-      window.alert('등록성공')
-        ;
-    }
-    catch (err) {
-      alert('등록실패요')
-    }
+      })
+      .then((res) => {
+          dispatch(createPostJson({
+            title: title,
+            content: content,
+            url: fileInputRef.current?.url,
+            year: age,
+          }))
+        // dispatch(createPostJson(res.data)); 서버오픈시 시도
+        window.alert('등록성공')
+      })
+      .catch((err) => {
+        alert('등록실패요')
+      })
 
     navigate('/')
+
   };
   //년도대 설정
   const [age, setAge] = useState();
@@ -120,10 +128,11 @@ const Post = () => {
           <div style={{ fontSize: "10px", color: "tomato" }}>사진변경하지 말아주세요 오류생겨요...😭</div>
           <form>
             <select onChange={handleChange}>
-              <option value="70's">10's</option>
-              <option value="00's">00's</option>
-              <option value="90's">90's</option>
-              <option value="80's">80's</option>
+              <option value="0">선택하세요</option>
+              <option value="2010's">2010's</option>
+              <option value="2000's">2000's</option>
+              <option value="1990's">1990's</option>
+              <option value="1980's">1980's</option>
             </select>
           </form>
           <div>{age}</div>

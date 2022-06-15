@@ -28,7 +28,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Main />} />
                     <Route path="/post" element={<Post />} />
-                    <Route path="/detail" element={<Detail />} />
+                    <Route path="/detail/:index" element={<Detail />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
                   </Routes>
