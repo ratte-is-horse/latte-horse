@@ -4,14 +4,14 @@ import apis from "../api/index";
 import { storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux"
-import { createPostJson } from "../redux/modules/post"
-import Header from '../component/header';
+import { useDispatch } from "react-redux";
+import { createPostJson } from "../redux/modules/post";
+import Header from "../component/header";
 
 const Post = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const fileInputRef = React.useRef();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
@@ -37,12 +37,10 @@ const Post = () => {
 
     // console.log(file_url);
     fileInputRef.current = { url: file_url };
-  }
+  };
 
   const postNew = async (e) => {
-
     e.preventDefault();
-
 
     // dispatch(createPostJson({
     //   title: title,
@@ -59,12 +57,12 @@ const Post = () => {
         year: age,
       })
       .then((res) => {
-          dispatch(createPostJson({
-            title: title,
-            content: content,
-            url: fileInputRef.current?.url,
-            year: age,
-          }))
+        dispatch(createPostJson({
+          title: title,
+          content: content,
+          url: fileInputRef.current?.url,
+          year: age,
+        }))
         // dispatch(createPostJson(res.data)); 서버오픈시 시도
         window.alert('등록성공')
       })
@@ -74,6 +72,14 @@ const Post = () => {
 
     navigate('/')
 
+    //   });
+    //   dispatch(createPostJson(res));
+    //   window.alert("등록성공");
+    // } catch (err) {
+    //   alert("등록실패요");
+    // }
+
+    // navigate("/");
   };
   //년도대 설정
   const [age, setAge] = useState();
@@ -125,7 +131,9 @@ const Post = () => {
             ref={fileInputRef}
             onChange={saveFileImage}
           />
-          <div style={{ fontSize: "10px", color: "tomato" }}>사진변경하지 말아주세요 오류생겨요...😭</div>
+          <div style={{ fontSize: "10px", color: "tomato" }}>
+            사진변경하지 말아주세요 오류생겨요...😭
+          </div>
           <form>
             <select onChange={handleChange}>
               <option value="0">선택하세요</option>

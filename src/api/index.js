@@ -37,6 +37,6 @@ const apis = {
   delPost: (id) => api.delete(`/posts/${id}`),
   getPosts: () => api.get("/users"),
   getPost: (id) => api.get(`/users/${id}`),
-};
+}
 
 export default apis;

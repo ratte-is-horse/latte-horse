@@ -4,33 +4,33 @@ import styled from "styled-components";
 import Comments from './Comments'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadCommentJson }from '../redux/modules/comments'
-import { loadPostJson, loadIdJson }from '../redux/modules/post'
+import { loadCommentJson } from '../redux/modules/comments'
+import { loadPostJson, loadIdJson } from '../redux/modules/post'
 
 const Detail = (props) => {
 
   const [is_login, setIsLogin] = React.useState(false);
-  const [is_user,setIsUser]= React.useState(false);
+  const [is_user, setIsUser] = React.useState(false);
 
-  const {id} =useParams()
+  const { id } = useParams()
   const dispatch = useDispatch()
-//post관련
-  const posts = useSelector((store)=>store.post.list)
-  const post = posts.filter((value)=>value.id ===id)
-//comment관련
+  //post관련
+  const posts = useSelector((store) => store.post.list)
+  const post = posts.filter((value) => value.id === id)
+  //comment관련
   const comments = useSelector((store) => store.comment.comments);
   // const comment = comments.filter((value)=>value.post_id)===id
   console.log(post)
 
   console.log(id)
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(loadPostJson());
     dispatch(loadIdJson(id))
     dispatch(loadCommentJson(id))
-  },[id])
+  }, [id])
 
-  
+
 
 
 
@@ -47,10 +47,11 @@ const Detail = (props) => {
         <Content>이자리는 내용이 들어갈 자리야</Content>
         <div>🤍or❤️</div>
       </Wrap>
-    <Comments/>
-      
+      <Comments />
+
     </div>
   )
+
 };
 
 const Wrap = styled.div`

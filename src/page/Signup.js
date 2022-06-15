@@ -7,7 +7,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 // 1. 위의 createUserJson 이건 user 리듀서의 미들웨어가 작동할 필요 없으므로 불필요.
 import apis from "../api/index";
 import styled from "styled-components";
-import Header from '../component/header';
+import Header from "../component/header";
 
 const Signup = (props) => {
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ const Signup = (props) => {
   const [pwcheck, setPwCheck] = React.useState("");
 
   const [isLoading, setIsLoading] = useState(false);
-
 
   const [fileImage, setFileImage] = React.useState("");
   const fileInputRef = React.useRef();
@@ -83,15 +82,16 @@ const Signup = (props) => {
       return;
     }
 
-   const res = await apis.addUser({
+    const res = await apis.addUser({
       username: Username,
       password: Password,
       password2: Password2,
       nickname: Nickname,
-      profileUrl: fileInputRef.current?.url
+
+      profileUrl: fileInputRef.current?.url,
     });
-    console.log(res.data)
-    alert(res.data)
+    console.log(res.data);
+    alert(res.data);
     navigate("/login");
   };
 
@@ -117,7 +117,7 @@ const Signup = (props) => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <form onSubmit={onSubmitUserHandler}>
         아이디 :
         <input
@@ -177,18 +177,19 @@ const Signup = (props) => {
           ref={fileInputRef}
           onChange={saveFileImage}
         />
-        <div style={{ fontSize: "10px", color: "tomato" }}>사진변경하지 말아주세요 오류생겨요...😭</div>
+        <div style={{ fontSize: "10px", color: "tomato" }}>
+          사진변경하지 말아주세요 오류생겨요...😭
+        </div>
         <button>{isLoading ? "가입 중... " : "가입하기"}</button>
       </form>
     </div>
   );
 };
 
-
-
 const Input = styled.input`
- display: ${(props) => props.fileImage ? "none" : ""}; 
-`
+  display: ${(props) => (props.fileImage ? "none" : "")};
+`;
+
 //1. ?? 위에 132번의 isLoading이 왜 필요한지, 그리고 위에 그걸 state로 만들어놨는데 그게 무슨 의미인지?
 // 만일 isLoading을 활용하려면 서버에서 id 중복에 대한 response를 받아와서 위의 isLoading의 스테이트 값으로 묶어놔야함
 // 받아서 거기에 값 묶어 놓을 방법 추가해야함.
