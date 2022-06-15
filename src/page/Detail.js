@@ -6,24 +6,38 @@ import apis from "../api/index";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCommentJson } from '../redux/modules/comments'
-import { loadPostJson, loadIdJson } from '../redux/modules/post'
+import { loadPostJson, loadIdJson, deletePostJson, updatePostJson } from '../redux/modules/post'
+
+//로그인확인
+import { getCookie } from "../shared/Cookie";
+import { deleteCookie } from "../shared/Cookie";
 
 const Detail = (props) => {
 
   const params = useParams();
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   //post관련
   const posts = useSelector((store) => store.post.list)
+  const id = useSelector((store) => store.post.list.id)
   // const post = posts.filter((value) => value.id === id)
   //comment관련
   const comments = useSelector((store) => store.comment.comments);
   // const comment = comments.filter((value)=>value.post_id)===id
-  console.log(posts)
-  const index = params.index -1
-useEffect(()=>{
-  dispatch(loadPostJson())
-},[dispatch])
-
+  console.log(id)
+  const index = params.index - 1
+  useEffect(() => {
+    dispatch(loadPostJson())
+  }, [])
+  
+//로그인확인
+  const cookie = getCookie("token");
+  const [is_cookie, setCookie] = React.useState(false);
+  React.useEffect(() => {
+    if (cookie !== undefined) {
+      return setCookie(true);
+    }
+  }, []);
   ///하트값 어떤식으로 받아오지?
 
   // if(heart){ 
@@ -56,6 +70,20 @@ useEffect(()=>{
         <div>🤍</div>
       </Wrap>
       <Comments />
+      {/* {is_cookie && posts[index].username==='쿠키속유저네임'?( */}
+        <>
+         <button
+                onClick={()=>{
+                  const result = window.confirm('정말 삭제할까요?');
+                  if(result){
+                    dispatch(deletePostJson(posts[index]))
+                  }
+                  navigate("/")
+                }}>삭제하기</button>
+        <button>수정하기</button>
+        </>
+       {/* ):('')} */}
+     
     </div>
   )
 
