@@ -112,7 +112,7 @@ export default function Post_reducer(state = intialstate, action) {
     case LOAD_POSTS:
 
       // return { ...state, list: action.payload };
-      return { list: action.payload }
+      return { list: action.payload.reverse() }
     // case "post_reducer/LOAD": {
     //   return { ...state, post_list: action.list };
     // }

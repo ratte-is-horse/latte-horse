@@ -6,11 +6,13 @@ import { createCommentJson, loadCommentJson } from "../redux/modules/comments";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const Comments = (id, comment) => {
+const Comments =  () => {
   const dispatch = useDispatch()
   const [comments, setComment] = useState("")
 
   //코멘트 로드
+  const PostReducer = useSelector((state) => state.post.list);
+  const id = PostReducer.id //게시물아이디
   const commentReducer = useSelector((state) => state.comment.comment_list)
   console.log(commentReducer);
 
@@ -25,7 +27,7 @@ const Comments = (id, comment) => {
         <div style={{ margin: "10px 100px" }}>💬</div>
         <div onSubmit={(e)=>{
           e.preventDefault();
-          dispatch(createCommentJson(id, comment))
+          dispatch(createCommentJson(id,))
           setComment('')
         }}>
         <Input
