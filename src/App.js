@@ -5,12 +5,9 @@ import Post from "./page/Post";
 import Detail from "./page/Detail";
 import Login from "./page/Login";
 import Signup from "./page/Signup";
-import './View.css'
+import "./View.css";
 import { LeftWrap, RightBar, Upperbar } from "./component/view";
 import Header from "./component/header";
-
-
-
 
 //npx json-server ./data.json --port 4000
 
@@ -19,7 +16,7 @@ function App() {
     <>
       <div className="background">
         <div className="outerbox">
-          <div className='innerbox'>
+          <div className="innerbox">
             <div className="wrapper">
               <LeftWrap />
               <div className="wrapper__right">
@@ -39,7 +36,6 @@ function App() {
           </div>
         </div>
       </div>
-
     </>
   );
 }

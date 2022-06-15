@@ -1,15 +1,13 @@
 import React from "react";
-import Header from '../component/header';
+import Header from "../component/header";
 
 const Detail = () => {
-  return <div>
-    <Header/>
-    <>
-    
-    </>
-
-
-    </div>;
+  return (
+    <div>
+      <Header />
+      <></>
+    </div>
+  );
 };
 
 export default Detail;
