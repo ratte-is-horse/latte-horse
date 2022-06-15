@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
-  // console.log(item);
+  console.log(item);
   return (
     <div>
       <title>{item?.title}</title>

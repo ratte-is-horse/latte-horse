@@ -29,9 +29,9 @@ export function loadDetail(loadDetailData) {
   return { type: LOAD_DETAIL, loadDetailData };
 }
 
-export function createPost(post) {
+export function createPost(payload) {
   console.log("생성중입니다.");
-  return { type: CREATE_POST, post };
+  return { type: CREATE_POST, payload };
 }
 
 export function updatePost(post_index) {
@@ -111,10 +111,7 @@ export default function Post_reducer(state = intialstate, action) {
       return { list: action.payload };
     }
     case CREATE_POST: {
-      console.log("리듀서 돌리는중이야");
-      const new_post_list = [...state.list, action.post];
-      console.log(new_post_list);
-      return { list: new_post_list };
+      return { ...state, list: [...state.list, action.payload] };
     }
     // case LOAD_DETAIL: {
     //   return { list: action.payload };
@@ -123,3 +120,5 @@ export default function Post_reducer(state = intialstate, action) {
       return state;
   }
 }
+// ...state, list: [...state.list, action.payload]
+// list:[action.post, ...state.list]

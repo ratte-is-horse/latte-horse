@@ -14,7 +14,7 @@ const api = axios.create({
   // },
   //
 });
-
+//1. ?? 아래 왜 꼭 interceptors가 필요한지.
 api.interceptors.request.use(
   (config) => {
     const token = getCookie("token");

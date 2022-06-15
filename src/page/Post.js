@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createPostJson } from "../redux/modules/post";
 import Header from "../component/header";
+import { configure } from "@testing-library/react";
 
 const Post = () => {
   const navigate = useNavigate();
