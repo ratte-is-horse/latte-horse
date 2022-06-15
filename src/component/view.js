@@ -83,50 +83,11 @@ export const Upperbar = () => {
   };
   return (
     <div className="wrapper__right__header">
-<<<<<<< HEAD
       <Link to="/" style={{ textDecoration: "none" }}>
         <div className="wrapper__right__title">
           ☆ㄹr떼좋은 ㅅr람, ㄹr떼 월드☆
         </div>
       </Link>
-      <div className="wrapper__right__setting">
-        {is_cookie ? (
-          <Link
-            to="/"
-            style={{
-              textDecoration: "none",
-              marginRight: "18px",
-              color: "black",
-            }}
-          >
-            <span onClick={onLogout}>로그아웃</span>
-          </Link>
-        ) : (
-          <Link
-            to="/login"
-            style={{
-              textDecoration: "none",
-              marginRight: "18px",
-              color: "black",
-            }}
-          >
-            <span>로그인</span>
-          </Link>
-        )}
-        <Link to="/signup" style={{ textDecoration: "none", color: "black" }}>
-          <span>회원가입</span>
-        </Link>
-        <Link
-          to="/post"
-          style={{ textDecoration: "none", marginLeft: "18px", color: "black" }}
-        >
-          <span>글작성고고씽</span>
-        </Link>
-        <i className="fas fa-caret-right bbbb"></i>
-      </div>
-=======
-      <Link to="/" style={{ textDecoration: 'none' }}><div className="wrapper__right__title">☆ㄹr떼좋은 ㅅr람, ㄹr떼  월드☆</div></Link>
->>>>>>> 84c49efb9b3e48d14c7bc9dde6a7728070e41d19
     </div>
   );
 };
