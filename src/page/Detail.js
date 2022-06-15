@@ -62,8 +62,8 @@ const Detail = (props) => {
       <Header />
       <Wrap>
         <TitleWrap>
-          <Title>title {posts[index].title}</Title>
-          <Nickname>nickname</Nickname>
+          <Title> {posts[index].title}</Title>
+          <Nickname>{posts[index].nickname}</Nickname>
         </TitleWrap>
         <Image src={posts[index].url}></Image>
         <Content>{posts[index].content}</Content>
