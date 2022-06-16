@@ -94,7 +94,7 @@ const Signup = (props) => {
 
       profileUrl: fileInputRef.current?.url,
     });
-    console.log(res);
+    // console.log(res);
     alert(res.data.body[0].message);
     navigate("/login");
   };

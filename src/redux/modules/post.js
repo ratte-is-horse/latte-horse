@@ -47,7 +47,7 @@ export function removePost(post_index) {
 export const loadPostJson = () => {
   return async function (dispatch) {
     const loadData = await apis.getPosts();
-    console.log(loadData.data);
+    // console.log(loadData.data);
     dispatch(loadPosts(loadData.data));
   };
 };
@@ -78,13 +78,13 @@ export const updatePostJson = () => {
 export const deletePostJson = (id) => {
   return async function (dispatch) {
     try {
-      console.log(id);
+      // console.log(id);
       const deletePost = await apis.delPost(id);
-      console.log(deletePost);
+      // console.log(deletePost);
 
       dispatch(removePost(id));
     } catch (e) {
-      console.log("오류");
+      // console.log("오류");
     }
   };
 };

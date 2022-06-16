@@ -15,7 +15,7 @@ const Main = () => {
   getCookie("token");
   const PostReducer = useSelector((state) => state.post.list);
 
-  console.log(PostReducer);
+  // console.log(PostReducer);
 
   useEffect(() => {
     dispatch(loadPostJson());
@@ -41,7 +41,7 @@ const Main = () => {
       </Yearbox>
       <Wrap>
         {PostReducer?.map((item, index) => {
-          console.log(item);
+          // console.log(item);
           return (
             <Cardbox key={index}>
               <Card item={item} />

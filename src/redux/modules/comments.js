@@ -35,12 +35,12 @@ export const createCommentJson = (id, comment) => {
   return async function (dispatch) {
     try {
       const data = await apis.addComment(id, { comment: comment });
-      console.log(data);
+      // console.log(data);
       // const commentData = { ...comment };
       // console.log(commentData);
       dispatch(createComment(data));
     } catch (e) {
-      console.log("댓글 등록실패");
+      // console.log("댓글 등록실패");
     }
   };
 };

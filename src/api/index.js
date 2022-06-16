@@ -21,7 +21,7 @@ api.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.log(error);
+    // console.log(error);
   }
 );
 // ,

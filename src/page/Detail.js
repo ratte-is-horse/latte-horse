@@ -13,7 +13,7 @@ const Detail = () => {
   // console.log(id);
   const [Detail, setDetail] = useState(null);
   const [Comment, setComment] = useState(null);
-  console.log(Detail);
+  // console.log(Detail);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const getDetaildata = async () => {
@@ -27,7 +27,7 @@ const Detail = () => {
   const getCommentdata = async () => {
     const commentData = await apis.getComments(id);
     dispatch(loadCommentJson(commentData.data.body));
-    console.log(commentData.data.body);
+    // console.log(commentData.data.body);
     setComment(commentData.data.body);
   };
   //1. 아래 하트 따로 보내기 존
@@ -35,15 +35,15 @@ const Detail = () => {
   const onHeart = async (e) => {
     e.preventDefault();
     const heartData = await apis.addheart(id);
-    console.log(heartData.data);
+    // console.log(heartData.data);
     setHeart(heartData.data);
   };
   useEffect(() => {
     getDetaildata();
-  }, [dispatch, heart]);
+  }, [dispatch]);
   useEffect(() => {
     getCommentdata();
-  }, [Comment]);
+  }, []);
   return (
     <>
       <Header />
@@ -75,9 +75,9 @@ const Detail = () => {
             onClick={() => {
               const result = window.confirm("정말 삭제할까요?");
               if (result) {
-                console.log(id);
+                // console.log(id);
                 dispatch(deletePostJson(id));
-                console.log(id);
+                // console.log(id);
                 navigate("/");
               }
             }}
