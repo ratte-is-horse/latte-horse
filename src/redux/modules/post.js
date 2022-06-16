@@ -47,7 +47,7 @@ export function removePost(post_index) {
 export const loadPostJson = () => {
   return async function (dispatch) {
     const loadData = await apis.getPosts();
-    console.log(loadData.data);
+    // console.log(loadData.data);
     dispatch(loadPosts(loadData.data));
   };
 };
@@ -94,7 +94,6 @@ export default function Post_reducer(state = intialstate, action) {
   switch (action.type) {
     case LOAD_POSTS: {
       return { list: action.payload.reverse() };
-
     }
     case CREATE_POST: {
       return { ...state, list: [...state.list, action.payload] };

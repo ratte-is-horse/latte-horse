@@ -11,7 +11,7 @@ const Comments = (props) => {
   const [comment, setComment] = useState("");
   //게시물아이디
   const boardId = props.id;
-  console.log(boardId);
+  // console.log(boardId);
   //코멘트 로드
 
   // const detailData =async()=> await apis.getComments(boardId);
@@ -21,7 +21,7 @@ const Comments = (props) => {
     dispatch(createCommentJson(props.id, comment));
   };
 
-  useEffect((dispatch) => {
+  useEffect(() => {
     props.getDetaildata();
   }, []);
 
