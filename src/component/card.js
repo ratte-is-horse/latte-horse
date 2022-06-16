@@ -26,7 +26,7 @@ const Card = ({ item, id }) => {
 
       {/* <Item>{item?.contents}</Item> */}
       <Underbar className="underbar">
-        {heart ? <Heart onClick={onHeart}>🤍</Heart> : <Heart onClick={onHeart}>❤️</Heart>}
+        {heart ? <Heart onClick={onHeart}>❤️</Heart> : <Heart onClick={onHeart}>🤍</Heart>}
         <Link to={`/detail/${item?.id}`} style={{ textDecoration: 'none' }}> <Dat>💬</Dat> </Link>
         <Years>{item?.year}</Years>
       </Underbar>
@@ -41,20 +41,17 @@ const Card = ({ item, id }) => {
 // `
 
 const Title = styled.div`
-background-color: black;
-border-top-right-radius: 5px;
-border-top-left-radius: 5px; ;
-color: white;
+padding-left: 10px;
 `
 
 const Image = styled.img`
 margin-top: 10px;
-width: 330px;
-height: 400px;
+width: 280px;
+height: 380px;
 `
 const PostBox = styled.div`
-height: 300px;
-width: 300px;
+height: 270px;
+width: 270px;
 `
 const Item = styled.div`
 
@@ -66,7 +63,7 @@ width: 8%;
 `
 const Dat = styled.h2`
 width: 8%;
-margin-left: 60%;
+margin-left: 80%;
 `
 
 const Years = styled.div`
