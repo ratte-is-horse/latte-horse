@@ -23,11 +23,11 @@ const Login = () => {
         username: id_ref.current.value,
         password: password_ref.current.value,
       });
-      console.log(response);
+      // console.log(response);
       const AccessToken = response.headers.authorization.split(" ")[1];
       // 아래 setCookie를 통해 Cookie 안에 서버로부터 받은 토큰을 저장한다.
 
-      console.log(AccessToken);
+      // console.log(AccessToken);
       setCookie("token", AccessToken);
       // axios.defaults.headers.common["Authorization"] = `Bearer ${AccessToken}`;
       // 위의 setCookie("token", AccessToken) 안의 매겨변수는 "토큰 이름", 토큰값 이다.

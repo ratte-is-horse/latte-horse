@@ -49,7 +49,7 @@ const Comments = (props) => {
           </div>
         </Wrap>
         {commentReducer?.map((item, index) => {
-          console.log();
+          // console.log();
           return (
             <div key={index}>
               <Comment>

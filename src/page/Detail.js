@@ -19,13 +19,11 @@ const Detail = () => {
   const getDetaildata = async () => {
     const detailData = await apis.getDetail(id);
     // const commentData = await apis.getComments(id);
-
     // dispatch(loadCommentJson(commentData.data.body));
     // console.log(commentData.data.body);
     setDetail(detailData.data);
     // setComment(commentData.data.body);
   };
-
   const getCommentdata = async () => {
     const commentData = await apis.getComments(id);
     dispatch(loadCommentJson(commentData.data.body));
@@ -42,8 +40,7 @@ const Detail = () => {
   };
   useEffect(() => {
     getDetaildata();
-  }, [dispatch, heart]);
-
+  }, [dispatch]);
   useEffect(() => {
     getCommentdata();
   }, []);
@@ -51,7 +48,6 @@ const Detail = () => {
   return (
     <>
       <Header />
-
       <Wrap>
         <img
           src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcW8oAK%2FbtrEU2FQuwe%2FUNUK6A2BvB1knFPLeK6E6K%2Fimg.png"
@@ -61,9 +57,7 @@ const Detail = () => {
           <Title> {Detail?.title}</Title>
           <Nickname>Nickname: {Detail?.nickname}</Nickname>
         </TitleWrap>
-
         <Image src={Detail?.url}></Image>
-
         <Wrap2>
           <Content>{Detail?.contents}</Content>
           {Detail?.love ? (
@@ -77,7 +71,6 @@ const Detail = () => {
           id={Detail?.id}
           getDetaildata={getDetaildata}
         />
-
         <>
           <Button2
             onClick={() => {
@@ -98,7 +91,6 @@ const Detail = () => {
     </>
   );
 };
-
 const Wrap = styled.div`
   display: flex;
   justify-content: center;
@@ -106,7 +98,6 @@ const Wrap = styled.div`
   flex-direction: column;
   color: black;
   margin: 15% auto;
-
   width: 80%;
   background-color: wheat;
 `;
@@ -123,7 +114,6 @@ const Title = styled.div`
   width: 60%;
   color: black;
 `;
-
 const Inputbox = styled.input`
   display: flex;
   justify-content: center;
@@ -138,7 +128,9 @@ const Button2 = styled.button`
   margin-bottom: 20px;
 `;
 
+
 const TitleWrap = styled.div`
+
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -150,7 +142,9 @@ const Image = styled.img`
   margin: 20px 10px 40px;
 `;
 
+
 const Nickname = styled.div`
+
   font-family: inherit;
   width: 40%;
 `;
