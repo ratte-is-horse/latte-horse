@@ -33,6 +33,7 @@ const Main = () => {
     <Box>
 
       <Header />
+      <Section/>
       <Wrap>
       {PostReducer?.map((item, index) => {
         console.log(item)
@@ -51,21 +52,33 @@ const Main = () => {
 };
 
 const Box = styled.div`
-width: 50%;
+
+
+/* width: 50%; */
+/* max-width: 1200px; */
 height: 80%;
-margin: auto;
-background-color: white;
+
 
 `
 const Wrap = styled.div`
-
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
 `
 
 const Cardbox = styled.div`
-/* width: 300px;
-height: 300px; */
+width: 350px;
+height: 500px;
 border: 1px solid black;
+border-radius: 10px;
 margin: 10px;
 padding: 10px;
+background-color: white;
 `
+
+const Section = styled.h1`
+  padding-top: 50px; padding-bottom: 10px;
+`;
 export default Main;
