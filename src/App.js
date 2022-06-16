@@ -8,6 +8,7 @@ import Signup from "./page/Signup";
 import styled from "styled-components";
 import { LeftWrap, RightBar, Upperbar } from "./component/view";
 import Header from "./component/header";
+import "./style.css";
 
 //npx json-server ./data.json --port 4000
 
@@ -36,10 +37,12 @@ const Background = styled.div`
 `;
 
 const Wrap = styled.div`
-  border: 1px solid white;
-  height: 30%;
-  width: 45%;
+  border: 3px solid white;
+  border-radius: 10px;
+  height: 90vh;
+  width: 1000px;
   margin-top: 10%;
-  margin-bottom: 10%;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 export default App;

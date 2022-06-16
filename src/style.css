@@ -1,12 +1,10 @@
-#explain{ 
-  position: absolute; opacity: 0; 
-  } 
-  
-  .text_photo:hover #explain{ 
-  opacity: 1; 
+
+
+  @font-face {
+    font-family: 'bombaram';
+    src: url('../src/css/Galmuri11.ttf') format('truetype');
   }
-
-
-/* .Comments {
-    width: 80%;
-} */
+  
+  *{
+    font-family: 'bombaram';
+  }

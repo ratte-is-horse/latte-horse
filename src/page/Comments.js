@@ -29,6 +29,7 @@ const Comments = (props) => {
 
   return (
     <div>
+      
       <Commentlist>
         <div style={{ margin: "10px 100px" }}>💬</div>
 
@@ -88,5 +89,9 @@ const Comment = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+`;
+
+const Section = styled.h1`
+  padding-top: 50px; padding-bottom: 10px;
 `;
 export default Comments;

@@ -26,18 +26,14 @@ const Detail = () => {
     setComment(commentData.data.body);
   };
 
-  // const getComment = async () => {
-  //   const commentData = await apis.getComments(id);
-  //   console.log(commentData.data);
-  //   setDetail(commentData.data);
-  // };
-
   useEffect(() => {
     getDetaildata();
   }, [dispatch]);
 
   return (
     <>
+      <Header />
+      <Section />
       <Wrap>
         <TitleWrap>
           <Title> {Detail?.title}</Title>
@@ -108,6 +104,11 @@ const Nickname = styled.div`
 const Content = styled.div`
   border: 1px solid grey;
   width: 90%;
+`;
+
+const Section = styled.h1`
+  padding-top: 50px;
+  padding-bottom: 10px;
 `;
 
 export default Detail;

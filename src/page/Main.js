@@ -10,6 +10,7 @@ import apis from "../api";
 import styled from 'styled-components'
 import { getCookie } from "../shared/Cookie";
 
+
 const Main = () => {
   const dispatch = useDispatch();
   getCookie("token");
@@ -33,7 +34,7 @@ const Main = () => {
     <Box>
 
       <Header />
-      <Section/>
+      <img src="images/바.png" style={{width:"100%"}}/>
       <Wrap>
       {PostReducer?.map((item, index) => {
         console.log(item)
@@ -69,8 +70,8 @@ align-items: center;
 `
 
 const Cardbox = styled.div`
-width: 350px;
-height: 500px;
+width: 280px;
+height: 450px;
 border: 1px solid black;
 border-radius: 10px;
 margin: 10px;
