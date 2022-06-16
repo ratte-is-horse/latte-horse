@@ -7,103 +7,136 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadCommentJson } from "../redux/modules/comments";
 import { deletePostJson } from "../redux/modules/post";
+import "../style.css";
 const Detail = () => {
   let { id } = useParams();
   // console.log(id);
   const [Detail, setDetail] = useState(null);
-  const [Comment,setComment] =useState(null)
+  const [Comment, setComment] = useState(null);
   console.log(Detail);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const getDetaildata = async () => {
     const detailData = await apis.getDetail(id);
     const commentData = await apis.getComments(id);
-
-    dispatch(loadCommentJson(commentData.data.body))
+    dispatch(loadCommentJson(commentData.data.body));
     console.log(commentData.data.body);
     setDetail(detailData.data);
-    setComment(commentData.data.body)
+    // setComment(commentData.data.body);
   };
-
-  // const getComment = async () => {
-  //   const commentData = await apis.getComments(id);
-  //   console.log(commentData.data);
-  //   setDetail(commentData.data);
-  // };
-
+  //1. 아래 하트 따로 보내기 존
+  const [heart, setHeart] = React.useState(false);
+  const onHeart = async (e) => {
+    e.preventDefault();
+    const heartData = await apis.addheart(id);
+    console.log(heartData.data);
+    setHeart(heartData.data);
+  };
   useEffect(() => {
     getDetaildata();
-  }, [dispatch]);
-
-
+  }, [dispatch, heart]);
   return (
-    <div>
+    <>
       <Header />
-      <Section/>
+      
       <Wrap>
+        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcW8oAK%2FbtrEU2FQuwe%2FUNUK6A2BvB1knFPLeK6E6K%2Fimg.png" style={{width:"100%"}}/>
         <TitleWrap>
           <Title> {Detail?.title}</Title>
-          <Nickname>{Detail?.nickname}</Nickname>
+          <Nickname>Nickname: {Detail?.nickname}</Nickname>
         </TitleWrap>
         <Image src={Detail?.url}></Image>
-        <Content>{Detail?.content}</Content>
-        <div>:흰색_하트:</div>
+        <Content>{Detail?.contents}</Content>
+        <Comments
+          className="Comments"
+          id={Detail?.id}
+          getDetaildata={getDetaildata}
+        />
+        <>
+          <button
+            onClick={() => {
+              const result = window.confirm("정말 삭제할까요?");
+              if (result) {
+                console.log(id);
+                dispatch(deletePostJson(id));
+                console.log(id);
+                navigate("/");
+              }
+            }}
+          >
+            삭제하기
+          </button>
+          <button>수정하기</button>
+          {Detail?.love ? (
+            <Heart onClick={onHeart}>❤️</Heart>
+          ) : (
+            <Heart onClick={onHeart}>🤍</Heart>
+          )}
+        </>
       </Wrap>
-      <Comments id={Detail?.id} getDetaildata={getDetaildata} />
-
-      <>
-        <button
-          onClick={() => {
-            const result = window.confirm("정말 삭제할까요?");
-            if (result) {
-              console.log(id);
-              dispatch(deletePostJson(id));
-
-              console.log(id);
-              navigate("/");
-            }
-          }}
-        >
-          삭제하기
-        </button>
-        <button>수정하기</button>
-      </>
-    </div>
+    </>
   );
 };
+
 const Wrap = styled.div`
-  border: 1px solid grey;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-const TitleWrap = styled.div`
-  width: 40%;
+ display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column ;
+color: black;
+margin: 15% auto;
+
+width: 80%;
+background-color: wheat;
+
+`
+
+const Title = styled.h3`
+margin-top: 20px;
+margin-bottom: 10px;
+color: black;
+`
+
+const Inputbox = styled.input`
+ display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column ;
+margin: 10px;
+width: 90%;
+height: 30%;
+`
+const Button2 = styled.button`
+padding: 3px;
+margin-bottom: 20px;
+`
+
+const TitleWrap = styled.h3`
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
 const Image = styled.img`
-  width: 40%;
+  width: 90%;
+  margin: 20px 10px 40px;
+`;
 
-`;
-const Title = styled.div`
-  border: 1px solid grey;
-  width: 80%;
-`;
-const Nickname = styled.div`
-  border: 1px solid grey;
+const Nickname = styled.h4`
+font-family: inherit;
   width: 20%;
 `;
-const Content = styled.div`
-  border: 1px solid grey;
-  width: 40%;
+const Content = styled.h3`
+margin: inherit;
+  width: 90%;
 `;
 const Section = styled.h1`
-  padding-top: 50px; padding-bottom: 10px;
+  padding-top: 50px;
+  padding-bottom: 10px;
 `;
-
+const Heart = styled.h2`
+  width: 8%;
+  cursor: pointer;
+`;
 export default Detail;
