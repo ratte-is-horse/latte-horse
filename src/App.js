@@ -14,28 +14,19 @@ import Header from "./component/header";
 function App() {
   return (
     <>
-      <div className="background">
-        <div className="outerbox">
-          <div className="innerbox">
-            <div className="wrapper">
-              <LeftWrap />
-              <div className="wrapper__right">
-                <Upperbar />
-                <div className="wrapper__right__body">
-                  <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/post" element={<Post />} />
-                    <Route path="/detail/:id" element={<Detail />} />
-                    <Route path="/signup" element={<Signup />} />
-                    <Route path="/login" element={<Login />} />
-                  </Routes>
-                </div>
-              </div>
-              <RightBar />
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* <LeftWrap /> */}
+
+      {/* <Upperbar />               */}
+
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+      {/* <RightBar /> */}
     </>
   );
 }

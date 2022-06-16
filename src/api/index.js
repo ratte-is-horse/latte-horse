@@ -13,8 +13,11 @@ const api = axios.create({
   //   authorization: `${getCookie("token")}`,
   // },
   //
+  // timeout: 10000,
 });
+
 //1. ?? 아래 왜 꼭 interceptors가 필요한지.
+//2. ??!! 일단
 api.interceptors.request.use(
   (config) => {
     const token = getCookie("token");
@@ -25,12 +28,7 @@ api.interceptors.request.use(
     console.log(error);
   }
 );
-// api.interceptors.request.use(
-//   function (config) {
-//     const accessToken = document.cookie.split("=")[1];
-//     config.headers.authorization[X-AUTH-TOKEN] = `BEARER ${accessToken}`;
-//     return config;
-//   }
+
 // ,
 // function (error) {
 //     // 요청 에러 직전 호출됩니다.
@@ -51,12 +49,17 @@ const apis = {
   getPosts: () => api.get("/api/boards"),
   getDetail: (id) => api.get(`/api/board/${id}`),
 
-  //
-  // addComment: (comments) =>
-  //   api.post(`"/api/board/${boardId}/comment/write"`, comments),
-  // editComment: (id, comments) => api.post(`/posts/${id}`, comments),
-  // delComment: (id) => api.delete(`/users/${id}`),
-  // getComments: () => api.get("/users"),
+  //comment
+  addComment: (id, comment) =>
+    api.post(`/api/board/${id}/comment/write`, comment),
+  editComment: (id, commentId, comments) =>
+    api.post(`/api/board/${id}/comment/${commentId}`, comments),
+  delComment: (id, commentId) =>
+    api.delete(`/api/board/${id}/comment/${commentId}`),
+  getComments: (id) => api.get(`/api/board/${id}/comments`),
+
+  //heart
+  addheart: (id) => api.post(`/api/board/${id}/like`),
 };
 
 export default apis;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../component/header";
 import styled from "styled-components";
 import Comments from "./Comments";
@@ -7,55 +7,45 @@ import apis from "../api/index";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadCommentJson } from "../redux/modules/comments";
-import {
-  loadDetailJson,
-  loadIdJson,
-  deletePostJson,
-  updatePostJson,
-} from "../redux/modules/post";
-
-//로그인확인 (1.이 부분 헤더 때문에 필요없을 걸로 예상)
-// import { getCookie } from "../shared/Cookie";
-// import { deleteCookie } from "../shared/Cookie";
+import { deletePostJson } from "../redux/modules/post";
 
 const Detail = () => {
-  const id = useParams();
-  console.log(id);
+  let { id } = useParams();
+  // console.log(id);
+  const [Detail, setDetail] = useState(null);
+  console.log(Detail);
+  const getDetaildata = async () => {
+    const detailData = await apis.getDetail(id);
+    console.log(detailData.data);
+    setDetail(detailData.data);
+  };
+  useEffect(() => {
+    getDetaildata();
+  }, []);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //post관련
-  const posts = useSelector((store) => store.post.list);
-  // const number = useSelector((store) => store.post.list.id);
-  // const post = posts.filter((value) => value.id === id)
-  //comment관련
-  const comments = useSelector((store) => store.comment.comments);
-  // const comment = comments.filter((value)=>value.post_id)===id
-
-  // console.log(number);
-  const index = id.index - 1;
-  console.log(index);
-  useEffect(() => {
-    dispatch(loadDetailJson(Number(id)));
-  }, [dispatch]);
 
   return (
     <div>
       <Header />
       <Wrap>
         <TitleWrap>
-          <Title>title {posts[index].title}</Title>
-          <Nickname>nickname</Nickname>
+          <Title> {Detail?.title}</Title>
+          <Nickname>{Detail?.nickname}</Nickname>
         </TitleWrap>
-        <Image src={posts[index].url}></Image>
-        <Content>{posts[index].content}</Content>
+        <Image src={Detail?.url}></Image>
+        <Content>{Detail?.content}</Content>
         <div>🤍</div>
       </Wrap>
+      <Comments id={Detail?.id} />
 
       <>
         <button
           onClick={() => {
             const result = window.confirm("정말 삭제할까요?");
             if (result) {
+              console.log(id);
               dispatch(deletePostJson(id));
 
               console.log(id);

@@ -1,10 +1,10 @@
-import { list } from "firebase/storage";
 import apis from "../../api/index";
 
 /* ----------------- 모듈의 초기 상태 ------------------ */
 let intialstate = {
   list: [],
-  detail_list: [],
+  detail_list: null,
+  heart_list: null,
 };
 /* ----------------- 액션 타입 ------------------ */
 
@@ -14,6 +14,7 @@ const LOAD_POSTS = "post_reducer/LOAD";
 const CREATE_POST = "post_reducer/CREATE";
 const UPDATE_POST = "post_reducer/UPDATE";
 const REMOVE_POST = "post_reducer/REMOVE";
+// const CREATE_HEART = "post_reducer/CREATE";
 
 /* ----------------- 액션 생성 함수 ------------------ */
 
@@ -41,6 +42,10 @@ export function updatePost(post_index) {
 export function removePost(post_index) {
   return { type: REMOVE_POST, post_index };
 }
+// export function createHeart(payload) {
+//   console.log("생성중입니다.");
+//   return { type: CREATE_HEART, payload };
+// }
 
 /* ----------------- 미들웨어 ------------------ */
 export const loadPostJson = () => {
@@ -52,37 +57,23 @@ export const loadPostJson = () => {
   };
 };
 
-// export const loadIdJson = (id) => {
+// export const loadDetailJson = (payload) => {
+//   console.log(payload);
 //   return async function (dispatch) {
-//     try {
-//       const { data } = await apis.getPost(id);
-//       dispatch(loadId(data));
-//     } catch (e) {
-//       console.log("오류");
-//     }
+//     const DetailData = await apis.getDetail(payload.id);
+//     console.log(DetailData.data);
+//     dispatch(loadDetail(DetailData.data));
+//     // dispatch(loadDetail(loadDetailData));
 //   };
 // };
-
-export const loadDetailJson = (id) => {
+export const AddHeartJson = () => {
   return async function (dispatch) {
-    const DetailData = await apis.getDetail(id);
-    console.log(DetailData.data);
-    // dispatch(loadDetail(loadDetailData));
+    dispatch();
   };
 };
 
 export const createPostJson = (post) => {
   return async function (dispatch) {
-    // apis
-    //       .addPost(post)
-    //       .then((res)=>{
-    //                 console.log(res)
-    //                 dispatch(createPost(res))
-    //                 window.alert('등록 성공!')
-    //       })
-    //       .catch((err)=>{
-    //                 window.alert('등록에 실패했습니다.')
-    //       })
     dispatch(createPost(post));
   };
 };
@@ -91,11 +82,13 @@ export const updatePostJson = () => {
   return async function (dispatch) {};
 };
 
-export const deletePostJson = (params) => {
+export const deletePostJson = (id) => {
   return async function (dispatch) {
     try {
-      const deletePost = await apis.delPost(Number(params.index));
+      console.log(id);
+      const deletePost = await apis.delPost(id);
       console.log(deletePost);
+      dispatch(removePost(id));
     } catch (e) {
       console.log("오류");
     }
@@ -108,17 +101,21 @@ export default function Post_reducer(state = intialstate, action) {
 
   switch (action.type) {
     case LOAD_POSTS: {
-      return { list: action.payload };
+      return { list: action.payload.reverse() };
     }
     case CREATE_POST: {
       return { ...state, list: [...state.list, action.payload] };
     }
-    // case LOAD_DETAIL: {
-    //   return { list: action.payload };
+    case LOAD_DETAIL: {
+      return { ...state, detail_list: action.loadDetailData };
+    }
+    case REMOVE_POST: {
+      return state.filter((list) => list.id !== action.id);
+    }
+    // case CREATE_HEART: {
+    //   return { ...state, list: [...state.list, action.payload] };
     // }
     default:
       return state;
   }
 }
-// ...state, list: [...state.list, action.payload]
-// list:[action.post, ...state.list]

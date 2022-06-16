@@ -90,8 +90,8 @@ const Signup = (props) => {
 
       profileUrl: fileInputRef.current?.url,
     });
-    console.log(res.data);
-    alert(res.data);
+    console.log(res.data.body);
+    alert(res.data.body);
     navigate("/login");
   };
 

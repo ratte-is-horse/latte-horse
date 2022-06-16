@@ -10,7 +10,8 @@ const Main = () => {
   const dispatch = useDispatch();
   getCookie("token");
   const PostReducer = useSelector((state) => state.post.list);
-  // console.log(PostReducer);
+
+  console.log(PostReducer);
 
   useEffect(() => {
     dispatch(loadPostJson());
