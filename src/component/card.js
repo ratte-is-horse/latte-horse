@@ -40,7 +40,7 @@ const Card = ({ item, id }) => {
 // overflow: hidden;
 // `
 
-const Title = styled.div`
+const Title = styled.h4`
 padding-left: 10px;
 `
 
@@ -48,6 +48,8 @@ const Image = styled.img`
 margin-top: 10px;
 width: 280px;
 height: 380px;
+border-top: 3px solid navy ;
+border-bottom: 3px solid navy ;
 `
 const PostBox = styled.div`
 height: 270px;
@@ -66,15 +68,16 @@ width: 8%;
 margin-left: 80%;
 `
 
-const Years = styled.div`
+const Years = styled.h5`
 border: 0.1px solid black;
-width: 30%;
+width: 45%;
 border-radius: 40px;
 margin-left: 60%;
 text-align: center;
-padding-top: 3px;
+padding-top: 4px;
 background-color: navy;
 color: white;
+
 `
 
 const Underbar = styled.div`

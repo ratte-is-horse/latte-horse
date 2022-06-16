@@ -41,7 +41,6 @@ const Login = () => {
   return (
     <>
       <Header />
-      <img src="images/바.png" style={{width:"100%"}}/>
       <Wrap>
       <img src="images/bar2.png" style={{width:"100%"}}/>
       <Title>로그인페이지</Title>
