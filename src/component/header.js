@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import "../View.css";
+// import "../View.css";
 import { getCookie } from "../shared/Cookie";
 import { deleteCookie } from "../shared/Cookie";
 import { Link } from "react-router-dom";
@@ -62,11 +62,11 @@ const Header = () => {
 };
 
 const Head = styled.h1`
-  top:110px;
-  left:1300px;
+  top: 110px;
+  left: 1300px;
   width: 25%;
   height: 30px;
-  margin-left:40em;
+  margin-left: 40em;
   color: white;
   border-bottom: 1px solid #ffffff00;
 `;
