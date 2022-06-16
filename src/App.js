@@ -10,8 +10,6 @@ import { LeftWrap, RightBar, Upperbar } from "./component/view";
 import Header from "./component/header";
 import "./style.css";
 
-//npx json-server ./data.json --port 4000
-
 function App() {
   return (
     <Background>
