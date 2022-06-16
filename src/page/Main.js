@@ -95,7 +95,7 @@ const Cardbox = styled.div`
   background-color: wheat;
 `;
 
-const Section = styled.h1`
+const Section = styled.div`
   padding-top: 50px;
   padding-bottom: 10px;
 `;

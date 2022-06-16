@@ -184,7 +184,7 @@ const Wrap = styled.div`
   background-color: wheat;
 `;
 
-const Title = styled.h3`
+const Title = styled.div`
   margin-top: 20px;
   margin-bottom: 10px;
   color: black;
