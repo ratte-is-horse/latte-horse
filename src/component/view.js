@@ -1,5 +1,5 @@
 import React from "react";
-// import "../View.css";
+
 import styled from "styled-components";
 import { getCookie } from "../shared/Cookie";
 import { deleteCookie } from "../shared/Cookie";
