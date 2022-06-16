@@ -13,10 +13,10 @@ import Header from "./component/header";
 
 function App() {
   return (
-    <>
-      {/* <LeftWrap /> */}
 
-      {/* <Upperbar />               */}
+
+
+    <div >
 
       <Routes>
         <Route path="/" element={<Main />} />
@@ -25,9 +25,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+    </div>
 
-      {/* <RightBar /> */}
-    </>
+
   );
 }
 

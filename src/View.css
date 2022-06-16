@@ -7,14 +7,11 @@
   margin: 0px;
   box-sizing: border-box;
   font-family: 'retrosans';
+  /* background-image: url('images/cyber.jpg'); */
 }
 .background{
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  background-image: url('https://mblogthumb-phinf.pstatic.net/20110412_254/sin7sky_1302599138528qcTjD_JPEG/Appows_3.jpg?type=w2');
+  background-image: url('https://img.pikbest.com/backgrounds/20200720/retro-cyberpunk-style-80s-sci-fi-background-futuristic-with-laser-grid-landscape--v_2415757jpg!bw700');
   background-size: cover;
-  padding-top: 20px; 
 }
 .outerbox{
   margin: 20px auto;

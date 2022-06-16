@@ -66,7 +66,7 @@ const Head = styled.div`
   /* left:1300px; */
   width: 25%;
   height: 30px;
-  margin-left: 65em;
+  margin-left:40em;
   border-bottom: 1px solid #ffffff00;
 `;
 export default Header;
