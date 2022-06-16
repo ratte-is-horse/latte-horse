@@ -3,14 +3,19 @@ import apis from "../../api/index";
 let intialstate = {
   list: [],
   detail_list: null,
+
+  heart_list: null,
 };
 /* ----------------- 액션 타입 ------------------ */
+
 const LOAD_DETAIL = "post_reducer/LOAD";
 const LOAD_ID = "post_reducer/LOAD_Id";
 const LOAD_POSTS = "post_reducer/LOAD";
 const CREATE_POST = "post_reducer/CREATE";
 const UPDATE_POST = "post_reducer/UPDATE";
 const REMOVE_POST = "post_reducer/REMOVE";
+// const CREATE_HEART = "post_reducer/CREATE";
+
 /* ----------------- 액션 생성 함수 ------------------ */
 export function loadPosts(payload) {
   return { type: LOAD_POSTS, payload };
@@ -21,6 +26,7 @@ export function loadId() {
 export function loadDetail(loadDetailData) {
   return { type: LOAD_DETAIL, loadDetailData };
 }
+
 export function createPost(payload) {
   console.log("생성중입니다.");
   return { type: CREATE_POST, payload };
@@ -31,6 +37,12 @@ export function updatePost(post_index) {
 export function removePost(post_index) {
   return { type: REMOVE_POST, post_index };
 }
+
+// export function createHeart(payload) {
+//   console.log("생성중입니다.");
+//   return { type: CREATE_HEART, payload };
+// }
+
 /* ----------------- 미들웨어 ------------------ */
 export const loadPostJson = () => {
   return async function (dispatch) {
@@ -48,6 +60,13 @@ export const loadPostJson = () => {
 //     // dispatch(loadDetail(loadDetailData));
 //   };
 // };
+
+export const AddHeartJson = () => {
+  return async function (dispatch) {
+    dispatch();
+  };
+};
+
 export const createPostJson = (post) => {
   return async function (dispatch) {
     dispatch(createPost(post));
@@ -62,7 +81,8 @@ export const deletePostJson = (id) => {
       console.log(id);
       const deletePost = await apis.delPost(id);
       console.log(deletePost);
-      dispatch(removePost());
+
+      dispatch(removePost(id));
     } catch (e) {
       console.log("오류");
     }
@@ -74,6 +94,7 @@ export default function Post_reducer(state = intialstate, action) {
   switch (action.type) {
     case LOAD_POSTS: {
       return { list: action.payload.reverse() };
+
     }
     case CREATE_POST: {
       return { ...state, list: [...state.list, action.payload] };
@@ -84,6 +105,9 @@ export default function Post_reducer(state = intialstate, action) {
     case REMOVE_POST: {
       return state.filter((list) => list.id !== action.id);
     }
+    // case CREATE_HEART: {
+    //   return { ...state, list: [...state.list, action.payload] };
+    // }
     default:
       return state;
   }

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createPostJson } from "../redux/modules/post";
 import Header from "../component/header";
+import { configure } from "@testing-library/react";
 
 const Post = () => {
   const navigate = useNavigate();
@@ -56,24 +57,28 @@ const Post = () => {
         url: fileInputRef.current?.url,
         year: age,
       })
-      .then((res) => { //res의 타이틀 이런식으로바꿔줘야함
-        dispatch(createPostJson({
-          id: res.id,
-          title: res.title,
-          contents: res.content,
-          url: res.url,
-          year: res.age,
-        }))
+      // 1. !!!! 아마 이 위에 heart의 기본 값 false를 보내야할 것 .
+      .then((res) => {
+        //res의 타이틀 이런식으로바꿔줘야함
+        dispatch(
+          createPostJson({
+            id: res.id,
+            title: res.title,
+            contents: res.content,
+            url: res.url,
+            year: res.age,
+          })
+        );
         // dispatch(createPostJson(res.data)); 서버오픈시 시도
-        window.alert('등록성공')
-         navigate('/')
+        window.alert("등록성공");
+        navigate("/");
       })
       .catch((err) => {
-        alert('로그인 후 작성해주세요')
-        navigate("/login")
-      })
+        alert("로그인 후 작성해주세요");
+        navigate("/login");
+      });
   };
-  
+
   //년도대 설정
   const [age, setAge] = useState();
   const handleChange = (event) => {

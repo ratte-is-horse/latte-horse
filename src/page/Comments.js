@@ -1,7 +1,7 @@
-import { async } from '@firebase/util';
-import React, { useEffect, useRef, useState } from 'react'
+import { async } from "@firebase/util";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import apis from '../api';
+import apis from "../api";
 import { createCommentJson, loadCommentJson } from "../redux/modules/comments";
 import { loadPostJson } from "../redux/modules/post";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,8 +14,8 @@ const Comments = (props) => {
   const boardId = props.id
   console.log(boardId)
   //코멘트 로드
-  
-// const detailData =async()=> await apis.getComments(boardId);
+
+  // const detailData =async()=> await apis.getComments(boardId);
 
 
   const onSubmit = (e) => {
@@ -23,16 +23,17 @@ const Comments = (props) => {
     dispatch(createCommentJson(props.id, comment))
   }
 
-useEffect((dispatch)=>{
-  props.getDetaildata()
-},[])
+  useEffect((dispatch) => {
+    props.getDetaildata()
+  }, [])
 
- const commentReducer = useSelector((state) => state.comment.comment_list)
+  const commentReducer = useSelector((state) => state.comment.comment_list)
 
   return (
     <div>
       <Commentlist>
         <div style={{ margin: "10px 100px" }}>💬</div>
+
         <div>
           <Input
             type="text"
@@ -43,9 +44,11 @@ useEffect((dispatch)=>{
             }}
           ></Input>
           <button type='submit' onClick={onSubmit}>등록</button>
+
+
         </div>
         {commentReducer?.map((item, index) => {
-          console.log()
+          console.log();
           return (
             <div key={index}>
               <Comment>
@@ -53,44 +56,39 @@ useEffect((dispatch)=>{
                 <Title>{item?.comment}</Title>
               </Comment>
             </div>
-          )
+          );
         })}
       </Commentlist>
     </div>
-  )
-}
-
+  );
+};
 const Input = styled.input`
-margin: 10px 8px 10px 100px;
-width: 75%;
-`
-
+  margin: 10px 8px 10px 100px;
+  width: 75%;
+`;
 const Nickname = styled.div`
-border: 1px solid grey;
-width: 20%;
-`
+  border: 1px solid grey;
+  width: 20%;
+`;
 const Content = styled.div`
-border: 1px solid grey;
-width: 40%;
-`
+  border: 1px solid grey;
+  width: 40%;
+`;
 const Title = styled.div`
-border: 1px solid grey;
-width: 80%;
-`
-
+  border: 1px solid grey;
+  width: 80%;
+`;
 const Commentlist = styled.div`
-border: 1px solid grey;
-width: 80%;
-`
-
+  border: 1px solid grey;
+  width: 80%;
+`;
 const Comment = styled.div`
-border: 1px solid grey;
-width: 80%;
-margin: auto;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-`
-
-export default Comments
+  border: 1px solid grey;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+export default Comments;

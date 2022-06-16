@@ -35,6 +35,7 @@ const Detail = () => {
     getDetaildata();
   }, [dispatch]);
 
+
   return (
     <div>
       <Header />
@@ -48,6 +49,7 @@ const Detail = () => {
         <div>:흰색_하트:</div>
       </Wrap>
       <Comments id={Detail?.id} getDetaildata={getDetaildata} />
+
       <>
         <button
           onClick={() => {
@@ -55,6 +57,7 @@ const Detail = () => {
             if (result) {
               console.log(id);
               dispatch(deletePostJson(id));
+
               console.log(id);
               navigate("/");
             }
@@ -99,4 +102,5 @@ const Content = styled.div`
   width: 40%;
 `;
 const Heart = styled.div``;
+
 export default Detail;
