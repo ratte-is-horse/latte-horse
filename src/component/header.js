@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import "../View.css";
 import { getCookie } from "../shared/Cookie";
 import { deleteCookie } from "../shared/Cookie";
 import { Link } from "react-router-dom";
@@ -21,53 +20,61 @@ const Header = () => {
     setCookie(false);
   };
   return (
+    <>
     <Head>
-      <div className="wrapper__right__setting">
+     
+        <Link to="/">
+        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmDOpI%2FbtrEWplWUj2%2FbIZArF1r9h2v3OndtGa9gK%2Fimg.png"
+        style={{width:"350px"}}/>
+        </Link>
         {is_cookie ? (
           <Link
             to="/"
             style={{
               textDecoration: "none",
-              marginRight: "18px",
-              color: "black",
+              color: "white",
             }}
           >
-            <span onClick={onLogout}>로그아웃</span>
+            <h1 onClick={onLogout}>로그아웃</h1>
           </Link>
         ) : (
+          <>
           <Link
             to="/login"
             style={{
               textDecoration: "none",
-              marginRight: "18px",
-              color: "black",
+              color: "white",
+              marginBottom:"40px"
             }}
           >
-            <span>로그인</span>
+            <h1>로그인</h1>
           </Link>
-        )}
-        <Link to="/signup" style={{ textDecoration: "none", color: "black" }}>
-          <span>회원가입</span>
+           <Link to="/signup" style={{ textDecoration: "none", color: "white", marginBottom:"40px" }}>
+          <h1>회원가입</h1>
         </Link>
+        </>
+        )}
+       
         <Link
           to="/post"
-          style={{ textDecoration: "none", marginLeft: "18px", color: "black" }}
+          style={{ textDecoration: "none", color: "white" }}
         >
-          <span>글작성고고씽</span>
+          <h1>글작성고고씽</h1>
         </Link>
-        <i className="fas fa-caret-right bbbb"></i>
-      </div>
     </Head>
+    </>
   );
 };
 
-const Head = styled.h1`
-  top:110px;
-  left:1300px;
-  width: 25%;
-  height: 30px;
-  margin-left:40em;
-  color: white;
+const Head = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top:150px;left:0;width:100%; height:50px;
   border-bottom: 1px solid #ffffff00;
+  margin:100px;
+  width: 30%;
 `;
+
 export default Header;

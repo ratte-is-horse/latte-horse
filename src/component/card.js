@@ -21,9 +21,9 @@ const Card = ({ item, id }) => {
 
   return (
     <div>
-      <div>{item?.title}</div>
+      <Title>{item?.title}</Title>
       <Image className="text_photo" src={`${item?.url}`} />
-      <p id="explain">게시글 보러가기</p>
+
       {/* <Item>{item?.contents}</Item> */}
       <Underbar className="underbar">
         {heart ? <Heart onClick={onHeart}>🤍</Heart> : <Heart onClick={onHeart}>❤️</Heart>}
@@ -40,11 +40,17 @@ const Card = ({ item, id }) => {
 // overflow: hidden;
 // `
 
-const Image = styled.img`
-width: 100%;
-&:hover{  
+const Title = styled.div`
+background-color: black;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px; ;
+color: white;
+`
 
-  }
+const Image = styled.img`
+margin-top: 10px;
+width: 330px;
+height: 400px;
 `
 const PostBox = styled.div`
 height: 300px;
@@ -56,21 +62,26 @@ const Item = styled.div`
 
 const Heart = styled.h2`
 width: 8%;
+
 `
 const Dat = styled.h2`
 width: 8%;
+margin-left: 60%;
 `
 
 const Years = styled.div`
 border: 0.1px solid black;
-width: 20%;
+width: 30%;
 border-radius: 40px;
 margin-left: 60%;
 text-align: center;
+padding-top: 3px;
+background-color: navy;
+color: white;
 `
 
 const Underbar = styled.div`
-
+margin-top: 5px;
 display: flex;
 flex-direction: row;
 `
