@@ -6,6 +6,7 @@ import Detail from "./page/Detail";
 import Login from "./page/Login";
 import Signup from "./page/Signup";
 import "./View.css";
+import styled from 'styled-components'
 import { LeftWrap, RightBar, Upperbar } from "./component/view";
 import Header from "./component/header";
 
@@ -16,8 +17,7 @@ function App() {
 
 
 
-    <div >
-
+    <Background >
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/post" element={<Post />} />
@@ -25,10 +25,14 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-    </div>
+    </Background>
 
 
   );
 }
 
+const Background = styled.div`
+  background-image: url("https://i.gifer.com/iGu.gif");
+  background-size: 450px;
+  `
 export default App;

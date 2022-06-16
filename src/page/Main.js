@@ -31,10 +31,11 @@ const Main = () => {
 
   return (
     <Box>
+
       <Header />
-      {/* <button onClick={love}>love</button> */}
+      <Wrap>
       {PostReducer?.map((item, index) => {
-        // console.log(item.id)
+        console.log(item)
         return (
           <Cardbox key={index}>
             <Card
@@ -43,7 +44,7 @@ const Main = () => {
           </Cardbox>
         );
       })}
-
+     </Wrap>
 
     </Box>
   );
@@ -53,9 +54,18 @@ const Box = styled.div`
 width: 50%;
 height: 80%;
 margin: auto;
+background-color: white;
+
 `
+const Wrap = styled.div`
+
+`
+
 const Cardbox = styled.div`
 /* width: 300px;
 height: 300px; */
+border: 1px solid black;
+margin: 10px;
+padding: 10px;
 `
 export default Main;

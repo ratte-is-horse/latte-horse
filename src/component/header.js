@@ -61,12 +61,13 @@ const Header = () => {
   );
 };
 
-const Head = styled.div`
-  /* top:110px; */
-  /* left:1300px; */
+const Head = styled.h1`
+  top:110px;
+  left:1300px;
   width: 25%;
   height: 30px;
   margin-left:40em;
+  color: white;
   border-bottom: 1px solid #ffffff00;
 `;
 export default Header;
