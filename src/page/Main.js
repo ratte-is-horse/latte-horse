@@ -54,6 +54,7 @@ const Main = () => {
 };
 
 const Box = styled.div`
+
   /* width: 50%; */
   /* max-width: 1200px; */
   height: 80%;

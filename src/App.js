@@ -45,7 +45,8 @@ const Wrap = styled.div`
   height: 90vh;
 
   width: 995px;
-  margin-top: 10%;
+  margin-top: 2%;
+  margin-bottom: 4%;
   overflow-x: hidden;
   overflow-y: auto;
 `;
