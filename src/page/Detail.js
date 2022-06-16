@@ -38,7 +38,6 @@ const Detail = () => {
 
   return (
     <>
-      <Header />
       <Wrap>
         <TitleWrap>
           <Title> {Detail?.title}</Title>
@@ -78,24 +77,24 @@ const Detail = () => {
 };
 const Wrap = styled.div`
   border: 1px solid grey;
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
-  background-color: white;
+  /* background-color: white; */
 `;
 const TitleWrap = styled.div`
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
 const Image = styled.img`
-  width: 60%;
+  width: 90%;
   margin: 20px 10px 40px;
 `;
 const Title = styled.div`
@@ -108,7 +107,7 @@ const Nickname = styled.div`
 `;
 const Content = styled.div`
   border: 1px solid grey;
-  width: 60%;
+  width: 90%;
 `;
 
 export default Detail;
