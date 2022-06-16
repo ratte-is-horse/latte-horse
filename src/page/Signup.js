@@ -122,6 +122,7 @@ const Signup = (props) => {
   return (
     <div>
       <Header />
+      <img src="images/바.png" style={{width:"100%"}}/>
       <form onSubmit={onSubmitUserHandler}>
         아이디 :
         <input

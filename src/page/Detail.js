@@ -39,6 +39,7 @@ const Detail = () => {
   return (
     <div>
       <Header />
+      <Section/>
       <Wrap>
         <TitleWrap>
           <Title> {Detail?.title}</Title>
@@ -101,6 +102,8 @@ const Content = styled.div`
   border: 1px solid grey;
   width: 40%;
 `;
-const Heart = styled.div``;
+const Section = styled.h1`
+  padding-top: 50px; padding-bottom: 10px;
+`;
 
 export default Detail;

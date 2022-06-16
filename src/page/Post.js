@@ -90,6 +90,7 @@ const Post = () => {
   return (
     <>
       <Header />
+      <img src="images/바.png" style={{width:"100%"}}/>
       <h3>게시글 작성</h3>
 
       <input
