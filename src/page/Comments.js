@@ -3,49 +3,53 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from "styled-components";
 import apis from '../api';
 import { createCommentJson, loadCommentJson } from "../redux/modules/comments";
+import { loadPostJson } from "../redux/modules/post";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const Comments =  () => {
+const Comments = (props) => {
   const dispatch = useDispatch()
-  const [comments, setComment] = useState("")
-
+  const [comment, setComment] = useState("")
+  //게시물아이디
+  const boardId = props.id
+  console.log(boardId)
   //코멘트 로드
-  const PostReducer = useSelector((state) => state.post.list);
-  const id = PostReducer.id //게시물아이디
-  const commentReducer = useSelector((state) => state.comment.comment_list)
-  console.log(commentReducer);
+  
+// const detailData =async()=> await apis.getComments(boardId);
 
-  useEffect(() => {
-    dispatch(loadCommentJson())
-  }, [dispatch])
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createCommentJson(props.id, comment))
+  }
+
+useEffect((dispatch)=>{
+  props.getDetaildata()
+},[])
+
+ const commentReducer = useSelector((state) => state.comment.comment_list)
 
   return (
     <div>
       <Commentlist>
         <div style={{ margin: "10px 100px" }}>💬</div>
-        <div onSubmit={(e)=>{
-          e.preventDefault();
-          dispatch(createCommentJson(id,))
-          setComment('')
-        }}>
-        <Input
-          type="text"
-          placeholder="댓글을 입력해주세요"
-          value={comments}
-          onChange={(e) => {
-            setComment(e.target.value)
-          }}
-        ></Input>
-        <button type='submit'>등록</button>
+        <div>
+          <Input
+            type="text"
+            placeholder="댓글을 입력해주세요"
+            value={comment}
+            onChange={(e) => {
+              setComment(e.target.value)
+            }}
+          ></Input>
+          <button type='submit' onClick={onSubmit}>등록</button>
         </div>
         {commentReducer?.map((item, index) => {
           console.log()
           return (
             <div key={index}>
               <Comment>
-                <Nickname >{item?.nickname}</Nickname>
+                <Nickname >{item?.userNickname}</Nickname>
                 <Title>{item?.comment}</Title>
               </Comment>
             </div>

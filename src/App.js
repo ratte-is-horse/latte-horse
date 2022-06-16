@@ -13,22 +13,19 @@ import Header from "./component/header";
 
 function App() {
   return (
-    <>
-      
-              {/* <LeftWrap /> */}
-             
-                {/* <Upperbar />               */}
 
-                  <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/post" element={<Post />} />
-                    <Route path="/detail/:index" element={<Detail />} />
-                    <Route path="/signup" element={<Signup />} />
-                    <Route path="/login" element={<Login />} />
-                  </Routes>
-            
-              {/* <RightBar /> */}
-      </>  
+
+    <div >
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
+
+
   );
 }
 

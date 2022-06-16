@@ -82,6 +82,10 @@ const Signup = (props) => {
       return;
     }
 
+    //디텔가져오는거
+    // const ret = await apis.getDetail(1)
+    // console.log(ret)
+
     const res = await apis.addUser({
       username: Username,
       password: Password,
@@ -90,8 +94,8 @@ const Signup = (props) => {
 
       profileUrl: fileInputRef.current?.url,
     });
-    console.log(res.data.body);
-    alert(res.data.body);
+    console.log(res);
+    alert(res.data.body[0].message);
     navigate("/login");
   };
 

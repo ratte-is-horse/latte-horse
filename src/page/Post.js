@@ -73,6 +73,7 @@ const Post = () => {
         navigate("/login")
       })
   };
+  
   //년도대 설정
   const [age, setAge] = useState();
   const handleChange = (event) => {
