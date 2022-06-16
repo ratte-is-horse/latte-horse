@@ -32,7 +32,8 @@ const Comments = (props) => {
   return (
     <div>
       <Commentlist>
-        <div style={{ margin: "10px 100px" }}>💬</div>
+        <Wrap>
+        <div style={{ margin: "10px" }}>💬</div>
 
         <div>
           <Input
@@ -44,9 +45,8 @@ const Comments = (props) => {
             }}
           ></Input>
           <button type='submit' onClick={onSubmit}>등록</button>
-
-
         </div>
+        </Wrap>
         {commentReducer?.map((item, index) => {
           console.log();
           return (
@@ -62,9 +62,17 @@ const Comments = (props) => {
     </div>
   );
 };
+const Wrap = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+  align-items: center;
+
+width: 600px;
+`
 const Input = styled.input`
-  margin: 10px 8px 10px 8px;
-  width: 90%;
+  width: 400px;
+ 
 `;
 const Nickname = styled.div`
   border: 1px solid grey;
@@ -79,8 +87,9 @@ const Title = styled.div`
   width: 80%;
 `;
 const Commentlist = styled.div`
-  border: 1px solid grey;
-  width: 100%;
+  text-align: center;
+  width: 600px;
+  margin: 20px 0;
 `;
 const Comment = styled.div`
   border: 1px solid grey;
