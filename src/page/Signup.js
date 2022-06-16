@@ -124,16 +124,62 @@ const Signup = (props) => {
       <Header />
 
       <Wrap>
-        <img src="images/bar2.png" style={{ width: "100%" }} />
-        <form onSubmit={onSubmitUserHandler} style={{ marginTop: "30px" }}>
-          아이디 :
-          <Inputbox
-            type="text"
-            placeholder="아이디를 입력하세요"
-            value={Username}
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
+
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcW8oAK%2FbtrEU2FQuwe%2FUNUK6A2BvB1knFPLeK6E6K%2Fimg.png" style={{width:"100%"}}/>
+      <form onSubmit={onSubmitUserHandler} style={{marginTop:"30px"}}>
+        아이디 :
+        <Inputbox
+          type="text"
+          placeholder="아이디를 입력하세요"
+          value={Username}
+          onChange={(event) => {
+            setUsername(event.target.value);
+          }}
+        />
+        <h6>아이디는 4자 이상 영문과 숫자로만 이루어져야해요</h6>
+        <br />
+        비밀번호 :
+        <Inputbox
+          type="password"
+          placeholder="비밀번호를 입력하세요"
+          value={Password}
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+          ref={password}
+        />
+        <h6>비밀번호는 8자 이상 영문과 숫자로만 이루어져야해요</h6>
+        <br />
+        비밀번호 재확인 :
+        <Inputbox
+          type="password"
+          placeholder="비밀번호를 재입력하세요"
+          value={Password2}
+          onChange={(event) => {
+            setPassword2(event.target.value);
+          }}
+          ref={password2}
+        />
+        <p ref={check} />
+        <h6>비밀번호는 8자 이상 영문과 숫자로만 이루어져야해요</h6>
+        <br />
+        닉네임 :
+        <Inputbox
+          type="text"
+          placeholder="예전 느낌 살려서! 큰거온다!!!"
+          value={Nickname}
+          onChange={(event) => {
+            setNickname(event.target.value);
+          }}
+        />
+        <h6>닉네임은 당신의 멋대로에요</h6>
+        <br />
+        프로필 사진
+        {fileImage && (
+          <img
+            alt="sample"
+            src={fileImage}
+            style={{ margin: "auto", maxWidth: "300px", maxHeight: "250px" }}
           />
           <h6>아이디는 4자 이상 영문과 숫자로만 이루어져야해요</h6>
           <br />

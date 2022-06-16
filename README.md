@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# 미니프로젝트 " 라떼 월드 "
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://user-images.githubusercontent.com/97954474/174029570-1d82afc6-91ee-4e64-b9f3-08a988a82359.png" width="80%">
 
-## Available Scripts
+<h3>FrontEnd : 구자덕 , 최서현</h3>
+<h3>BackEnd : 김재현, 양승훈, 이영균, 장현석</h3>
 
-In the project directory, you can run:
+### 라떼는 말이야, 설 곳 없는 꼰들을 위한 SNS!
 
-### `yarn start`
+- 라떼 월드는 추억을 공유하고 누가 더 꼰 ☆★POWER★☆가 강력한 지 겨뤄볼 수 있는 무대입니다. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `yarn test`
+- **`추억을 공유할 게시글 작성`** **`마음에 드는 추억을 좋아요`** **`추억을 연도별로 분류`** 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🍰 **[라떼월드 서비스 바로가기](http://sparta-csh.shop.s3-website.ap-northeast-2.amazonaws.com/)**
 
-### `yarn build`
+🎬 **[서비스 시연 및 발표 영상](https://www.youtube.com/watch?v=bS6OVC3JLwY)**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✨ 기능설명
 
-### `yarn eject`
+<details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  <h5>전체적으로 응답 바디에 HTTP Status Code와 메세지를 출력하도록 구현</h5>  
+  
+<summary> <b>1. 회원가입 </b> </summary>
+    
+**`회원 가입`**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 유효성 검사를 통해 ID중복, Nickname중복 등 기본적인 기능 구현
+    
+- 사용자가 원하는 이미지를 프로필 이미지로 지정할 수 있게 구현
+  
+</details>
+    
+<details>
+<summary> <b>2. 로그인 </b> </summary>  
+  
+**`로그인`**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 로그인 시에 토큰이 자동적으로 헤더에 들어오도록 기능 구현
+  
+- 토큰 만료시간은 30분으로 구현
+  
+</details>
+<details>
+<summary> <b>3. 게시판 </b> </summary>  
+  
+**`3-1 포스팅`**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 로그인이 된 회원만 글을 작성할 수 있도록 구현
+  
+- 사용자가 원하는 사진과 글 내용을 연도별로 저장
+  
+**`3-2 게시글 상세 조회`**
+  
+- 포스팅된 게시글을 전체 및 원하는 연도별로 조회할 수 있는 기능 구현
+  
+- 사용자가 마음에 드는 게시글에 좋아요할 수 있는 기능 구현
+  
+- 사용자가 특정 게시글에 원하는 코멘트를 등록할 수 있는 기능 구현
+  
+- 게시글의 작성자 본인만 수정 및 삭제할 수 있는 기능 구현
+  
+</details>
+    
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br />
 
-### Code Splitting
+## 🔨 API 설계 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<a href="https://www.notion.so/13e7695efd5548959eb9b69f87614b52?v=85b90155e01649d89ebd380a8f2106aa">**API 설계 한눈에 보기**</a>
 
-### Analyzing the Bundle Size
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🐛 트러블 슈팅
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href="https://ysh94.tistory.com/41">**트러블 슈팅 한눈에 보기(Backend)**</a>
+  

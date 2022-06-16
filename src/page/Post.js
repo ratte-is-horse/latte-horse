@@ -94,7 +94,7 @@ const Post = () => {
     <>
       <Header />
       <Wrap>
-        <img src="images/바.png" style={{ width: "100%" }} />
+        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcW8oAK%2FbtrEU2FQuwe%2FUNUK6A2BvB1knFPLeK6E6K%2Fimg.png" style={{ width: "100%" }} />
         <Title>게시글 작성</Title>
 
         <Inputbox
