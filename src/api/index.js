@@ -5,13 +5,12 @@ const api = axios.create({
   baseURL: "http://52.79.226.242",
   // http://localhost:4000
   //http://52.79.226.242  =======
-})
+});
 //1. ?? 아래 이것만 있을 때 왜 안 되는지 이유 찾아내기
 // headers: {
 //   authorization: `${getCookie("token")}`,
 // },
 //
-
 
 //1. ?? 아래 왜 꼭 interceptors가 필요한지.
 //2. ??!! 일단
@@ -41,8 +40,7 @@ const apis = {
   editPost: (id, contents) => api.post(`/posts/${id}`, contents),
   delPost: (id) => api.delete(`/api/board/${id}`),
   getPosts: () => api.get("/api/boards"),
-  getDetail: (id) => api.get(`/api/board/${id}`),
-
+  getDetail: (id) => api.get(`/api/detail/${id}`),
 
   //comment
   addComment: (id, comment) =>
@@ -52,7 +50,6 @@ const apis = {
   delComment: (id, commentId) =>
     api.delete(`/api/board/${id}/comment/${commentId}`),
   getComments: (id) => api.get(`/api/board/${id}/comments`),
-
 
   //heart
   addheart: (id) => api.post(`/api/board/${id}/like`),

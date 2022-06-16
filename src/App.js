@@ -14,6 +14,7 @@ import Header from "./component/header";
 function App() {
   return (
     <Background>
+      <Header />
       <Wrap>
         <Routes>
           <Route path="/" element={<Main />} />
@@ -36,7 +37,9 @@ const Background = styled.div`
 
 const Wrap = styled.div`
   border: 1px solid white;
-  height: 90vh;
-  width: 1200px;
+  height: 30%;
+  width: 45%;
+  margin-top: 10%;
+  margin-bottom: 10%;
 `;
 export default App;

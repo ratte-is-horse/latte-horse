@@ -6,28 +6,26 @@ import { createCommentJson, loadCommentJson } from "../redux/modules/comments";
 import { loadPostJson } from "../redux/modules/post";
 import { useDispatch, useSelector } from "react-redux";
 
-
 const Comments = (props) => {
-  const dispatch = useDispatch()
-  const [comment, setComment] = useState("")
+  const dispatch = useDispatch();
+  const [comment, setComment] = useState("");
   //게시물아이디
-  const boardId = props.id
-  console.log(boardId)
+  const boardId = props.id;
+  console.log(boardId);
   //코멘트 로드
 
   // const detailData =async()=> await apis.getComments(boardId);
 
-
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createCommentJson(props.id, comment))
-  }
+    dispatch(createCommentJson(props.id, comment));
+  };
 
   useEffect((dispatch) => {
-    props.getDetaildata()
-  }, [])
+    props.getDetaildata();
+  }, []);
 
-  const commentReducer = useSelector((state) => state.comment.comment_list)
+  const commentReducer = useSelector((state) => state.comment.comment_list);
 
   return (
     <div>
@@ -40,19 +38,19 @@ const Comments = (props) => {
             placeholder="댓글을 입력해주세요"
             value={comment}
             onChange={(e) => {
-              setComment(e.target.value)
+              setComment(e.target.value);
             }}
           ></Input>
-          <button type='submit' onClick={onSubmit}>등록</button>
-
-
+          <button type="submit" onClick={onSubmit}>
+            등록
+          </button>
         </div>
         {commentReducer?.map((item, index) => {
           console.log();
           return (
             <div key={index}>
               <Comment>
-                <Nickname >{item?.userNickname}</Nickname>
+                <Nickname>{item?.userNickname}</Nickname>
                 <Title>{item?.comment}</Title>
               </Comment>
             </div>
@@ -72,7 +70,7 @@ const Nickname = styled.div`
 `;
 const Content = styled.div`
   border: 1px solid grey;
-  width: 40%;
+  width: 70%;
 `;
 const Title = styled.div`
   border: 1px solid grey;
@@ -80,7 +78,7 @@ const Title = styled.div`
 `;
 const Commentlist = styled.div`
   border: 1px solid grey;
-  width: 80%;
+  width: 100%;
 `;
 const Comment = styled.div`
   border: 1px solid grey;
