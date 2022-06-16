@@ -15,7 +15,6 @@ const Main = () => {
   getCookie("token");
   const PostReducer = useSelector((state) => state.post.list);
 
-  console.log(axios.get("ttp://52.79.226.242/api/board/1/like"));
   console.log(PostReducer);
 
   useEffect(() => {

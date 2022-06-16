@@ -63,8 +63,15 @@ const Detail = () => {
         </TitleWrap>
 
         <Image src={Detail?.url}></Image>
-        <Content>{Detail?.contents}</Content>
 
+        <Wrap2>
+          <Content>{Detail?.contents}</Content>
+          {Detail?.love ? (
+            <Heart onClick={onHeart}>❤️</Heart>
+          ) : (
+            <Heart onClick={onHeart}>🤍</Heart>
+          )}
+        </Wrap2>
         <Comments
           className="Comments"
           id={Detail?.id}
@@ -72,7 +79,7 @@ const Detail = () => {
         />
 
         <>
-          <button
+          <Button2
             onClick={() => {
               const result = window.confirm("정말 삭제할까요?");
               if (result) {
@@ -85,13 +92,7 @@ const Detail = () => {
             }}
           >
             삭제하기
-          </button>
-          <button>수정하기</button>
-          {Detail?.love ? (
-            <Heart onClick={onHeart}>❤️</Heart>
-          ) : (
-            <Heart onClick={onHeart}>🤍</Heart>
-          )}
+          </Button2>
         </>
       </Wrap>
     </>
@@ -109,10 +110,17 @@ const Wrap = styled.div`
   width: 80%;
   background-color: wheat;
 `;
-
-const Title = styled.h3`
+const Wrap2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+const Title = styled.h2`
   margin-top: 20px;
   margin-bottom: 10px;
+  margin-left: 60px;
+  width: 60%;
   color: black;
 `;
 
@@ -144,18 +152,17 @@ const Image = styled.img`
 
 const Nickname = styled.h4`
   font-family: inherit;
-  width: 20%;
+  width: 40%;
 `;
 const Content = styled.h3`
-  margin: inherit;
-  width: 90%;
+  margin: 20px 0;
+  width: 500px;
+  text-align: center;
 `;
-
 const Section = styled.h1`
   padding-top: 50px;
   padding-bottom: 10px;
 `;
-
 const Heart = styled.h2`
   width: 8%;
   cursor: pointer;

@@ -37,9 +37,11 @@ const Card = ({ item, id }) => {
 // width: 600px;
 // overflow: hidden;
 // `
+
 const Title = styled.h4`
   padding-left: 10px;
 `;
+
 const Image = styled.img`
   margin-top: 10px;
   width: 280px;
@@ -59,6 +61,7 @@ const Dat = styled.h2`
   width: 8%;
   margin-left: 80%;
 `;
+
 const Years = styled.h5`
   border: 0.1px solid black;
   width: 45%;
@@ -69,6 +72,7 @@ const Years = styled.h5`
   background-color: navy;
   color: white;
 `;
+
 const Underbar = styled.div`
   margin-top: 5px;
   display: flex;

@@ -96,7 +96,7 @@ const Post = () => {
       <Wrap>
         <img src="images/바.png" style={{ width: "100%" }} />
         <Title>게시글 작성</Title>
-        >>>>>>> e2e2d1e3e7083ec17ab17490489721430dc470b9
+
         <Inputbox
           type="text"
           placeholder="글의 제목을 입력하세용"
