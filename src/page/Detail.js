@@ -38,9 +38,9 @@ const Detail = () => {
   return (
     <>
       <Header />
-      
+
       <Wrap>
-        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcW8oAK%2FbtrEU2FQuwe%2FUNUK6A2BvB1knFPLeK6E6K%2Fimg.png" style={{width:"100%"}}/>
+        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcW8oAK%2FbtrEU2FQuwe%2FUNUK6A2BvB1knFPLeK6E6K%2Fimg.png" style={{ width: "100%" }} />
         <TitleWrap>
           <Title> {Detail?.title}</Title>
           <Nickname>Nickname: {Detail?.nickname}</Nickname>
@@ -48,19 +48,19 @@ const Detail = () => {
 
         <Image src={Detail?.url}></Image>
         <Wrap2>
-        <Content>{Detail?.contents}</Content>
-        {Detail?.love ? (
+          <Content>{Detail?.contents}</Content>
+          {Detail?.love ? (
             <Heart onClick={onHeart}>❤️</Heart>
           ) : (
             <Heart onClick={onHeart}>🤍</Heart>
           )}
-          </Wrap2>
+        </Wrap2>
         <Comments
           className="Comments"
           id={Detail?.id}
           getDetaildata={getDetaildata}
         />
-        
+
         <>
           <Button2
             onClick={() => {
@@ -75,7 +75,7 @@ const Detail = () => {
           >
             삭제하기
           </Button2>
-          
+
         </>
       </Wrap>
     </>
@@ -94,7 +94,7 @@ width: 80%;
 background-color: wheat;
 
 `
-const Wrap2 =styled.div`
+const Wrap2 = styled.div`
  display: flex;
 justify-content: center;
 align-items: center;

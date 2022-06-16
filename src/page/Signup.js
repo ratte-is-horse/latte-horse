@@ -135,6 +135,7 @@ const Signup = (props) => {
             setUsername(event.target.value);
           }}
         />
+        <h6>아이디는 4자 이상 영문과 숫자로만 이루어져야해요</h6>
         <br />
         비밀번호 :
         <Inputbox
@@ -146,6 +147,7 @@ const Signup = (props) => {
           }}
           ref={password}
         />
+        <h6>비밀번호는 8자 이상 영문과 숫자로만 이루어져야해요</h6>
         <br />
         비밀번호 재확인 :
         <Inputbox
@@ -158,6 +160,7 @@ const Signup = (props) => {
           ref={password2}
         />
         <p ref={check} />
+        <h6>비밀번호는 8자 이상 영문과 숫자로만 이루어져야해요</h6>
         <br />
         닉네임 :
         <Inputbox
@@ -168,6 +171,7 @@ const Signup = (props) => {
             setNickname(event.target.value);
           }}
         />
+        <h6>닉네임은 당신의 멋대로에요</h6>
         <br />
         프로필 사진
         {fileImage && (
