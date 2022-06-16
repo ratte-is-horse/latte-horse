@@ -28,7 +28,7 @@ export function loadDetail(loadDetailData) {
 }
 
 export function createPost(payload) {
-  console.log("생성중입니다.");
+  // console.log("생성중입니다.");
   return { type: CREATE_POST, payload };
 }
 export function updatePost(post_index) {
@@ -94,7 +94,6 @@ export default function Post_reducer(state = intialstate, action) {
   switch (action.type) {
     case LOAD_POSTS: {
       return { list: action.payload.reverse() };
-
     }
     case CREATE_POST: {
       return { ...state, list: [...state.list, action.payload] };

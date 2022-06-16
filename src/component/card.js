@@ -38,7 +38,7 @@ const Card = ({ item, id }) => {
 // overflow: hidden;
 // `
 
-const Title = styled.h4`
+const Title = styled.div`
   padding-left: 10px;
 `;
 
@@ -53,16 +53,15 @@ const PostBox = styled.div`
   height: 270px;
   width: 270px;
 `;
-const Item = styled.div``;
-const Heart = styled.h2`
+const Heart = styled.div`
   width: 8%;
 `;
-const Dat = styled.h2`
+const Dat = styled.div`
   width: 8%;
   margin-left: 80%;
 `;
 
-const Years = styled.h5`
+const Years = styled.div`
   border: 0.1px solid black;
   width: 45%;
   border-radius: 40px;

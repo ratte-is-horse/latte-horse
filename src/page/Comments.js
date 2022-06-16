@@ -21,7 +21,7 @@ const Comments = (props) => {
     dispatch(createCommentJson(props.id, comment));
   };
 
-  useEffect((dispatch) => {
+  useEffect(() => {
     props.getDetaildata();
   }, []);
 
@@ -101,7 +101,7 @@ const Comment = styled.div`
   align-items: center;
 `;
 
-const Section = styled.h1`
+const Section = styled.div`
   padding-top: 50px;
   padding-bottom: 10px;
 `;
