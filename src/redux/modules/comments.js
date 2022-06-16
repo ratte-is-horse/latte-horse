@@ -40,7 +40,7 @@ export const createCommentJson = (id, comment) => {
       // console.log(commentData);
       dispatch(createComment(data));
     } catch (e) {
-      console.log("댓글 등록실패");
+      // console.log("댓글 등록실패");
     }
   };
 };

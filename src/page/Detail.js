@@ -83,10 +83,10 @@ const Detail = () => {
             onClick={() => {
               const result = window.confirm("정말 삭제할까요?");
               if (result) {
-                console.log(id);
+                // console.log(id);
                 dispatch(deletePostJson(id));
 
-                console.log(id);
+                // console.log(id);
                 navigate("/");
               }
             }}
@@ -116,7 +116,7 @@ const Wrap2 = styled.div`
   align-items: center;
   flex-direction: row;
 `;
-const Title = styled.h2`
+const Title = styled.div`
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 60px;
@@ -138,7 +138,7 @@ const Button2 = styled.button`
   margin-bottom: 20px;
 `;
 
-const TitleWrap = styled.h3`
+const TitleWrap = styled.div`
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -150,20 +150,20 @@ const Image = styled.img`
   margin: 20px 10px 40px;
 `;
 
-const Nickname = styled.h4`
+const Nickname = styled.div`
   font-family: inherit;
   width: 40%;
 `;
-const Content = styled.h3`
+const Content = styled.div`
   margin: 20px 0;
   width: 500px;
   text-align: center;
 `;
-const Section = styled.h1`
+const Section = styled.div`
   padding-top: 50px;
   padding-bottom: 10px;
 `;
-const Heart = styled.h2`
+const Heart = styled.div`
   width: 8%;
   cursor: pointer;
 `;

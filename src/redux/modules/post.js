@@ -28,7 +28,7 @@ export function loadDetail(loadDetailData) {
 }
 
 export function createPost(payload) {
-  console.log("생성중입니다.");
+  // console.log("생성중입니다.");
   return { type: CREATE_POST, payload };
 }
 export function updatePost(post_index) {
@@ -78,13 +78,13 @@ export const updatePostJson = () => {
 export const deletePostJson = (id) => {
   return async function (dispatch) {
     try {
-      console.log(id);
+      // console.log(id);
       const deletePost = await apis.delPost(id);
-      console.log(deletePost);
+      // console.log(deletePost);
 
       dispatch(removePost(id));
     } catch (e) {
-      console.log("오류");
+      // console.log("오류");
     }
   };
 };
