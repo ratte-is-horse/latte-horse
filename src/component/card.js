@@ -21,52 +21,51 @@ const Card = ({ item, id }) => {
       <Image className="text_photo" src={`${item?.url}`} />
       {/* <Item>{item?.contents}</Item> */}
       <Underbar className="underbar">
-        {/* {heart ? (
-          <Heart onClick={onHeart}>:하트2:</Heart>
-        ) : (
-          <Heart onClick={onHeart}>:흰색_하트:</Heart>
-        )} */}
+        <Heart>🤍</Heart>
+
         <Link to={`/detail/${item?.id}`} style={{ textDecoration: "none" }}>
           {" "}
-          <Dat>:말풍선:</Dat>{" "}
+          <Dat>💬</Dat>{" "}
         </Link>
         <Years>{item?.year}</Years>
       </Underbar>
     </div>
   );
 };
-const Imgbox = styled.div`
-  height: 600px;
-  width: 600px;
-  overflow: hidden;
-`;
-const Title = styled.div`
+// const Imgbox = styled.div`
+// height: 600px;
+// width: 600px;
+// overflow: hidden;
+// `
+const Title = styled.h4`
   padding-left: 10px;
 `;
 const Image = styled.img`
   margin-top: 10px;
   width: 280px;
   height: 380px;
+  border-top: 3px solid navy;
+  border-bottom: 3px solid navy;
 `;
 const PostBox = styled.div`
   height: 270px;
   width: 270px;
 `;
 const Item = styled.div``;
-// const Heart = styled.h2`
-//   width: 8%;
-// `;
+const Heart = styled.h2`
+  width: 8%;
+`;
 const Dat = styled.h2`
   width: 8%;
   margin-left: 80%;
 `;
-const Years = styled.div`
+const Years = styled.h5`
   border: 0.1px solid black;
-  width: 30%;
+  width: 45%;
   border-radius: 40px;
   margin-left: 60%;
   text-align: center;
-  padding-top: 3px;
+  padding-top: 4px;
   background-color: navy;
   color: white;
 `;

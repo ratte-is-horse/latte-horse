@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { createPostJson } from "../redux/modules/post";
 import Header from "../component/header";
 import { configure } from "@testing-library/react";
+import styled from "styled-components";
 
 const Post = () => {
   const navigate = useNavigate();
@@ -92,67 +93,114 @@ const Post = () => {
   return (
     <>
       <Header />
-      <img src="images/바.png" style={{ width: "100%" }} />
-      <h3>게시글 작성</h3>
-
-      <input
-        type="text"
-        placeholder="글의 제목을 입력하세용"
-        value={title}
-        onChange={(event) => {
-          setTitle(event.target.value);
-        }}
-      />
-      <input
-        type="text"
-        placeholder="내용을 입력하세용"
-        value={content}
-        onChange={(event) => {
-          setContent(event.target.value);
-        }}
-      />
-      <div>
-        {fileImage && (
-          <img
-            alt="sample"
-            src={fileImage}
-            style={{ margin: "auto", maxWidth: "300px", maxHeight: "250px" }}
-          />
-        )}
-        <div
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
+      <Wrap>
+        <img src="images/바.png" style={{ width: "100%" }} />
+        <Title>게시글 작성</Title>
+        >>>>>>> e2e2d1e3e7083ec17ab17490489721430dc470b9
+        <Inputbox
+          type="text"
+          placeholder="글의 제목을 입력하세용"
+          value={title}
+          onChange={(event) => {
+            setTitle(event.target.value);
           }}
-        >
-          <input
-            name="imgUpload"
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-            onChange={saveFileImage}
-          />
-          <div style={{ fontSize: "10px", color: "tomato" }}>
-            사진변경하지 말아주세요 오류생겨요...😭
+          style={{ height: "40px" }}
+        />
+        <Inputbox
+          type="text"
+          placeholder="내용을 입력하세용"
+          value={content}
+          onChange={(event) => {
+            setContent(event.target.value);
+          }}
+          style={{ height: "100px" }}
+        />
+        <div>
+          {fileImage && (
+            <img
+              alt="sample"
+              src={fileImage}
+              style={{ margin: "auto", maxWidth: "300px", maxHeight: "250px" }}
+            />
+          )}
+          <div
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Inputbox
+              name="imgUpload"
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              onChange={saveFileImage}
+              style={{ marginLeft: "20%", marginBottom: "10px" }}
+            />
+            <div
+              style={{
+                fontSize: "10px",
+                color: "tomato",
+                marginLeft: "20%",
+                marginBottom: "10px",
+              }}
+            >
+              사진변경하지 말아주세요 오류생겨요...😭
+            </div>
+            <form>
+              <select
+                onChange={handleChange}
+                style={{ marginLeft: "35%", marginBottom: "10px" }}
+              >
+                <option value="0">선택하세요</option>
+                <option value="2010's">2010's</option>
+                <option value="2000's">2000's</option>
+                <option value="1990's">1990's</option>
+                <option value="1980's">1980's</option>
+              </select>
+            </form>
+            <div>{age}</div>
           </div>
-          <form>
-            <select onChange={handleChange}>
-              <option value="0">선택하세요</option>
-              <option value="2010's">2010's</option>
-              <option value="2000's">2000's</option>
-              <option value="1990's">1990's</option>
-              <option value="1980's">1980's</option>
-            </select>
-          </form>
-          <div>{age}</div>
         </div>
-      </div>
-      <div>
-        <button onClick={postNew} type="submit">
-          등록하기
-        </button>
-      </div>
+        <div>
+          <Button2 onClick={postNew} type="submit">
+            등록하기
+          </Button2>
+        </div>
+      </Wrap>
     </>
   );
 };
+
+const Wrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  margin: 15% auto;
+  border: 1px white solid;
+  width: 50%;
+  background-color: wheat;
+`;
+
+const Title = styled.h3`
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: black;
+`;
+
+const Inputbox = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  width: 90%;
+  height: 30%;
+`;
+const Button2 = styled.button`
+  padding: 3px;
+  margin-bottom: 20px;
+`;
 export default Post;

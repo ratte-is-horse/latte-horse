@@ -29,7 +29,6 @@ const Comments = (props) => {
 
   return (
     <div>
-      
       <Commentlist>
         <div style={{ margin: "10px 100px" }}>💬</div>
 
@@ -62,8 +61,8 @@ const Comments = (props) => {
   );
 };
 const Input = styled.input`
-  margin: 10px 8px 10px 100px;
-  width: 75%;
+  margin: 10px 8px 10px 8px;
+  width: 90%;
 `;
 const Nickname = styled.div`
   border: 1px solid grey;

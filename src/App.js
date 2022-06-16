@@ -16,6 +16,10 @@ function App() {
   return (
     <Background>
       <Wrap>
+        <img
+          src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcW8oAK%2FbtrEU2FQuwe%2FUNUK6A2BvB1knFPLeK6E6K%2Fimg.png"
+          style={{ width: "100%" }}
+        />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/post" element={<Post />} />
@@ -39,7 +43,8 @@ const Wrap = styled.div`
   border: 3px solid white;
   border-radius: 10px;
   height: 90vh;
-  width: 1000px;
+
+  width: 995px;
   margin-top: 10%;
   overflow-x: hidden;
   overflow-y: auto;

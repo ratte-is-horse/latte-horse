@@ -122,10 +122,12 @@ const Signup = (props) => {
   return (
     <div>
       <Header />
-      <img src="images/바.png" style={{width:"100%"}}/>
-      <form onSubmit={onSubmitUserHandler}>
+      
+      <Wrap>
+      <img src="images/bar2.png" style={{width:"100%"}}/>
+      <form onSubmit={onSubmitUserHandler} style={{marginTop:"30px"}}>
         아이디 :
-        <input
+        <Inputbox
           type="text"
           placeholder="아이디를 입력하세요"
           value={Username}
@@ -135,7 +137,7 @@ const Signup = (props) => {
         />
         <br />
         비밀번호 :
-        <input
+        <Inputbox
           type="password"
           placeholder="비밀번호를 입력하세요"
           value={Password}
@@ -146,7 +148,7 @@ const Signup = (props) => {
         />
         <br />
         비밀번호 재확인 :
-        <input
+        <Inputbox
           type="password"
           placeholder="비밀번호를 재입력하세요"
           value={Password2}
@@ -158,7 +160,7 @@ const Signup = (props) => {
         <p ref={check} />
         <br />
         닉네임 :
-        <input
+        <Inputbox
           type="text"
           placeholder="예전 느낌 살려서! 큰거온다!!!"
           value={Nickname}
@@ -175,7 +177,7 @@ const Signup = (props) => {
             style={{ margin: "auto", maxWidth: "300px", maxHeight: "250px" }}
           />
         )}
-        <Input
+        <Inputbox
           name="imgUpload"
           type="file"
           accept="image/*"
@@ -185,8 +187,9 @@ const Signup = (props) => {
         <div style={{ fontSize: "10px", color: "tomato" }}>
           사진변경하지 말아주세요 오류생겨요...😭
         </div>
-        <button>{isLoading ? "가입 중... " : "가입하기"}</button>
+        <Button>{isLoading ? "가입 중... " : "가입하기"}</Button>
       </form>
+      </Wrap>
     </div>
   );
 };
@@ -195,6 +198,38 @@ const Input = styled.input`
   display: ${(props) => (props.fileImage ? "none" : "")};
 `;
 
+const Wrap = styled.div`
+ display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column ;
+color: black;
+margin: 15% auto;
+border: 1px white solid;
+width: 50%;
+background-color: wheat;
+
+`
+
+const Title = styled.h3`
+margin-top: 10px;
+color: black;
+`
+
+const Inputbox = styled.input`
+ display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column ;
+margin: 20px;
+width: 90%;
+height: 30%;
+`
+const Button = styled.button`
+padding: 3px;
+margin-left:140px ;
+margin-bottom: 20px;
+`
 //1. ?? 위에 132번의 isLoading이 왜 필요한지, 그리고 위에 그걸 state로 만들어놨는데 그게 무슨 의미인지?
 // 만일 isLoading을 활용하려면 서버에서 id 중복에 대한 response를 받아와서 위의 isLoading의 스테이트 값으로 묶어놔야함
 // 받아서 거기에 값 묶어 놓을 방법 추가해야함.

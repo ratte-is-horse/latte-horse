@@ -41,48 +41,54 @@ const Login = () => {
   return (
     <>
       <Header />
-      <img src="images/바.png" style={{width:"100%"}}/>
       <Wrap>
-      <img src="images/bar2.png" style={{width:"100%"}}/>
-      <Title>로그인페이지</Title>
-      <form>
-        <Inputbox type="text" placeholder="ID" ref={id_ref}></Inputbox>
-        <Inputbox type="password" placeholder="PASSWORD" ref={password_ref}></Inputbox>
-        <Button type="submit" onClick={onLoginClick}> 로그인 </Button>
-      </form>
+        <img src="images/bar2.png" style={{ width: "100%" }} />
+        <Title>로그인페이지</Title>
+        <form>
+          <Inputbox type="text" placeholder="ID" ref={id_ref}></Inputbox>
+          <Inputbox
+            type="password"
+            placeholder="PASSWORD"
+            ref={password_ref}
+          ></Inputbox>
+          <Button type="submit" onClick={onLoginClick}>
+            {" "}
+            로그인{" "}
+          </Button>
+        </form>
       </Wrap>
     </>
   );
 };
 
 const Wrap = styled.div`
- display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column ;
-color: white;
-margin: 20% auto;
-border: 1px white solid;
-width: 30%;
-background-color: wheat;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  margin: 20% auto;
+  border: 1px white solid;
+  width: 30%;
+  background-color: wheat;
+`;
 
 const Title = styled.h3`
-margin-top: 10px;
-color: black;
-`
+  margin-top: 10px;
+  color: black;
+`;
 
 const Inputbox = styled.input`
- display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column ;
-margin: 20px;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+`;
 const Button = styled.button`
-padding: 3px;
-margin-left:100px ;
-margin-bottom: 20px;
-`
+  padding: 3px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+`;
 
 export default Login;
