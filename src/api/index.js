@@ -7,17 +7,28 @@ const api = axios.create({
   baseURL: "http://52.79.226.242",
   // http://localhost:4000
   //http://52.79.226.242
-  headers: {
-    // authorization: `${getCookie("token")}`,
 
-  },
+  //1. ?? 아래 이것만 있을 때 왜 안 되는지 이유 찾아내기
+  // headers: {
+  //   authorization: `${getCookie("token")}`,
+  // },
+  //
+  // timeout: 10000,
 });
 
+//1. ?? 아래 왜 꼭 interceptors가 필요한지.
+//2. ??!! 일단
 api.interceptors.request.use(
-  function (config) {
-    config.headers.common['authorization'] = `${getCookie("token")}`;
+  (config) => {
+    const token = getCookie("token");
+    config.headers.Authorization = token;
     return config;
-  })
+  },
+  (error) => {
+    console.log(error);
+  }
+);
+
 // ,
 // function (error) {
 //     // 요청 에러 직전 호출됩니다.
@@ -33,16 +44,22 @@ const apis = {
 
   //post
   addPost: (contents) => api.post("/api/board/write", contents),
-  editPost: (id, contents) => api.post(`/api/board/${id}`, contents),
+  editPost: (id, contents) => api.post(`/posts/${id}`, contents),
   delPost: (id) => api.delete(`/api/board/${id}`),
   getPosts: () => api.get("/api/boards"),
-  getPost: (id) => api.get(`/users/${id}`),
+  getDetail: (id) => api.get(`/api/board/${id}`),
 
   //comment
-  addComment: (id, comments) => api.post(`/api/board/${id}/comment/write`, comments),
-  editComment: (id, commentId, comments) => api.post(`/api/board/${id}/comment/${commentId}`, comments),
-  delComment: (id, commentId) => api.delete(`/api/board/${id}/comment/${commentId}`),
+  addComment: (id, comment) =>
+    api.post(`/api/board/${id}/comment/write`, comment),
+  editComment: (id, commentId, comments) =>
+    api.post(`/api/board/${id}/comment/${commentId}`, comments),
+  delComment: (id, commentId) =>
+    api.delete(`/api/board/${id}/comment/${commentId}`),
   getComments: (id) => api.get(`/api/board/${id}/comments`),
-}
+
+  //heart
+  addheart: (id) => api.post(`/api/board/${id}/like`),
+};
 
 export default apis;

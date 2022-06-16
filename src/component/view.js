@@ -69,7 +69,7 @@ export const Upperbar = () => {
   const cookie = getCookie("token");
 
   const [is_cookie, setCookie] = React.useState(false);
-  console.log(is_cookie);
+  // console.log(is_cookie);
   React.useEffect(() => {
     if (cookie !== undefined) {
       return setCookie(true);

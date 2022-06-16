@@ -4,13 +4,14 @@ import Card from "../component/card";
 import { useDispatch } from "react-redux";
 import { loadPostJson } from "../redux/modules/post";
 import { useSelector } from "react-redux";
-
+import { getCookie } from "../shared/Cookie";
 
 const Main = () => {
   const dispatch = useDispatch();
-
+  getCookie("token");
   const PostReducer = useSelector((state) => state.post.list);
-  console.log(PostReducer.id);
+
+  console.log(PostReducer);
 
   useEffect(() => {
     dispatch(loadPostJson());
@@ -20,20 +21,8 @@ const Main = () => {
     <>
       <Header />
       {PostReducer?.map((item, index) => {
-        console.log(item.id)
-        return (
-          <div key={index}>
-            <Card
-              item={item}
-
-              
-            />
-          </div>
-        );
-      }
-      )
-      }
-
+        return <Card item={item} key={index} />;
+      })}
     </>
   );
 };
