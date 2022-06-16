@@ -80,5 +80,5 @@
 
 ## 🐛 트러블 슈팅
 
-<a href="https://ysh94.tistory.com/41">**트러블 슈팅 한눈에 보기**</a>
+<a href="https://ysh94.tistory.com/41">**트러블 슈팅 한눈에 보기(Backend)**</a>
   
