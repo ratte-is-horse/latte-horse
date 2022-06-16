@@ -15,7 +15,6 @@ import "./style.css";
 function App() {
   return (
     <Background>
-      <Header />
       <Wrap>
         <Routes>
           <Route path="/" element={<Main />} />

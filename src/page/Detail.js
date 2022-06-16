@@ -23,12 +23,20 @@ const Detail = () => {
     dispatch(loadCommentJson(commentData.data.body));
     console.log(commentData.data.body);
     setDetail(detailData.data);
-    setComment(commentData.data.body);
+    // setComment(commentData.data.body);
   };
+  //1. 아래 하트 따로 보내기 존
+  const [heart, setHeart] = React.useState(false);
 
+  const onHeart = async (e) => {
+    e.preventDefault();
+    const heartData = await apis.addheart(id);
+    console.log(heartData.data);
+    setHeart(heartData.data);
+  };
   useEffect(() => {
     getDetaildata();
-  }, [dispatch]);
+  }, [dispatch, heart]);
 
   return (
     <>
@@ -66,6 +74,11 @@ const Detail = () => {
             삭제하기
           </button>
           <button>수정하기</button>
+          {Detail?.love ? (
+            <Heart onClick={onHeart}>❤️</Heart>
+          ) : (
+            <Heart onClick={onHeart}>🤍</Heart>
+          )}
         </>
       </Wrap>
     </>
@@ -109,6 +122,11 @@ const Content = styled.div`
 const Section = styled.h1`
   padding-top: 50px;
   padding-bottom: 10px;
+`;
+
+const Heart = styled.h2`
+  width: 8%;
+  cursor: pointer;
 `;
 
 export default Detail;

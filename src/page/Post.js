@@ -56,6 +56,7 @@ const Post = () => {
         contents: content,
         url: fileInputRef.current?.url,
         year: age,
+        love: false,
       })
       // 1. !!!! 아마 이 위에 heart의 기본 값 false를 보내야할 것 .
       .then((res) => {
@@ -67,6 +68,7 @@ const Post = () => {
             contents: res.content,
             url: res.url,
             year: res.age,
+            love: res.love,
           })
         );
         // dispatch(createPostJson(res.data)); 서버오픈시 시도
@@ -90,7 +92,7 @@ const Post = () => {
   return (
     <>
       <Header />
-      <img src="images/바.png" style={{width:"100%"}}/>
+      <img src="images/바.png" style={{ width: "100%" }} />
       <h3>게시글 작성</h3>
 
       <input
