@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { createPostJson } from "../redux/modules/post";
 import Header from "../component/header";
 import { configure } from "@testing-library/react";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Post = () => {
   const navigate = useNavigate();
@@ -57,6 +57,7 @@ const Post = () => {
         contents: content,
         url: fileInputRef.current?.url,
         year: age,
+        love: false,
       })
       // 1. !!!! 아마 이 위에 heart의 기본 값 false를 보내야할 것 .
       .then((res) => {
@@ -68,6 +69,7 @@ const Post = () => {
             contents: res.content,
             url: res.url,
             year: res.age,
+            love: res.love,
           })
         );
         // dispatch(createPostJson(res.data)); 서버오픈시 시도
@@ -92,105 +94,113 @@ const Post = () => {
     <>
       <Header />
       <Wrap>
-      <img src="images/바.png" style={{width:"100%"}}/>
-      <Title>게시글 작성</Title>
+        <img src="images/바.png" style={{ width: "100%" }} />
+        <Title>게시글 작성</Title>
 
-      <Inputbox
-        type="text"
-        placeholder="글의 제목을 입력하세용"
-        value={title}
-        onChange={(event) => {
-          setTitle(event.target.value);
-        }}
-        style={{height:"40px"}}
-      />
-      <Inputbox
-        type="text"
-        placeholder="내용을 입력하세용"
-        value={content}
-        onChange={(event) => {
-          setContent(event.target.value);
-          
-        }}
-        style={{height:"100px"}}
-      />
-      <div>
-        {fileImage && (
-          <img
-            alt="sample"
-            src={fileImage}
-            style={{ margin: "auto", maxWidth: "300px", maxHeight: "250px" }}
-          />
-        )}
-        <div
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
+        <Inputbox
+          type="text"
+          placeholder="글의 제목을 입력하세용"
+          value={title}
+          onChange={(event) => {
+            setTitle(event.target.value);
           }}
-        >
-          <Inputbox
-            name="imgUpload"
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-            onChange={saveFileImage}
-            style={{marginLeft:"20%",marginBottom:"10px"}}
-          />
-          <div style={{ fontSize: "10px", color: "tomato" , marginLeft:"20%",marginBottom:"10px"}}>
-            사진변경하지 말아주세요 오류생겨요...😭
+          style={{ height: "40px" }}
+        />
+        <Inputbox
+          type="text"
+          placeholder="내용을 입력하세용"
+          value={content}
+          onChange={(event) => {
+            setContent(event.target.value);
+          }}
+          style={{ height: "100px" }}
+        />
+        <div>
+          {fileImage && (
+            <img
+              alt="sample"
+              src={fileImage}
+              style={{ margin: "auto", maxWidth: "300px", maxHeight: "250px" }}
+            />
+          )}
+          <div
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Inputbox
+              name="imgUpload"
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              onChange={saveFileImage}
+              style={{ marginLeft: "20%", marginBottom: "10px" }}
+            />
+            <div
+              style={{
+                fontSize: "10px",
+                color: "tomato",
+                marginLeft: "20%",
+                marginBottom: "10px",
+              }}
+            >
+              사진변경하지 말아주세요 오류생겨요...😭
+            </div>
+            <form>
+              <select
+                onChange={handleChange}
+                style={{ marginLeft: "35%", marginBottom: "10px" }}
+              >
+                <option value="0">선택하세요</option>
+                <option value="2010's">2010's</option>
+                <option value="2000's">2000's</option>
+                <option value="1990's">1990's</option>
+                <option value="1980's">1980's</option>
+              </select>
+            </form>
+            <div>{age}</div>
           </div>
-          <form>
-            <select onChange={handleChange} style={{marginLeft:"35%", marginBottom:"10px"}}>
-              <option value="0">선택하세요</option>
-              <option value="2010's">2010's</option>
-              <option value="2000's">2000's</option>
-              <option value="1990's">1990's</option>
-              <option value="1980's">1980's</option>
-            </select>
-          </form>
-          <div>{age}</div>
         </div>
-      </div>
-      <div>
-        <Button2 onClick={postNew} type="submit">
-          등록하기
-        </Button2>
-      </div>
+        <div>
+          <Button2 onClick={postNew} type="submit">
+            등록하기
+          </Button2>
+        </div>
       </Wrap>
     </>
   );
 };
 
 const Wrap = styled.div`
- display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column ;
-color: black;
-margin: 15% auto;
-border: 1px white solid;
-width: 50%;
-background-color: wheat;
-
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  margin: 15% auto;
+  border: 1px white solid;
+  width: 50%;
+  background-color: wheat;
+`;
 
 const Title = styled.h3`
-margin-top: 20px;
-margin-bottom: 10px;
-color: black;
-`
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: black;
+`;
 
 const Inputbox = styled.input`
- display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column ;
-margin: 10px;
-width: 90%;
-height: 30%;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  width: 90%;
+  height: 30%;
+`;
 const Button2 = styled.button`
-padding: 3px;
-margin-bottom: 20px;
-`
+  padding: 3px;
+  margin-bottom: 20px;
+`;
 export default Post;

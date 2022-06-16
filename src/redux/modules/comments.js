@@ -25,7 +25,7 @@ export function removeComment(comment) {
 /* ----------------- 미들웨어 ------------------ */
 export const loadCommentJson = (comment) => {
   return async function (dispatch) {
-      dispatch(loadComment(comment))
+    dispatch(loadComment(comment));
 
     // const loadData = await apis.getComments(id);
     // dispatch(loadComment(loadData.data))
@@ -33,22 +33,19 @@ export const loadCommentJson = (comment) => {
 };
 export const createCommentJson = (id, comment) => {
   return async function (dispatch) {
-    try{const data = await apis.addComment(id, {comment:comment})
-    console.log(data)
-    const commentData = {...comment}
-    dispatch(createComment(commentData))
-  }
-    catch(e){
-      console.log('댓글 등록실패')
-
+    try {
+      const data = await apis.addComment(id, { comment: comment });
+      console.log(data);
+      // const commentData = { ...comment };
+      // console.log(commentData);
+      dispatch(createComment(data));
+    } catch (e) {
+      console.log("댓글 등록실패");
     }
   };
 };
 export const updateCommentJson = (comment) => {
-  return async function (dispatch) {
-
-  };
-
+  return async function (dispatch) {};
 };
 export const deleteCommentJson = () => {
   return async function (dispatch) {};
@@ -63,7 +60,7 @@ export default function Comment_reducer(state = intialstate, action) {
       };
 
     case CREATE_COMMENT:
-      return {...state, comment_list: [...state.list, action.comment]}
+      return { ...state, comment_list: [...state.list, action.comment] };
 
     default:
       return state;
