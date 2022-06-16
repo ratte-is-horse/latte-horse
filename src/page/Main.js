@@ -54,6 +54,7 @@ const Box = styled.div`
 width: 50%;
 height: 80%;
 margin: auto;
+background-color: white;
 
 `
 const Wrap = styled.div`

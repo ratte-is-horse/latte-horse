@@ -18,8 +18,6 @@ function App() {
 
 
     <Background >
-      <img src="https://yt3.ggpht.com/ytc/AKedOLTZ6SGPR2W56YJjj47COAG1ljUyXTX_qY0oQkpf=s900-c-k-c0x00ffffff-no-rj" />
-
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/post" element={<Post />} />
